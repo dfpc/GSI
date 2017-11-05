@@ -188,6 +188,7 @@
     <Content Include="Conteudos\ConsultarProjetos.aspx" />
     <Content Include="FormPages\AdicionarOrganizacao.aspx" />
     <Content Include="FormPages\AdicionarProjeto.aspx" />
+    <Content Include="FormPages\RegistarUtilizador.aspx" />
     <Content Include="FormPages\RegisterProcess.aspx" />
     <Content Include="FormPages\RegistoClasseDados.aspx" />
     <Content Include="FormPages\RegistoFuncoesEquipa.aspx" />
@@ -289,6 +290,13 @@
     </Compile>
     <Compile Include="FormPages\AdicionarProjeto.aspx.designer.cs">
       <DependentUpon>AdicionarProjeto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormPages\RegistarUtilizador.aspx.cs">
+      <DependentUpon>RegistarUtilizador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormPages\RegistarUtilizador.aspx.designer.cs">
+      <DependentUpon>RegistarUtilizador.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormPages\RegisterProcess.aspx.cs">
       <DependentUpon>RegisterProcess.aspx</DependentUpon>
