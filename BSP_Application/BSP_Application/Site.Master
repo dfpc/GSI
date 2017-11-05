@@ -18,9 +18,9 @@
         <link href="/Content/Bootstrap/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="/Content/Site.css" rel="stylesheet">
-       <%-- <asp:ScriptManager runat="server">
+        <%-- <asp:ScriptManager runat="server">
             <Scripts>--%>
-                <%--Framework Scripts
+        <%--Framework Scripts
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="jquery.ui.combined" />
@@ -34,21 +34,44 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
-            <%--</Scripts>
+        <%--</Scripts>
         </asp:ScriptManager>--%>
         <header>
             <div class="content-wrapper">
             </div>
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Aplicação WEB para BSP</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </header>
         <div id="body">
-            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
-            <section class="content-wrapper main-content clear-fix">
-                <asp:ContentPlaceHolder runat="server" ID="MainContent" />
-            </section>
+            <!-- Page Content -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <asp:ContentPlaceHolder runat="server" ID="ContentLeftSide" />
+                    </div>
+                    <div class="col-lg-9">
+                        <section class="content-wrapper main-content clear-fix">
+                            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+                        </section>
+                    </div>
+                </div>
+            </div>
         </div>
         <footer>
             <script src="/Scripts/jquery-1.7.1.min.js"></script>
             <script src="/Scripts/Bootstrap/bootstrap.bundle.min.js"></script>
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
         </footer>
     </form>
 </body>
