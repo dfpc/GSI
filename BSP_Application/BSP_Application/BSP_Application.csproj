@@ -186,6 +186,7 @@
     <Content Include="Conteudos\ConsultarClasseDados.aspx" />
     <Content Include="Conteudos\ConsultarProcesso.aspx" />
     <Content Include="Conteudos\ConsultarProjetos.aspx" />
+    <Content Include="FormPages\AdicionarOrganizacao.aspx" />
     <Content Include="FormPages\AdicionarProjeto.aspx" />
     <Content Include="FormPages\RegisterProcess.aspx" />
     <Content Include="FormPages\RegistoClasseDados.aspx" />
@@ -274,6 +275,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormPages\AdicionarOrganizacao.aspx.cs">
+      <DependentUpon>AdicionarOrganizacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormPages\AdicionarOrganizacao.aspx.designer.cs">
+      <DependentUpon>AdicionarOrganizacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormPages\AdicionarProjeto.aspx.cs">
       <DependentUpon>AdicionarProjeto.aspx</DependentUpon>

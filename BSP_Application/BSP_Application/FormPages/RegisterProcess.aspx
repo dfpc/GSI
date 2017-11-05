@@ -5,14 +5,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentLeftSide" runat="server">
-    <uc1:MainMenu runat="server" id="MainMenu" />
+    <uc1:MainMenu runat="server" ID="MainMenu" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
     <div class="card card-outline-secondary my-4">
         <div class="card-body">
             <div class="container-fluid">
-
-
                 <h4>Registar Processo</h4>
                 <div class="box-body" style="margin-top: 50px;">
                     <div class="form-group">
@@ -39,20 +37,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
         <!-- /.card -->
     </div>
-
     <!-- /.container -->
-    <!-- Footer -->
-    <footer style="position: fixed; left: 0px; bottom: 0px; height: 30px; width: 100%;" class="py-3 bg-dark">
-        <div class="container">
-        </div>
-        <!-- /.container -->
-    </footer>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>

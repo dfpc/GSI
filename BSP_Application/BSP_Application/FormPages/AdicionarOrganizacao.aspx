@@ -1,27 +1,27 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdicionarProjeto.aspx.cs" Inherits="BSP_Application.FormPages.AdicionarProjeto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdicionarOrganizacao.aspx.cs" Inherits="BSP_Application.FormPages.AdicionarOrganizacao" %>
 
 <%@ Register Src="~/UserControls/MainMenu.ascx" TagPrefix="uc1" TagName="MainMenu" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="ContentLeftSide" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentLeftSide" runat="server">
     <uc1:MainMenu runat="server" ID="MainMenu1" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
     <!-- Page Content -->
     <div class="card card-outline-secondary my-4">
         <div class="card-body">
             <div class="container-fluid">
 
-                <h4>Registar Projeto</h4>
+                <h4>Registar Classe de Dados</h4>
                 <br />
                 <br />
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-4 control-label">Nome do Projeto</label>
+                        <label for="inputEmail3" class="col-sm-4 control-label">Nome da Classe de Dados</label>
 
                         <div class="col-sm-8">
-                            <input type="nome" class="form-control" id="inputNome" placeholder="Nome do Projeto">
+                            <input type="text" class="form-control" id="inputNome" placeholder="Nome da Classe de Dados">
                         </div>
                     </div>
                     <div class="form-group">
@@ -47,7 +47,6 @@
         </div>
         <!-- /.col-lg-9 -->
     </div>
-    <!-- /.container -->
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>

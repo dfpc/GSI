@@ -56,7 +56,7 @@
         <div id="body">
             <!-- Page Content -->
             <div class="container-fluid">
-                <div class="row">
+                <div class="row" style="margin-bottom: 40px;">
                     <div class="col-lg-3">
                         <asp:ContentPlaceHolder runat="server" ID="ContentLeftSide" />
                     </div>
@@ -68,11 +68,16 @@
                 </div>
             </div>
         </div>
-        <footer>
-            <script src="/Scripts/jquery-1.7.1.min.js"></script>
-            <script src="/Scripts/Bootstrap/bootstrap.bundle.min.js"></script>
-            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        <!-- Footer -->
+        <footer style="position: fixed; left: 0px; bottom: 0px; height: 40px; width: 100%;" class="py-3 bg-dark">
+            <div class="container-fluid">
+                Briosa
+            </div>
+            <!-- /.container -->
         </footer>
+        <script src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script src="/Scripts/Bootstrap/bootstrap.bundle.min.js"></script>
+        <asp:ContentPlaceHolder runat="server" ID="MainContent" />
     </form>
 </body>
 </html>

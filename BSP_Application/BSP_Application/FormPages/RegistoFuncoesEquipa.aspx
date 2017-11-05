@@ -18,7 +18,7 @@
                         <label for="inputEmail3" class="col-sm-4 control-label">Grupo</label>
 
                         <div class="col-sm-8">
-                            <input type="nome" class="form-control" id="inputNome" placeholder="Grupo">
+                            <input type="text" class="form-control" id="inputNome" placeholder="Grupo">
                         </div>
                     </div>
                     <div class="form-group">
@@ -28,32 +28,21 @@
                             <textarea class="form-control" rows="5" id="comment" placeholder="Função"></textarea>
                         </div>
                     </div>
-
                     <div class="form-group">
-
-
                         <div class="col-sm-offset-2 col-sm-10">
                             <a href="#demo5">Adicionar Mais</a><br />
                             <br />
                             <button type="button" class="btn btn-block btn-success" style="width: 20%">Guardar</button>
                             <br />
-
                         </div>
                     </div>
                 </div>
-
             </div>
             <!-- /.card -->
         </div>
         <!-- /.col-lg-9 -->
     </div>
     <!-- /.container -->
-    <!-- Footer -->
-    <footer style="position: fixed; left: 0px; bottom: 0px; height: 30px; width: 100%;" class="py-3 bg-dark">
-        <div class="container">
-        </div>
-        <!-- /.container -->
-    </footer>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>

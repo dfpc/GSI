@@ -24,12 +24,6 @@
         <!-- /.col-lg-9 -->
     </div>
     <!-- /.container -->
-    <!-- Footer -->
-    <footer style="position: fixed; left: 0px; bottom: 0px; height: 30px; width: 100%;" class="py-3 bg-dark">
-        <div class="container">
-        </div>
-        <!-- /.container -->
-    </footer>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>
