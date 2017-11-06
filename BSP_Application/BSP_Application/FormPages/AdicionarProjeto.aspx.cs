@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BSP_Application.DataObjects;
 
 namespace BSP_Application.FormPages
 {
@@ -11,7 +12,7 @@ namespace BSP_Application.FormPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //AdicionarRegistos.AddProject();
         }
     }
 }

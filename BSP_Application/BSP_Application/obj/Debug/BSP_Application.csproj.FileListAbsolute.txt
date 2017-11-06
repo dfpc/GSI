@@ -60,3 +60,5 @@ C:\Users\Daniela\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\
 C:\Users\Daniela\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\BSP_Application.pdb
 C:\Users\Daniela\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\BSP_Application.dll.config
 C:\Users\Daniela\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\BSP_Application.csproj.CoreCompileInputs.cache
+C:\Users\Daniela\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\EntityFramework.SqlServer.dll
+C:\Users\Daniela\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\EntityFramework.SqlServer.xml
