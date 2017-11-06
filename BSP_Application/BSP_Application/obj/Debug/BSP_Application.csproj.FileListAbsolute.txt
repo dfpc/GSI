@@ -62,3 +62,37 @@ C:\Users\Daniela\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\BSP_Ap
 C:\Users\Daniela\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\BSP_Application.csproj.CoreCompileInputs.cache
 C:\Users\Daniela\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\EntityFramework.SqlServer.dll
 C:\Users\Daniela\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\EntityFramework.SqlServer.xml
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\BSP_Application.dll.config
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\BSP_Application.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\BSP_Application.pdb
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\Antlr3.Runtime.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.Core.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\EntityFramework.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\EntityFramework.SqlServer.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\Microsoft.AspNet.Membership.OpenAuth.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\System.Web.Optimization.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\System.Web.Providers.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\WebGrease.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\EntityFramework.xml
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\EntityFramework.SqlServer.xml
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.Core.xml
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\BSP_Application.csprojResolveAssemblyReference.cache
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\BSP_Application.csproj.CoreCompileInputs.cache
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\BSP_Application.dll
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\BSP_Application.pdb
