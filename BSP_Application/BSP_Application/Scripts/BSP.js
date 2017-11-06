@@ -38,3 +38,21 @@
 
     return error;
 }
+
+function CheckLoginData() {
+    var error = false;
+    if ($('#tbxUsername').val() == ''){
+        $('#tbxUsername').addClass("is-invalid");
+        error = true;
+    }
+    else
+        $('#tbxUsername').removeClass("is-invalid");
+
+    if ($('#tbxPassword').val() == ''){
+        $('#tbxPassword').addClass("is-invalid");
+        error = true;
+    }
+    else
+        $('#tbxPassword').removeClass("is-invalid");
+    return error;
+}
