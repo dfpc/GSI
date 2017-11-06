@@ -15,11 +15,19 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static User Authenticate(string username, string password)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<User>("SELECT * FROM Utilizador WHERE Username={0} AND Password={1}", username, password).FirstOrDefault();
+            }
+        }
+
         public static void InsertUser(string username, string password, string email, string name)
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                db.Database.ExecuteSqlCommand("INSERT INTO Utilizador (Username, Password, Email, Nome, IsAdmin) VALUES({0}, {1}, {2}, {3}, 0)", 
+                db.Database.ExecuteSqlCommand("INSERT INTO Utilizador (Username, Password, Email, Nome, IsAdmin) VALUES({0}, {1}, {2}, {3}, 0)",
                     username, password, email, name);
             }
         }
