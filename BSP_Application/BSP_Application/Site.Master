@@ -75,7 +75,7 @@
             </div>
             <!-- /.container -->
         </footer>
-        <script src="/Scripts/jquery-1.7.1.min.js"></script>
+        <script src="/Scripts/jquery.min.js"></script>
         <script src="/Scripts/Bootstrap/bootstrap.bundle.min.js"></script>
         <asp:ContentPlaceHolder runat="server" ID="MainContent" />
     </form>
