@@ -13,24 +13,25 @@ namespace BSP_Application.FormPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-            string com = "Select Nome, IDProjeto from Projeto";
-            SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
-            DataTable dt = new DataTable();
-            adpt.Fill(dt);
-            ListaProjetos.DataSource = dt;
-          //  ListaProjetos.DataBind();
-            ListaProjetos.DataTextField = "Nome";
-            ListaProjetos.DataValueField = "IDProjeto";
-            ListaProjetos.DataBind();
+            if (!IsPostBack)
+            {
+                SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
+                string com = "Select Nome, IDProjeto from Projeto";
+                SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
+                DataTable dt = new DataTable();
+                adpt.Fill(dt);
+                ListaProjetos.DataSource = dt;
+                //  ListaProjetos.DataBind();
+                ListaProjetos.DataTextField = "Nome";
+                ListaProjetos.DataValueField = "IDProjeto";
+                ListaProjetos.DataBind();
+            }
         }
 
 
 
         protected void Guardar_ClasseDados(object sender, EventArgs e)
-
         {
-        
             string nome = inputNome.Value;
             string descricao = comment.Value;
             int idprojeto = Int32.Parse(ListaProjetos.SelectedValue);
