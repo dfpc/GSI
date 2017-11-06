@@ -18,7 +18,7 @@
                         <label for="inputUsername" class="control-label">Username *</label>
                         <div class="row">
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                                <input type="text" class="form-control" id="inputUsername" placeholder="Username" runat="server" clientidmode="static">
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         <label for="tbxPassword" class="control-label">Password *</label>
                         <div class="row">
                             <div class="col-lg-8">
-                                <input type="password" class="form-control" id="tbxPassword" placeholder="Password" />
+                                <input type="password" class="form-control" id="tbxPassword" placeholder="Password" runat="server" clientidmode="static" />
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <label for="tbxPasswordConfirm" class="control-label">Confirmação de Password *</label>
                         <div class="row">
                             <div class="col-lg-8">
-                                <input type="password" class="form-control" id="tbxPasswordConfirm" placeholder="Password" />
+                                <input type="password" class="form-control" id="tbxPasswordConfirm" placeholder="Password" runat="server" clientidmode="static" />
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                         <label for="tbxEmail" class="control-label">Email *</label>
                         <div class="row">
                             <div class="col-lg-8">
-                                <input type="email" class="form-control" id="tbxEmail" placeholder="exemplo@email.pt" />
+                                <input type="email" class="form-control" id="tbxEmail" placeholder="exemplo@email.pt" runat="server" clientidmode="static" />
                             </div>
                         </div>
                     </div>
@@ -50,13 +50,13 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <label for="tbxNome" class="control-label">Nome</label>
-                                <input type="text" class="form-control" id="tbxNome" placeholder="Nome" />
+                                <input type="text" class="form-control" id="tbxNome" placeholder="Nome" runat="server" />
                             </div>
                         </div>
                     </div>
                     <div class="row" style="float:right;">
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-block btn-success">Guardar</button>
+                            <asp:Button ID="SaveButton" CssClass="btn btn-block btn-success" runat="server" Text="Guardar" OnClick="SaveButton_Click" OnClientClick="return !validateForm();" />
                         </div>
                     </div>
                 </div>
