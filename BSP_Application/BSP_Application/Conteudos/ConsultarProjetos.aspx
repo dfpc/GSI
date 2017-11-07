@@ -18,7 +18,20 @@
                 <br />
                 <br />
 
-
+                <asp:GridView ID="gdvProjetos" runat="server" DataKeyNames="IDProjeto" CellPadding="5">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <button>Edit</button>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <button>Delete</button>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
             </div>
             <!-- /.card -->
         </div>

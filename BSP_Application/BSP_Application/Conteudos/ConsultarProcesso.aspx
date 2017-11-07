@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultarProjetos.aspx.cs" Inherits="BSP_Application.Conteudos.ConsultarProjetos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultarProcesso.aspx.cs" Inherits="BSP_Application.Conteudos.ConsultarProcesso" %>
 
 <%@ Register Src="~/UserControls/MainMenu.ascx" TagPrefix="uc1" TagName="MainMenu" %>
 
@@ -19,7 +19,20 @@
                 <br />
 
 
-    <%-- <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%"/>--%>
+                <asp:GridView ID="gdvProcesso" runat="server" DataKeyNames="Id" CellPadding="5">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <button>Edit</button>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <button>Delete</button>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
             </div>
             <!-- /.card -->
         </div>

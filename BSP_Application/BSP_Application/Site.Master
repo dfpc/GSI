@@ -75,6 +75,7 @@
             </div>
             <!-- /.container -->
         </footer>
+
         <script src="/Scripts/jquery.min.js"></script>
         <script src="/Scripts/Bootstrap/bootstrap.bundle.min.js"></script>
         <script src="/Scripts/BSP.js"></script>

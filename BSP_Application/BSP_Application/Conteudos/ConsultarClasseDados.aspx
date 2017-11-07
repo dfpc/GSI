@@ -16,8 +16,20 @@
                 <h4>Consultar Classe de Dados</h4>
                 <br />
                 <br />
-
-
+                <asp:GridView ID="gdvClassesDados" runat="server" DataKeyNames="IDClasseDados" CellPadding="5">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <button>Edit</button>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <button>Delete</button>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
             </div>
             <!-- /.card -->
         </div>

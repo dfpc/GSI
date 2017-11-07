@@ -189,14 +189,17 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Conteudos\ConsultarClasseDados.aspx" />
+    <Content Include="Conteudos\ConsultarOrganizacao.aspx" />
     <Content Include="Conteudos\ConsultarProcesso.aspx" />
     <Content Include="Conteudos\ConsultarProjetos.aspx" />
     <Content Include="FormPages\AdicionarOrganizacao.aspx" />
     <Content Include="FormPages\AdicionarProjeto.aspx" />
+    <Content Include="FormPages\PrioridadesAplicacoes.aspx" />
     <Content Include="FormPages\RegistarUtilizador.aspx" />
     <Content Include="FormPages\RegisterProcess.aspx" />
     <Content Include="FormPages\RegistoClasseDados.aspx" />
     <Content Include="FormPages\RegistoFuncoesEquipa.aspx" />
+    <Content Include="FormPages\SumariacaoEntrevistas.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -213,6 +216,8 @@
     <Content Include="Matrizes\App_ClasseDados.aspx" />
     <Content Include="Matrizes\App_Organizacao.aspx" />
     <Content Include="Matrizes\App_Processo.aspx" />
+    <Content Include="Matrizes\Processo_ClasseDados.aspx" />
+    <Content Include="Matrizes\Processo_Organizacao.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\Bootstrap\bootstrap.bundle.min.js" />
@@ -263,6 +268,13 @@
     <Compile Include="Conteudos\ConsultarClasseDados.aspx.designer.cs">
       <DependentUpon>ConsultarClasseDados.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Conteudos\ConsultarOrganizacao.aspx.cs">
+      <DependentUpon>ConsultarOrganizacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Conteudos\ConsultarOrganizacao.aspx.designer.cs">
+      <DependentUpon>ConsultarOrganizacao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Conteudos\ConsultarProcesso.aspx.cs">
       <DependentUpon>ConsultarProcesso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -301,6 +313,13 @@
     <Compile Include="FormPages\AdicionarProjeto.aspx.designer.cs">
       <DependentUpon>AdicionarProjeto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormPages\PrioridadesAplicacoes.aspx.cs">
+      <DependentUpon>PrioridadesAplicacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormPages\PrioridadesAplicacoes.aspx.designer.cs">
+      <DependentUpon>PrioridadesAplicacoes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormPages\RegistarUtilizador.aspx.cs">
       <DependentUpon>RegistarUtilizador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -329,6 +348,13 @@
     <Compile Include="FormPages\RegistoFuncoesEquipa.aspx.designer.cs">
       <DependentUpon>RegistoFuncoesEquipa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormPages\SumariacaoEntrevistas.aspx.cs">
+      <DependentUpon>SumariacaoEntrevistas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormPages\SumariacaoEntrevistas.aspx.designer.cs">
+      <DependentUpon>SumariacaoEntrevistas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -352,6 +378,20 @@
     </Compile>
     <Compile Include="Matrizes\App_Processo.aspx.designer.cs">
       <DependentUpon>App_Processo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Matrizes\Processo_ClasseDados.aspx.cs">
+      <DependentUpon>Processo_ClasseDados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Matrizes\Processo_ClasseDados.aspx.designer.cs">
+      <DependentUpon>Processo_ClasseDados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Matrizes\Processo_Organizacao.aspx.cs">
+      <DependentUpon>Processo_Organizacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Matrizes\Processo_Organizacao.aspx.designer.cs">
+      <DependentUpon>Processo_Organizacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

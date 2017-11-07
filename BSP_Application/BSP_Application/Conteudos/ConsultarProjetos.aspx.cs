@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BSP_Application.DataObjects;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,17 +14,11 @@ namespace BSP_Application.Conteudos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-            //string com = "Select Nome, IDProjeto from Projeto";
-            //SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
-            //DataTable dt = new DataTable();
-            //adpt.Fill(dt);
-            //ListaProjetos.DataSource = dt;
-            //ListaProjetos.DataBind();
-            //ListaProjetos.DataTextField = "Nome";
-            //ListaProjetos.DataValueField = "IDProjeto";
-            //ListaProjetos.DataBind();
-
+            if (!IsPostBack)
+            {
+                gdvProjetos.DataSource = AdicionarRegistos.GetAllProjects();
+                gdvProjetos.DataBind();
+            }
         }
     }
 }
