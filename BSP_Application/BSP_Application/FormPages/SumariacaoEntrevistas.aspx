@@ -15,6 +15,21 @@
                 <h4>Sumariação de Entrevistas</h4>
                 <br />
                 <br />
+                <asp:GridView ID="gdvSumariacaoEntrevistas" runat="server" DataKeyNames="Id" CellPadding="5">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <button>Edit</button>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <button>Delete</button>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:CommandField ButtonType="Button" InsertText="Novo" InsertVisible="true"  />
+                    </Columns>
+                </asp:GridView>
             </div>
             <!-- /.card -->
         </div>
