@@ -18,24 +18,34 @@
                 <br />
                 <div class="box-body">
                     <div class="form-group">
+
+                         <label for="ListaProjetos" class="col-sm-4 control-label">Projeto Associado</label>
+                        <div class="col-sm-8">
+                        <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%"/>
+                           <br />
+
+                        </div>
+
+
                         <label for="inputEmail3" class="col-sm-4 control-label">Nome da Classe de Dados</label>
 
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="inputNome" placeholder="Nome da Classe de Dados">
+                            <input type="text" class="form-control" id="inputNome" runat="server" placeholder="Nome da Classe de Dados">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">Descrição</label>
 
                         <div class="col-sm-8">
-                            <textarea class="form-control" rows="5" id="comment" placeholder="Descrição"></textarea>
+                            <textarea class="form-control" rows="5" id="comment" runat="server" placeholder="Descrição"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
 
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-block btn-success" style="width: 20%">Guardar</button>
+                            <asp:Button ID="registarclasse" runat="server" class="btn btn-block btn-success" style="width: 20%" Text="Guardar" OnClick="Guardar_ClasseDados"/>
+
                             <br />
 
                         </div>

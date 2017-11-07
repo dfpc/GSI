@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultarProcesso.aspx.cs" Inherits="BSP_Application.Conteudos.ConsultarProcesso" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultarProjetos.aspx.cs" Inherits="BSP_Application.Conteudos.ConsultarProjetos" %>
 
 <%@ Register Src="~/UserControls/MainMenu.ascx" TagPrefix="uc1" TagName="MainMenu" %>
 
@@ -8,16 +8,18 @@
     <uc1:MainMenu runat="server" ID="MainMenu1" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
+
     <!-- Page Content -->
     <div class="card card-outline-secondary my-4">
         <div class="card-body">
             <div class="container-fluid">
 
-                <h4>Consultar Processos</h4>
+                <h4>Consultar Projetos</h4>
                 <br />
                 <br />
 
 
+    <%-- <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%"/>--%>
             </div>
             <!-- /.card -->
         </div>
