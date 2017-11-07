@@ -21,7 +21,6 @@ namespace BSP_Application.FormPages
                 DataTable dt = new DataTable();
                 adpt.Fill(dt);
                 ListaProjetos.DataSource = dt;
-                //  ListaProjetos.DataBind();
                 ListaProjetos.DataTextField = "Nome";
                 ListaProjetos.DataValueField = "IDProjeto";
                 ListaProjetos.DataBind();

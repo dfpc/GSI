@@ -31,5 +31,23 @@ namespace BSP_Application.DataObjects
                     username, password, email, name);
             }
         }
+
+        public static void InsertProcess(string name, string description, int idproject)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("INSERT INTO Processo (IDProjeto, Nome, Descricao) VALUES({0}, {1}, {2})",
+                    idproject, name, description);
+            }
+        }
+
+        public static void InsertOrganization(string name, string description, int idproject)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("INSERT INTO Organizacao (IDProjeto, Nome, Descricao) VALUES({0}, {1}, {2})",
+                    idproject, name, description);
+            }
+        }
     }
 }

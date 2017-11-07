@@ -56,3 +56,25 @@ function CheckLoginData() {
         $('#tbxPassword').removeClass("is-invalid");
     return error;
 }
+
+function ValidateProcessFields(){
+    var error = false;
+    if ($('#inputNome').val() == '') {
+        $('#inputNome').addClass("is-invalid");
+        error = true;
+    }
+    else
+        $('#inputNome').removeClass("is-invalid");
+    return error;
+}
+
+function ValidateOrganizationFields(){
+    var error = false;
+    if ($('#inputNome').val() == '') {
+        $('#inputNome').addClass("is-invalid");
+        error = true;
+    }
+    else
+        $('#inputNome').removeClass("is-invalid");
+    return error;
+}
