@@ -31,15 +31,6 @@ namespace BSP_Application.FormPages {
         protected global::System.Web.UI.WebControls.GridView gdvSumariacaoEntrevistas;
         
         /// <summary>
-        /// Controle ListaProjetos.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListaProjetos;
-        
-        /// <summary>
         /// Controle grupo_processos.
         /// </summary>
         /// <remarks>
@@ -76,22 +67,22 @@ namespace BSP_Application.FormPages {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea importancia;
         
         /// <summary>
-        /// Controle processo_causador.
+        /// Controle ListaProcesso.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText processo_causador;
+        protected global::System.Web.UI.WebControls.DropDownList ListaProcesso;
         
         /// <summary>
-        /// Controle classe_dados_criadora.
+        /// Controle ListaClasse.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText classe_dados_criadora;
+        protected global::System.Web.UI.WebControls.DropDownList ListaClasse;
         
         /// <summary>
         /// Controle solucao_potencial.
@@ -101,5 +92,14 @@ namespace BSP_Application.FormPages {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea solucao_potencial;
+        
+        /// <summary>
+        /// Controle registar_entrevista.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button registar_entrevista;
     }
 }
