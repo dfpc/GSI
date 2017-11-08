@@ -18,5 +18,10 @@ namespace BSP_Application.Conteudos
                 gdvProcesso.DataBind();
             }
         }
+
+        protected void lkbDeleteProcesso_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,7 +29,10 @@
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
+                                <!--<button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>-->
+                                 <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmProject" data-postcommand="">
+                                    <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                                </button>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -41,6 +44,25 @@
         <!-- /.col-lg-9 -->
     </div>
     <!-- /.container -->
+         <div class="modal fade" id="deleteConfirmProject" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Remover Projeto</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        Confirma que pretende eliminar este Projeto?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <asp:LinkButton ID="lkbDeleteProject" runat="server" ClientIDMode="Static" OnClick="lkbDeleteProjeto_Click" CssClass="btn btn-primary">Confirmar</asp:LinkButton>
+                    </div>
+                </div>
+            </div>
+        </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>

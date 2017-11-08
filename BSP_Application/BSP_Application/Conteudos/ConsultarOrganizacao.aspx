@@ -29,7 +29,8 @@
                             <ItemTemplate>
 
                                 <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmModal" data-postcommand="">
-                                    <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
+                                    <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                                </button>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

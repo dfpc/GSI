@@ -19,5 +19,10 @@ namespace BSP_Application.Conteudos
                 gdvClassesDados.DataBind();
             }
         }
+
+        protected void lkbDeleteClass_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

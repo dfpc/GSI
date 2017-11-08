@@ -15,7 +15,7 @@
         <div class="card-body">
             <div class="container-fluid">
 
-                <h4>Consultar Projetos</h4>
+                <h4>Consultar Processos</h4>
                 <br />
                 <br />
 
@@ -29,7 +29,9 @@
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
+                                 <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmProcess" data-postcommand="">
+                                    <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                                </button>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -41,6 +43,25 @@
         <!-- /.col-lg-9 -->
     </div>
     <!-- /.container -->
+        <div class="modal fade" id="deleteConfirmProcess" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Remover Processo</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        Confirma que pretende eliminar este Processo?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <asp:LinkButton ID="lkbDeleteProcess" runat="server" ClientIDMode="Static" OnClick="lkbDeleteProcesso_Click" CssClass="btn btn-primary">Confirmar</asp:LinkButton>
+                    </div>
+                </div>
+            </div>
+        </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>

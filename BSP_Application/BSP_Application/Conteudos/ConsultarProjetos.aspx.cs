@@ -20,5 +20,10 @@ namespace BSP_Application.Conteudos
                 gdvProjetos.DataBind();
             }
         }
+
+        protected void lkbDeleteProjeto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
