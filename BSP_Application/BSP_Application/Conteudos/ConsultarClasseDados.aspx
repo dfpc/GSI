@@ -9,6 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
     <!-- Page Content -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="card card-outline-secondary my-4">
         <div class="card-body">
             <div class="container-fluid">
@@ -16,20 +17,22 @@
                 <h4>Consultar Classe de Dados</h4>
                 <br />
                 <br />
-                <asp:GridView ID="gdvClassesDados" runat="server" DataKeyNames="IDClasseDados" CellPadding="5">
+                <center>
+                <asp:GridView ID="gdvClassesDados"  runat="server"  CellPadding="5">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button>Edit</button>
+                                <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button>Delete</button>
+                                <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+                    </center>
             </div>
             <!-- /.card -->
         </div>

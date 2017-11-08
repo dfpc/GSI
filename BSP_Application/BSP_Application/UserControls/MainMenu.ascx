@@ -11,7 +11,7 @@
             <a href="/FormPages/RegisterProcess.aspx" style="font-size:small;" class="list-group-item">Registar Processo</a>
             <a href="/Conteudos/ConsultarProcesso.aspx" style="font-size:small;"  class="list-group-item">Consultar Processos</a>
             <a href="/FormPages/AdicionarOrganizacao.aspx" style="font-size:small;" class="list-group-item">Registar Organização</a>
-            <a href="/Conteudos/ConsultarOrganizacao.aspx" style="font-size:small;" class="list-group-item">Consultar Organização</a>
+            <a href="/Conteudos/ConsultarOrganizacao.aspx" style="font-size:small;" class="list-group-item">Consultar Organizações</a>
             <a href="/FormPages/RegistoClasseDados.aspx" style="font-size:small;" class="list-group-item">Registar Classe de Dados</a>
             <a href="/Conteudos/ConsultarClasseDados.aspx" style="font-size:small;" class="list-group-item">Consultar Classes de Dados</a>
         </div>

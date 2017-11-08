@@ -15,6 +15,7 @@ namespace BSP_Application.Conteudos
             if (!IsPostBack)
             {
                 gdvClassesDados.DataSource = AdicionarRegistos.GetAllDataClasses();
+               // gdvClassesDados.DataSource = AdicionarRegistos.GetAllDataClasses2();
                 gdvClassesDados.DataBind();
             }
         }
