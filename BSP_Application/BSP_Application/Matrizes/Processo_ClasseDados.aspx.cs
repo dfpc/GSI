@@ -25,7 +25,7 @@ namespace BSP_Application.Matrizes
                 SqlCommand cmd = new SqlCommand("SELECT CD.Nome AS Classe, P.Nome AS Processo FROM ClasseDados CD, Processo P WHERE CD.IDProjeto=P.IDProjeto", conn);
                 SqlDataReader rd = cmd.ExecuteReader();
                 table.Append("<table border='1'>");
-                table.Append("<tr><th>Processo/Classe de Dados</th>");
+                table.Append("<tr><th>Processos/Classe de Dados</th>");
 
                 if (rd.HasRows)
                 {

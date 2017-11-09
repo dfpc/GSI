@@ -12,7 +12,7 @@
     <div class="card card-outline-secondary my-4">
         <div class="card-body">
             <div class="container-fluid">
-                <h4>Matriz Processo/Classe de Dados</h4>
+                <h4>Matriz Processos/Classe de Dados</h4>
                 <br />
                 <br />
                 <center>
