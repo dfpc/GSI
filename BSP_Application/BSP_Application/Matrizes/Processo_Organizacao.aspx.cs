@@ -31,7 +31,7 @@ namespace BSP_Application.Matrizes
                     while (rd.Read())
                     {
 
-                        table.Append("<th class='rotate'>" + rd[0] + "</th>");
+                        table.Append("<th class='verticalTableHeader'>" + rd[0] + "</th>");
                         count++;
 
                     }
