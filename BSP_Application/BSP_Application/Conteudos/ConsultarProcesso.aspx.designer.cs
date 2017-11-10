@@ -23,7 +23,11 @@ namespace BSP_Application.Conteudos {
         
         /// <summary>
 <<<<<<< HEAD
+<<<<<<< HEAD
         /// Controle ListaProjetos.
+=======
+        /// Controle gdvProcesso.
+>>>>>>> d48151c6a07b070ef5a74d9daa64c1dcd540ba09
 =======
         /// Controle gdvProcesso.
 >>>>>>> d48151c6a07b070ef5a74d9daa64c1dcd540ba09
@@ -33,8 +37,11 @@ namespace BSP_Application.Conteudos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
 <<<<<<< HEAD
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.DropDownList ListaProjetos;
 =======
+=======
+>>>>>>> d48151c6a07b070ef5a74d9daa64c1dcd540ba09
         protected global::System.Web.UI.WebControls.GridView gdvProcesso;
         
         /// <summary>
@@ -45,6 +52,9 @@ namespace BSP_Application.Conteudos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lkbDeleteProcess;
+<<<<<<< HEAD
+>>>>>>> d48151c6a07b070ef5a74d9daa64c1dcd540ba09
+=======
 >>>>>>> d48151c6a07b070ef5a74d9daa64c1dcd540ba09
     }
 }
