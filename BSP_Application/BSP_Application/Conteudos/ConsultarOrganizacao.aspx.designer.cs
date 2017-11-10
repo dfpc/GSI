@@ -10,7 +10,7 @@
 namespace BSP_Application.Conteudos {
     
     
-    public partial class ConsultarClasseDados {
+    public partial class ConsultarOrganizacao {
         
         /// <summary>
         /// Controle MainMenu1.
@@ -22,21 +22,21 @@ namespace BSP_Application.Conteudos {
         protected global::BSP_Application.UserControls.MainMenu MainMenu1;
         
         /// <summary>
-        /// Controle gdvClassesDados.
+        /// Controle gdvOrganizacao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvClassesDados;
+        protected global::System.Web.UI.WebControls.GridView gdvOrganizacao;
         
         /// <summary>
-        /// Controle lkbDeleteClass.
+        /// Controle lkbDeleteOrganization.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkbDeleteClass;
+        protected global::System.Web.UI.WebControls.LinkButton lkbDeleteOrganization;
     }
 }
