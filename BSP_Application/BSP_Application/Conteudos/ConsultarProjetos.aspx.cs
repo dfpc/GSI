@@ -14,21 +14,6 @@ namespace BSP_Application.Conteudos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-            string com = "Select Nome, IDProjeto from Projeto";
-            SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
-            DataTable dt = new DataTable();
-            adpt.Fill(dt);
-            ListaProjetos.DataSource = dt;
-            ListaProjetos.DataBind();
-            ListaProjetos.DataTextField = "Nome";
-            ListaProjetos.DataValueField = "IDProjeto";
-            ListaProjetos.DataBind();
-=======
-=======
->>>>>>> d48151c6a07b070ef5a74d9daa64c1dcd540ba09
             if (!IsPostBack)
             {
                 gdvProjetos.DataSource = AdicionarRegistos.GetAllProjects();
@@ -38,10 +23,6 @@ namespace BSP_Application.Conteudos
 
         protected void lkbDeleteProjeto_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
->>>>>>> d48151c6a07b070ef5a74d9daa64c1dcd540ba09
-=======
->>>>>>> d48151c6a07b070ef5a74d9daa64c1dcd540ba09
 
         }
     }
