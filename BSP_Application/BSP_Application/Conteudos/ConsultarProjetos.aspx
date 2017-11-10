@@ -65,5 +65,4 @@
         </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-     <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%"/>
 </asp:Content>
