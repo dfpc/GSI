@@ -10,7 +10,7 @@
 namespace BSP_Application.FormPages {
     
     
-    public partial class RegistarUtilizador {
+    public partial class SumariacaoEntrevistas {
         
         /// <summary>
         /// Controle MainMenu1.
@@ -22,57 +22,84 @@ namespace BSP_Application.FormPages {
         protected global::BSP_Application.UserControls.MainMenu MainMenu1;
         
         /// <summary>
-        /// Controle inputUsername.
+        /// Controle gdvSumariacaoEntrevistas.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inputUsername;
+        protected global::System.Web.UI.WebControls.GridView gdvSumariacaoEntrevistas;
         
         /// <summary>
-        /// Controle tbxPassword.
+        /// Controle grupo_processos.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword tbxPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText grupo_processos;
         
         /// <summary>
-        /// Controle tbxPasswordConfirm.
+        /// Controle causa.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword tbxPasswordConfirm;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea causa;
         
         /// <summary>
-        /// Controle tbxEmail.
+        /// Controle efeito.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl tbxEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea efeito;
         
         /// <summary>
-        /// Controle tbxNome.
+        /// Controle importancia.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tbxNome;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea importancia;
         
         /// <summary>
-        /// Controle SaveButton.
+        /// Controle ListaProcesso.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SaveButton;
+        protected global::System.Web.UI.WebControls.DropDownList ListaProcesso;
+        
+        /// <summary>
+        /// Controle ListaClasse.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ListaClasse;
+        
+        /// <summary>
+        /// Controle solucao_potencial.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea solucao_potencial;
+        
+        /// <summary>
+        /// Controle registar_entrevista.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button registar_entrevista;
     }
 }

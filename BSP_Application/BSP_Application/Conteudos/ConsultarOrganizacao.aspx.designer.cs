@@ -7,10 +7,10 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace BSP_Application.FormPages {
+namespace BSP_Application.Conteudos {
     
     
-    public partial class AdicionarOrganizacao {
+    public partial class ConsultarOrganizacao {
         
         /// <summary>
         /// Controle MainMenu1.
@@ -22,39 +22,21 @@ namespace BSP_Application.FormPages {
         protected global::BSP_Application.UserControls.MainMenu MainMenu1;
         
         /// <summary>
-        /// Controle ListaProjetos.
+        /// Controle gdvOrganizacao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListaProjetos;
+        protected global::System.Web.UI.WebControls.GridView gdvOrganizacao;
         
         /// <summary>
-        /// Controle inputNome.
+        /// Controle lkbDeleteOrganization.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText inputNome;
-        
-        /// <summary>
-        /// Controle comment.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea comment;
-        
-        /// <summary>
-        /// Controle btnSave.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.LinkButton lkbDeleteOrganization;
     }
 }
