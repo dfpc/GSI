@@ -23,8 +23,15 @@ namespace BSP_Application.Conteudos
             }
         }
 
+        protected void EditarProjeto_Click(object sender, EventArgs e)
+        {
+            //vai a base de dados buscar o projeto
+
+        }
+
         protected void lkbDeleteProjeto_Click(object sender, EventArgs e)
         {
+            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
 
         }
 

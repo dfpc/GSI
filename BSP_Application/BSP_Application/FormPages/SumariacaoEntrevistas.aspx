@@ -35,20 +35,20 @@
                     <div class="form-group">
                         
    
-                        <label for="inputEmail3" class="col-sm-4 control-label">Grupo de Processos</label>
+                        <label for="inputEmail3" class="col-sm-4 control-label"><b>Grupo de Processos</b></label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" runat="server" id="grupo_processos" placeholder="Grupo de Processos"  clientidmode="static">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="comment" class="col-sm-2 control-label">Causa</label>
+                        <label for="comment" class="col-sm-2 control-label"><b>Causa</b></label>
 
                         <div class="col-sm-8">
                             <textarea class="form-control" runat="server" rows="3" id="causa" placeholder="Causa"></textarea>
                         </div>
                     </div>
                         <div class="form-group">
-                        <label for="comment" class="col-sm-2 control-label">Efeito</label>
+                        <label for="comment" class="col-sm-2 control-label"><b>Efeito</b></label>
 
                         <div class="col-sm-8">
                             <textarea class="form-control" runat="server" rows="3" id="efeito" placeholder="Efeito"></textarea>
@@ -56,27 +56,27 @@
                     </div>
                     </div>
                         <div class="form-group">
-                        <label for="comment" class="col-sm-2 control-label">Importância</label>
+                        <label for="comment" class="col-sm-2 control-label"><b>Importância</b></label>
 
                         <div class="col-sm-8">
                             <textarea class="form-control" rows="2" id="importancia" placeholder="Importância" runat="server"></textarea>
                         </div>
                     </div>
                  <div class="form-group">
-                <label for="inputEmail3" class="col-sm-4 control-label">Processo Causador</label>
+                <label for="inputEmail3" class="col-sm-4 control-label"><b>Processo Causador</b></label>
                         <div class="col-sm-8">
                         <asp:DropDownList ID="ListaProcesso" class="form-control" runat="server" style="width:40%"/>
                         </div>                      
                 </div>
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-4 control-label">Classe de Dados Criadora</label>
+                  <label for="inputEmail3" class="col-sm-4 control-label"><b>Classe de Dados Criadora</b></label>
                         <div class="col-sm-8">
                         <asp:DropDownList ID="ListaClasse" class="form-control" runat="server" style="width:40%"/>
                         </div>
                 </div>
 
                   <div class="form-group">
-                        <label for="comment" class="col-sm-4 control-label">Solução Potencial</label>
+                        <%--<label for="comment" class="col-sm-4 control-label"><b>Solução Potencial</b></label>--%>
 
                         <div class="col-sm-8">
                             <textarea class="form-control"  rows="3" id="solucao_potencial" placeholder="Solução Potencial" runat="server"></textarea>

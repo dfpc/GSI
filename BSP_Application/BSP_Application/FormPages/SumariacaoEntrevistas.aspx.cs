@@ -48,7 +48,7 @@ namespace BSP_Application.FormPages
         }
         protected void Guardar_SumariacaoEntrevistas(object sender, EventArgs e)
         {
-            
+
             string grupo_ = grupo_processos.Value;
             string causa_ = causa.Value;
             string efeito_ = efeito.Value;
@@ -63,7 +63,7 @@ namespace BSP_Application.FormPages
             cmd.Parameters.AddWithValue("@causa", causa_);
             cmd.Parameters.AddWithValue("@efeito", efeito_);
             cmd.Parameters.AddWithValue("@importancia", importancia_);
-            cmd.Parameters.AddWithValue("@idprocesso", idProcesso );
+            cmd.Parameters.AddWithValue("@idprocesso", idProcesso);
             cmd.Parameters.AddWithValue("@idclasse", idClasse);
             cmd.Parameters.AddWithValue("@potencialsolucao", solucao_);
             cmd.Parameters.AddWithValue("@grupoprocesso", grupo_);
