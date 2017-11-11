@@ -32,7 +32,7 @@ namespace BSP_Application.Conteudos
         public static string EditProject(int index)
         {
             if (HttpContext.Current.Session["ListaProjetos"] == null) return string.Empty;
-            int id = (HttpContext.Current.Session["ListaProjetos"] as List<Projeto>).ElementAt(index).IDProjeto;
+            int id = (HttpContext.Current.Session["ListaProjetos"] as List<Projeto>).ElementAt(index-1).IDProjeto;
             return string.Concat("/FormPages/AdicionarProjeto.aspx?id=", id.ToString());
         }
         
