@@ -29,5 +29,14 @@ namespace BSP_Application.Conteudos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvProcesso;
+        
+        /// <summary>
+        /// Controle lkbDeleteProcess.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lkbDeleteProcess;
     }
 }

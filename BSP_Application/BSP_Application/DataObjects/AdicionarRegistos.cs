@@ -50,6 +50,14 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        /*public static List<ClasseDados> GetAllDataClasses2()
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<ClasseDados>("exec spGetAllDataClasses2").ToList();
+            }
+        }
+        */
         public static List<Processo> GetAllProcess()
         {
             using (DataBaseConnect db = new DataBaseConnect())

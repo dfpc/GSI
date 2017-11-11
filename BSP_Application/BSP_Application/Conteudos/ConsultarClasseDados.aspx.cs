@@ -15,8 +15,14 @@ namespace BSP_Application.Conteudos
             if (!IsPostBack)
             {
                 gdvClassesDados.DataSource = AdicionarRegistos.GetAllDataClasses();
+               // gdvClassesDados.DataSource = AdicionarRegistos.GetAllDataClasses2();
                 gdvClassesDados.DataBind();
             }
+        }
+
+        protected void lkbDeleteClass_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
