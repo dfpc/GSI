@@ -189,9 +189,11 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Conteudos\ConsultarClasseDados.aspx" />
+    <Content Include="Conteudos\ConsultarEntidades.aspx" />
     <Content Include="Conteudos\ConsultarOrganizacao.aspx" />
     <Content Include="Conteudos\ConsultarProcesso.aspx" />
     <Content Include="Conteudos\ConsultarProjetos.aspx" />
+    <Content Include="FormPages\AdicionarEntidade.aspx" />
     <Content Include="FormPages\AdicionarOrganizacao.aspx" />
     <Content Include="FormPages\AdicionarProjeto.aspx" />
     <Content Include="FormPages\PrioridadesAplicacoes.aspx" />
@@ -268,6 +270,13 @@
     <Compile Include="Conteudos\ConsultarClasseDados.aspx.designer.cs">
       <DependentUpon>ConsultarClasseDados.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Conteudos\ConsultarEntidades.aspx.cs">
+      <DependentUpon>ConsultarEntidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Conteudos\ConsultarEntidades.aspx.designer.cs">
+      <DependentUpon>ConsultarEntidades.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Conteudos\ConsultarOrganizacao.aspx.cs">
       <DependentUpon>ConsultarOrganizacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -298,6 +307,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormPages\AdicionarEntidade.aspx.cs">
+      <DependentUpon>AdicionarEntidade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormPages\AdicionarEntidade.aspx.designer.cs">
+      <DependentUpon>AdicionarEntidade.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormPages\AdicionarOrganizacao.aspx.cs">
       <DependentUpon>AdicionarOrganizacao.aspx</DependentUpon>

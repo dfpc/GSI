@@ -78,3 +78,18 @@ function ValidateOrganizationFields(){
         $('#inputNome').removeClass("is-invalid");
     return error;
 }
+
+function editProject(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $.ajax({
+        url: "/Conteudos/ConsultarProjetos.aspx/EditProject",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        type: 'POST',
+        data: JSON.stringify({ index: index }),
+        success: function (data) {
+            if (data.d != '')
+                window.location = data.d;
+        }
+    });
+}

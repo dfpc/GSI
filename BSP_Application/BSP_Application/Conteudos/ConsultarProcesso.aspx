@@ -20,7 +20,7 @@
                 <br />
 
                 <center>
-                <asp:GridView ID="gdvProcesso" runat="server" DataKeyNames="Id" CellPadding="5">
+                <asp:GridView ID="gdvProcesso" runat="server" DataKeyNames="Id" CellPadding="5" ClientIDMode="Static">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>

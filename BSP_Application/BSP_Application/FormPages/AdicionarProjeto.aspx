@@ -18,7 +18,7 @@
                 <br />
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-4 control-label">Nome do Projeto</label>
+                        <label for="inputNome" class="col-sm-4 control-label">Nome do Projeto</label>
 
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="inputNome" placeholder="Nome do Projeto" runat="server">

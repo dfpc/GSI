@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultarProjetos.aspx.cs" Inherits="BSP_Application.Conteudos.ConsultarProjetos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" ValidateRequest="false" EnableEventValidation="false" CodeBehind="ConsultarProjetos.aspx.cs" Inherits="BSP_Application.Conteudos.ConsultarProjetos" %>
 
 <%@ Register Src="~/UserControls/MainMenu.ascx" TagPrefix="uc1" TagName="MainMenu" %>
 
@@ -20,11 +20,11 @@
                 <br />
                 <br />
                 <center>
-                <asp:GridView ID="gdvProjetos" runat="server" DataKeyNames="IDProjeto" CellPadding="5">
+                <asp:GridView ID="gdvProjetos" runat="server" DataKeyNames="IDProjeto" CellPadding="5" >
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+                                <button class="btn btn-block" onclick="editProject(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>

@@ -89,5 +89,22 @@ namespace BSP_Application.DataObjects
                 return db.Database.SqlQuery<bool>("exec spDeleteOrganization {0}", idorganization).FirstOrDefault();
             }
         }
+
+        public static Projeto GetProjectById(int idproject)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<Projeto>("SELECT * FROM PROJETO WHERE IDProjeto = {0}", idproject).FirstOrDefault();
+            }
+        }
+
+        public static void EditProject(int idproject, string nome, string descricao)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("UPDATE PROJETO SET Nome = {1}, Descricao = {2} WHERE IDProjeto = {0}", 
+                    idproject, nome, descricao);
+            }
+        }
     }
 }

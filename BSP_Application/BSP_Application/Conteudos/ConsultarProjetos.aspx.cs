@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -16,7 +17,8 @@ namespace BSP_Application.Conteudos
         {
             if (!IsPostBack)
             {
-                gdvProjetos.DataSource = AdicionarRegistos.GetAllProjects();
+                Session["ListaProjetos"] = AdicionarRegistos.GetAllProjects();
+                gdvProjetos.DataSource = Session["ListaProjetos"];
                 gdvProjetos.DataBind();
             }
         }
@@ -25,5 +27,14 @@ namespace BSP_Application.Conteudos
         {
 
         }
+
+        [WebMethod]
+        public static string EditProject(int index)
+        {
+            if (HttpContext.Current.Session["ListaProjetos"] == null) return string.Empty;
+            int id = (HttpContext.Current.Session["ListaProjetos"] as List<Projeto>).ElementAt(index).IDProjeto;
+            return string.Concat("/FormPages/AdicionarProjeto.aspx?id=", id.ToString());
+        }
+        
     }
 }
