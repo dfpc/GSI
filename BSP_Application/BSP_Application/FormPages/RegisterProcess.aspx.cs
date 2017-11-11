@@ -15,8 +15,7 @@ namespace BSP_Application.FormPages
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            { 
-            
+            {
                 SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
                 string com = "Select Nome, IDProjeto from Projeto";
                 SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
@@ -32,7 +31,6 @@ namespace BSP_Application.FormPages
         protected void btnSave_Click(object sender, EventArgs e)
         {
             AdicionarRegistos.InsertProcess(inputNome.Value, comment.Value, Int32.Parse(ListaProjetos.SelectedValue));
-            Response.Write("<script>alert('Processo registado com sucesso!');</script>");
         }
     }
 }

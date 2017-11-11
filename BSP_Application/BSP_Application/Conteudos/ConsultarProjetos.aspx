@@ -24,11 +24,7 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-<<<<<<< HEAD
                                 <button class="btn btn-block" onclick="editProject(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
-=======
-                                <Button class="btn btn-block" style="backgr #FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></Button>
->>>>>>> 1d3fea5fa2d1f1e117ba91279466de76e3c1682f
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>

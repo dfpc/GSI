@@ -33,10 +33,8 @@ namespace BSP_Application.FormPages
 
         protected void Guardar_Projeto(object sender, EventArgs e)
         {
-            
             string nome = inputNome.Value;
             string descricao = comment.Value;
-<<<<<<< HEAD
             if (!string.IsNullOrEmpty(Request.QueryString["id"]))
             {
                 AdicionarRegistos.EditProject(Convert.ToInt32(Request.QueryString["id"]), nome, descricao);
@@ -58,30 +56,6 @@ namespace BSP_Application.FormPages
         public static Projeto getProjectById(int idProject)
         {
             return null;
-=======
-            
-
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-            string sql = "INSERT INTO Projeto (Nome, Descricao) values (@nome, @descricao)";
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@nome", nome);
-            cmd.Parameters.AddWithValue("@descricao", descricao);
-            
-            cmd.ExecuteNonQuery();
-          Response.Write("<script>alert('Projeto registado com sucesso!');</script>");
-
-          
-
-
-
-
-
-
->>>>>>> 1d3fea5fa2d1f1e117ba91279466de76e3c1682f
         }
-
     }
-
 }
-  

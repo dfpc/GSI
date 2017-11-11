@@ -19,19 +19,19 @@
                 <div class="box-body">
                     <div class="form-group">
                         
-                        <label for="ListaProjetos" class="col-sm-4 control-label"><b>Projeto Associado</b></label>
+                        <label for="ListaProjetos" class="col-sm-4 control-label">Projeto Associado</label>
                         <div class="col-sm-8">
                         <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%"/>
                            <br />
 
                         </div>
-                        <label for="inputEmail3" class="col-sm-4 control-label"><b>Nome da Organizaçao</b></label>
+                        <label for="inputEmail3" class="col-sm-4 control-label">Nome da Organizaçao</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="inputNome" placeholder="Nome da organização" runat="server" clientidmode="static">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="comment" class="col-sm-2 control-label"><b>Descrição</b></label>
+                        <label for="comment" class="col-sm-2 control-label">Descrição</label>
 
                         <div class="col-sm-8">
                             <textarea class="form-control" rows="5" id="comment" placeholder="Descrição" runat="server"></textarea>

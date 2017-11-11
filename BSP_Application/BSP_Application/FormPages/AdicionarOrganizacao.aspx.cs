@@ -31,7 +31,6 @@ namespace BSP_Application.FormPages
         protected void btnSave_Click(object sender, EventArgs e)
         {
             AdicionarRegistos.InsertOrganization(inputNome.Value, comment.Value, Int32.Parse(ListaProjetos.SelectedValue));
-            Response.Write("<script>alert('Organização registada com sucesso!');</script>");
         }
     }
 }
