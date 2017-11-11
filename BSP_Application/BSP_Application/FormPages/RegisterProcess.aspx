@@ -14,20 +14,20 @@
                 <h4>Registar Processo</h4>
                 <div class="box-body" style="margin-top: 50px;">
                     <div class="form-group">
-                        <label for="ListaProjetos" class="col-sm-4 control-label">Projeto Associado</label>
+                        <label for="ListaProjetos" class="col-sm-4 control-label"><b>Projeto Associado</b></label>
                         <div class="col-sm-8">
                         <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%"/>
                            <br />
 
                         </div>
-                        <label for="inputEmail3" class="col-sm-4 control-label">Nome do Processo</label>
+                        <label for="inputEmail3" class="col-sm-4 control-label"><b>Nome do Processo</b></label>
 
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="inputNome" runat="server" clientidmode="static" placeholder="Nome do Processo">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Descrição</label>
+                        <label for="inputPassword3" class="col-sm-2 control-label"><b>Descrição</b></label>
 
                         <div class="col-sm-8">
                             <textarea class="form-control" rows="5" id="comment" runat="server" placeholder="Descrição"></textarea>

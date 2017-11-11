@@ -18,8 +18,10 @@ namespace BSP_Application.FormPages
 
         protected void Guardar_Projeto(object sender, EventArgs e)
         {
+            
             string nome = inputNome.Value;
             string descricao = comment.Value;
+            
 
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
             string sql = "INSERT INTO Projeto (Nome, Descricao) values (@nome, @descricao)";
@@ -27,7 +29,20 @@ namespace BSP_Application.FormPages
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@nome", nome);
             cmd.Parameters.AddWithValue("@descricao", descricao);
+            
             cmd.ExecuteNonQuery();
+          Response.Write("<script>alert('Projeto registado com sucesso!');</script>");
+
+          
+
+
+
+
+
+
         }
+
     }
+
 }
+  

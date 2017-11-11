@@ -24,7 +24,7 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+                                <Button class="btn btn-block" style="backgr #FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></Button>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
