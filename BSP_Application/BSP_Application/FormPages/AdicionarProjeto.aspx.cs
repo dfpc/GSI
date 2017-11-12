@@ -21,7 +21,6 @@ namespace BSP_Application.FormPages
                     EditProject(Convert.ToInt32(Request.QueryString["id"]));
                 }
             }
-            //AdicionarRegistos.AddProject();
         }
 
         private void EditProject(int id)

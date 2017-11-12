@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BSP_Application.DataObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,8 @@ namespace BSP_Application.FormPages
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-
+            AdicionarRegistos.InsertEntidade(inputNome.Value, cmbType.Items[cmbType.SelectedIndex].Text, ckbIntern.Checked);
+            Response.Redirect("/Conteudos/ConsultarEntidades.aspx");
         }
     }
 }
