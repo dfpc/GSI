@@ -14,7 +14,7 @@
         <div class="card-body">
             <div class="container-fluid">
 
-                <h4>Consultar Entidades da Organização</h4>
+                <h4>Consultar Organizações</h4>
                 <br />
                 <br />
                 <center>

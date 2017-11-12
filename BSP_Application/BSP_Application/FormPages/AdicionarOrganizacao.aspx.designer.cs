@@ -22,6 +22,15 @@ namespace BSP_Application.FormPages {
         protected global::BSP_Application.UserControls.MainMenu MainMenu1;
         
         /// <summary>
+        /// Controle ListaProjetos.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ListaProjetos;
+        
+        /// <summary>
         /// Controle inputNome.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace BSP_Application.FormPages {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea comment;
-        
-        /// <summary>
-        /// Controle gdvProjetos.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvProjetos;
         
         /// <summary>
         /// Controle btnSave.

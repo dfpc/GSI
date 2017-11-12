@@ -123,14 +123,6 @@ namespace BSP_Application.DataObjects
             }
         }
 
-        public static List<ProjetoOrganizacao> GetProjectOrganization()
-        {
-            using (DataBaseConnect db = new DataBaseConnect())
-            {
-                return db.Database.SqlQuery<ProjetoOrganizacao>("SELECT * FROM PROJETO").ToList();
-            }
-        }
-
         public static void EditProject(int idproject, string nome, string descricao)
         {
             using (DataBaseConnect db = new DataBaseConnect())

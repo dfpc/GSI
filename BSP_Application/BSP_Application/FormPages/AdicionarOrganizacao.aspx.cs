@@ -16,14 +16,21 @@ namespace BSP_Application.FormPages
         {
             if (!IsPostBack)
             {
-                gdvProjetos.DataSource = AdicionarRegistos.GetProjectOrganization();
-                gdvProjetos.DataBind();
+                SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
+                string com = "Select Nome, IDProjeto from Projeto";
+                SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
+                DataTable dt = new DataTable();
+                adpt.Fill(dt);
+                ListaProjetos.DataSource = dt;
+                ListaProjetos.DataTextField = "Nome";
+                ListaProjetos.DataValueField = "IDProjeto";
+                ListaProjetos.DataBind();
             }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            //AdicionarRegistos.InsertOrganization(inputNome.Value, comment.Value, Int32.Parse(ListaProjetos.SelectedValue));
+            AdicionarRegistos.InsertOrganization(inputNome.Value, comment.Value, Int32.Parse(ListaProjetos.SelectedValue));
         }
     }
 }
