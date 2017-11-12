@@ -131,5 +131,22 @@ namespace BSP_Application.DataObjects
                     idproject, nome, descricao);
             }
         }
+
+        public static Processo GetProcessById(int idprocess)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<Processo>("SELECT * FROM PROCESSO WHERE Id = {0}", idprocess).FirstOrDefault();
+            }
+        }
+
+        public static void EditProcess(int idprocess, string nome, string descricao, int idproject)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("UPDATE Processo SET Nome = {1}, Descricao = {2}, IDProjeto = {3} WHERE Id = {0}",
+                    idprocess, nome, descricao, idproject);
+            }
+        }
     }
 }

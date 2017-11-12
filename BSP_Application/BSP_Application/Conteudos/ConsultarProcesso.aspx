@@ -21,12 +21,16 @@
 
                 <center>
                 <asp:GridView ID="gdvProcesso" runat="server" DataKeyNames="Id" CellPadding="5" ClientIDMode="Static">
+                 <asp:ScriptManager ID = "ScriptManager2" runat = "server"></asp:ScriptManager>
+                <asp:UpdatePanel ID="upGridProcessos" runat="server" ClientIDMode="Static" UpdateMode="Conditional" >
+                <ContentTemplate>
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
                             </ItemTemplate>
                         </asp:TemplateField>
+
                         <asp:TemplateField>
                             <ItemTemplate>
                                  <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmProcess" data-postcommand="">
@@ -36,6 +40,8 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+                         </ContentTemplate>
+                </asp:UpdatePanel>
                     </center>
             </div>
             <!-- /.card -->

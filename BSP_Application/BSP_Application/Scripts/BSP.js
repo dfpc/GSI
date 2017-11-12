@@ -105,6 +105,22 @@ function editProject(btn) {
     });
 }
 
+<<<<<<< HEAD
+
+function editProcess(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $.ajax({
+        url: "/Conteudos/ConsultarProcesso.aspx/EditProcess",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        type: 'POST',
+        data: JSON.stringify({ index: index }),
+        success: function (data) {
+            if (data.d != '')
+                window.location = data.d;
+        }
+    });
+=======
 $(".btn").click(function (evt) {
     // This stops the form submission.
     evt.preventDefault();
@@ -135,4 +151,5 @@ function ShowModal(btn) {
     var index = btn.parentNode.parentNode.rowIndex;
     $('#lkbDeleteEntity').attr('data-index', index);
     $('#deleteConfirm').modal();
+>>>>>>> 37362095b9ac0342f1149fb65d39ba574c511ed2
 }
