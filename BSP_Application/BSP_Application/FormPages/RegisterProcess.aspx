@@ -14,18 +14,33 @@
                 <h4>Registar Processo</h4>
                 <div class="box-body" style="margin-top: 50px;">
                     <div class="form-group">
+
+                         <label for="inputEmail3" class="col-sm-4 control-label">Nome do Processo</label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inputNome" runat="server" clientidmode="static" placeholder="Nome do Processo">
+                        </div>
+                        <br />
                         <label for="ListaProjetos" class="col-sm-4 control-label">Projeto Associado</label>
                         <div class="col-sm-8">
                         <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%"/>
                            <br />
 
                         </div>
-                        <label for="inputEmail3" class="col-sm-4 control-label">Nome do Processo</label>
+                       
+                          <label for="inputEmail3" class="col-sm-4 control-label">Camada</label>
 
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="inputNome" runat="server" clientidmode="static" placeholder="Nome do Processo">
+
+                        <asp:DropDownList ID="camadasDrop" class="form-control" runat="server" style="width:40%">
+                            <asp:ListItem Selected="True">Planeamento</asp:ListItem>
+                            <asp:ListItem Value="Aquisi&#231;&#227;o e Implementa&#231;&#227;o">Aquisi&#231;&#227;o e Implementa&#231;&#227;o</asp:ListItem>
+                            <asp:ListItem>Utiliza&#231;&#227;o</asp:ListItem>
+                            <asp:ListItem>Retirada e Reforma</asp:ListItem>
+                        </asp:DropDownList>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">Descrição</label>
 
