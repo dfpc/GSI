@@ -13,5 +13,10 @@ namespace BSP_Application.Conteudos
         {
 
         }
+
+        protected void lkbDeleteEntity_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

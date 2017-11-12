@@ -90,6 +90,14 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static bool DeleteProject(int idproject)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<bool>("exec spDeleteProject {0}", idproject).FirstOrDefault();
+            }
+        }
+
         public static Projeto GetProjectById(int idproject)
         {
             using (DataBaseConnect db = new DataBaseConnect())

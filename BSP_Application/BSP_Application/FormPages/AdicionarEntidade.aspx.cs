@@ -13,5 +13,10 @@ namespace BSP_Application.FormPages
         {
 
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

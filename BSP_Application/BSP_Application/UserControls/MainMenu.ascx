@@ -26,6 +26,8 @@
             <a href="/Matrizes/App_Organizacao.aspx" style="font-size:small;" class="list-group-item">Aplicações/Organização</a>
             <a href="/Matrizes/App_ClasseDados.aspx" style="font-size:small;" class="list-group-item">Aplicações/Classe de Dados</a>
         </div>
+        <a href="/FormPages/AdicionarEntidade.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Registar Entidade</a>
+        <a href="/Conteudos/ConsultarEntidades.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Consultar Entidades</a>
         <a href="/FormPages/SumariacaoEntrevistas.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Registar Sumariação de Entrevistas</a>
         <a href="/FormPages/PrioridadesAplicacoes.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Definir Prioridades para as Aplicações</a>
         <a href="/FormPages/RegistoFuncoesEquipa.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Registar Funções da Equipa de Direção do SI</a>

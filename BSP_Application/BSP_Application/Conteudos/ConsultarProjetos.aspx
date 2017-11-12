@@ -20,8 +20,13 @@
                 <br />
                 <br />
                 <center>
-                <asp:GridView ID="gdvProjetos" runat="server" DataKeyNames="IDProjeto" CellPadding="5" >
+                    <asp:ScriptManager ID = "ScriptManager1" runat = "server"></asp:ScriptManager>
+                <asp:UpdatePanel ID="upGridProjetos" runat="server" ClientIDMode="Static" UpdateMode="Conditional" >
+                    <ContentTemplate>
+                        <asp:GridView ID="gdvProjetos" runat="server" DataKeyNames="IDProjeto" CellPadding="10" AutoGenerateColumns="false">
                     <Columns>
+                        <asp:BoundField DataField="Nome" HeaderText="Nome" ReadOnly="True" SortExpression="Nome" />
+                        <asp:BoundField DataField="Descricao" HeaderText="Descrição" ReadOnly="True" SortExpression="Descricao" />
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <button class="btn btn-block" onclick="editProject(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
@@ -29,40 +34,42 @@
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <!--<button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>-->
-                                 <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmProject" data-postcommand="">
+                                <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmProject"  data-postcommand="">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                    </center>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
+                </center>
             </div>
             <!-- /.card -->
         </div>
         <!-- /.col-lg-9 -->
     </div>
     <!-- /.container -->
-         <div class="modal fade" id="deleteConfirmProject" tabindex="-1" role="dialog"
-            aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Remover Projeto</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        Confirma que pretende eliminar este Projeto?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <asp:LinkButton ID="lkbDeleteProject" runat="server" ClientIDMode="Static" OnClick="lkbDeleteProjeto_Click" CssClass="btn btn-primary">Confirmar</asp:LinkButton>
-                    </div>
+    <div class="modal fade" id="deleteConfirmProject" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Remover Projeto</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    Confirma que pretende eliminar este Projeto?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <asp:LinkButton ID="lkbDeleteProject" runat="server" ClientIDMode="Static" OnClick="lkbDeleteProjeto_Click" CssClass="btn btn-primary">Confirmar</asp:LinkButton>
                 </div>
             </div>
         </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>

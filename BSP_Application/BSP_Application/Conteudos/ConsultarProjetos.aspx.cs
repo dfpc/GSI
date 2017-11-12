@@ -25,7 +25,7 @@ namespace BSP_Application.Conteudos
 
         protected void lkbDeleteProjeto_Click(object sender, EventArgs e)
         {
-
+            //AdicionarRegistos.DeleteOrganization
         }
 
         [WebMethod]

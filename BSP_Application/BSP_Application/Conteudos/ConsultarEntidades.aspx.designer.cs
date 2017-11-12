@@ -20,5 +20,23 @@ namespace BSP_Application.Conteudos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::BSP_Application.UserControls.MainMenu MainMenu1;
+        
+        /// <summary>
+        /// Controle gdvClassesDados.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gdvClassesDados;
+        
+        /// <summary>
+        /// Controle lkbDeleteEntity.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lkbDeleteEntity;
     }
 }
