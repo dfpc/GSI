@@ -41,14 +41,14 @@
 
 function CheckLoginData() {
     var error = false;
-    if ($('#tbxUsername').val() == ''){
+    if ($('#tbxUsername').val() == '') {
         $('#tbxUsername').addClass("is-invalid");
         error = true;
     }
     else
         $('#tbxUsername').removeClass("is-invalid");
 
-    if ($('#tbxPassword').val() == ''){
+    if ($('#tbxPassword').val() == '') {
         $('#tbxPassword').addClass("is-invalid");
         error = true;
     }
@@ -57,7 +57,7 @@ function CheckLoginData() {
     return error;
 }
 
-function ValidateProcessFields(){
+function ValidateProcessFields() {
     var error = false;
     if ($('#inputNome').val() == '') {
         $('#inputNome').addClass("is-invalid");
@@ -68,7 +68,7 @@ function ValidateProcessFields(){
     return error;
 }
 
-function ValidateOrganizationFields(){
+function ValidateOrganizationFields() {
     var error = false;
     if ($('#inputNome').val() == '') {
         $('#inputNome').addClass("is-invalid");
@@ -105,8 +105,6 @@ function editProject(btn) {
     });
 }
 
-<<<<<<< HEAD
-
 function editProcess(btn) {
     var index = btn.parentNode.parentNode.rowIndex;
     $.ajax({
@@ -120,7 +118,8 @@ function editProcess(btn) {
                 window.location = data.d;
         }
     });
-=======
+}
+
 $(".btn").click(function (evt) {
     // This stops the form submission.
     evt.preventDefault();
@@ -137,9 +136,9 @@ function DeleteEntidade() {
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({ index: $('#lkbDeleteEntity').attr('data-index') }),
         success: function (data) {
-            if (data.d==true)
+            if (data.d == true)
                 window.location = window.location;
-            else{
+            else {
                 $('#deleteConfirm').modal('hide');
                 $('#DeleteError').modal();
             }
@@ -151,5 +150,4 @@ function ShowModal(btn) {
     var index = btn.parentNode.parentNode.rowIndex;
     $('#lkbDeleteEntity').attr('data-index', index);
     $('#deleteConfirm').modal();
->>>>>>> 37362095b9ac0342f1149fb65d39ba574c511ed2
 }
