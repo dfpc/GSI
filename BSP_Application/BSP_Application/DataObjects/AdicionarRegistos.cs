@@ -42,6 +42,15 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static void InsertEntidade(string name, string tipo, bool interno)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("INSERT INTO Entidade (Nome, Tipo, Interno) VALUES({0}, {1}, {2})",
+                    name, tipo, interno);
+            }
+        }
+
         public static List<ClasseDados> GetAllDataClasses()
         {
             using (DataBaseConnect db = new DataBaseConnect())
@@ -50,14 +59,14 @@ namespace BSP_Application.DataObjects
             }
         }
 
-        /*public static List<ClasseDados> GetAllDataClasses2()
+        public static List<Entidade> GetAllEntities()
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                return db.Database.SqlQuery<ClasseDados>("exec spGetAllDataClasses2").ToList();
+                return db.Database.SqlQuery<Entidade>("exec spGetAllEntities").ToList();
             }
         }
-        */
+
         public static List<Processo> GetAllProcess()
         {
             using (DataBaseConnect db = new DataBaseConnect())
@@ -95,6 +104,14 @@ namespace BSP_Application.DataObjects
             using (DataBaseConnect db = new DataBaseConnect())
             {
                 return db.Database.SqlQuery<bool>("exec spDeleteProject {0}", idproject).FirstOrDefault();
+            }
+        }
+
+        public static bool DeleteEntidade(int identidade)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<bool>("exec spDeleteEntidade {0}", identidade).FirstOrDefault();
             }
         }
 

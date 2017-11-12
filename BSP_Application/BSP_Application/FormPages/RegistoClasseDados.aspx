@@ -26,6 +26,13 @@
 
                         </div>
 
+                        <label for="ListaProjetos" class="col-sm-4 control-label">Entidade</label>
+                        <div class="col-sm-8">
+                        <asp:DropDownList ID="ListaEntidades" class="form-control" runat="server" style="width:40%"/>
+                           <br />
+
+                        </div>
+
 
                         <label for="inputEmail3" class="col-sm-4 control-label">Nome da Classe de Dados</label>
 

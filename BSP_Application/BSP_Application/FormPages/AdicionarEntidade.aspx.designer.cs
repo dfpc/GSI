@@ -31,6 +31,24 @@ namespace BSP_Application.FormPages {
         protected global::System.Web.UI.HtmlControls.HtmlInputText inputNome;
         
         /// <summary>
+        /// Controle cmbType.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect cmbType;
+        
+        /// <summary>
+        /// Controle ckbIntern.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox ckbIntern;
+        
+        /// <summary>
         /// Controle btnSave.
         /// </summary>
         /// <remarks>

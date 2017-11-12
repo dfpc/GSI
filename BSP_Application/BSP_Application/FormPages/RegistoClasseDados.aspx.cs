@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BSP_Application.DataObjects;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -24,6 +25,12 @@ namespace BSP_Application.FormPages
                 ListaProjetos.DataTextField = "Nome";
                 ListaProjetos.DataValueField = "IDProjeto";
                 ListaProjetos.DataBind();
+
+                ListaEntidades.DataSource = AdicionarRegistos.GetAllEntities();
+                ListaEntidades.DataTextField = "NomeTipo";
+                ListaEntidades.DataValueField = "Id";
+                ListaEntidades.DataBind();
+
             }
         }
 

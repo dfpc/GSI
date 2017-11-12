@@ -79,6 +79,17 @@ function ValidateOrganizationFields(){
     return error;
 }
 
+function ValidateEntidadeFields() {
+    var error = false;
+    if ($('#inputNome').val() == '') {
+        $('#inputNome').addClass("is-invalid");
+        error = true;
+    }
+    else
+        $('#inputNome').removeClass("is-invalid");
+    return error;
+}
+
 function editProject(btn) {
     var index = btn.parentNode.parentNode.rowIndex;
     $.ajax({
@@ -92,4 +103,36 @@ function editProject(btn) {
                 window.location = data.d;
         }
     });
+}
+
+$(".btn").click(function (evt) {
+    // This stops the form submission.
+    evt.preventDefault();
+
+
+    // Carry on with your code here.
+});
+
+function DeleteEntidade() {
+    $.ajax({
+        type: 'POST',
+        url: "/Conteudos/ConsultarEntidades.aspx/DeleteEntidade",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ index: $('#lkbDeleteEntity').attr('data-index') }),
+        success: function (data) {
+            if (data.d==true)
+                window.location = window.location;
+            else{
+                $('#deleteConfirm').modal('hide');
+                $('#DeleteError').modal();
+            }
+        }
+    });
+}
+
+function ShowModal(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $('#lkbDeleteEntity').attr('data-index', index);
+    $('#deleteConfirm').modal();
 }

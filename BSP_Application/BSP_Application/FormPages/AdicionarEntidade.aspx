@@ -27,15 +27,18 @@
                         <label for="comment" class="col-sm-2 control-label">Tipo</label>
 
                         <div class="col-sm-8">
-                            <select class="form-control" id="cmbType">
+                            <select class="form-control" id="cmbType" runat="server">
                                 <option value="1">Pessoas</option>
                                 <option value="2">Lugares</option>
-                                <option value="3">Eventos</option>
+                                <option value="3">Coisas</option>
+                                <option value="4">Conceitos</option>
+                                <option value="5">Eventos</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="comment" class="col-sm-2 control-label"><input type="checkbox"> Interno?</label>
+                        <label class="col-sm-2 control-label">
+                            <input type="checkbox" id="ckbIntern" runat="server"> Interno?</label>
 
                     </div>
 
