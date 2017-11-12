@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -14,14 +15,25 @@ namespace BSP_Application.Conteudos
         {
             if (!IsPostBack)
             {
-                gdvProcesso.DataSource = AdicionarRegistos.GetAllProcess();
+
+                Session["ListaProcessos"] = AdicionarRegistos.GetAllProcess();
+                gdvProcesso.DataSource = Session["ListaProcessos"];
                 gdvProcesso.DataBind();
+
             }
         }
 
         protected void lkbDeleteProcesso_Click(object sender, EventArgs e)
         {
 
+        }
+
+        [WebMethod]
+        public static string EditProcess(int index)
+        {
+            if (HttpContext.Current.Session["ListaProcessos"] == null) return string.Empty;
+            int id = (HttpContext.Current.Session["ListaProcessos"] as List<Processo>).ElementAt(index - 1).Id;
+            return string.Concat("/FormPages/RegisterProcess.aspx?id=", id.ToString());
         }
     }
 }

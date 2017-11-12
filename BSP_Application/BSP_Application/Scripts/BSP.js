@@ -93,3 +93,19 @@ function editProject(btn) {
         }
     });
 }
+
+
+function editProcess(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $.ajax({
+        url: "/Conteudos/ConsultarProcesso.aspx/EditProcess",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        type: 'POST',
+        data: JSON.stringify({ index: index }),
+        success: function (data) {
+            if (data.d != '')
+                window.location = data.d;
+        }
+    });
+}
