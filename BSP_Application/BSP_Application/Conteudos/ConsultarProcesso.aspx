@@ -20,14 +20,17 @@
                 <br />
 
                 <center>
-                <asp:GridView ID="gdvProcesso" runat="server" DataKeyNames="Id" CellPadding="5" ClientIDMode="Static">
                  <asp:ScriptManager ID = "ScriptManager2" runat = "server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="upGridProcessos" runat="server" ClientIDMode="Static" UpdateMode="Conditional" >
                 <ContentTemplate>
+                <asp:GridView ID="gdvProcesso" runat="server" DataKeyNames="Id" CellPadding="5" ClientIDMode="Static" AutoGenerateColumns="false">
                     <Columns>
+                         <asp:BoundField DataField="Nome" HeaderText="Nome" ReadOnly="True" SortExpression="Nome" />
+                        <asp:BoundField DataField="Descricao" HeaderText="Descrição" ReadOnly="True" SortExpression="Descricao" />
+                        <asp:BoundField DataField="Projeto" HeaderText="Projeto Associado" ReadOnly="True" SortExpression="Projeto" />
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+                                <button class="btn btn-block" onclick="editProcess(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
                             </ItemTemplate>
                         </asp:TemplateField>
 

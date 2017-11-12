@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -14,7 +15,9 @@ namespace BSP_Application.Conteudos
         {
             if (!IsPostBack)
             {
-                gdvProcesso.DataSource = AdicionarRegistos.GetAllProcess();
+
+                Session["ListaProcessos"] = AdicionarRegistos.GetAllProcess();
+                gdvProcesso.DataSource = Session["ListaProcessos"];
                 gdvProcesso.DataBind();
 
             }
