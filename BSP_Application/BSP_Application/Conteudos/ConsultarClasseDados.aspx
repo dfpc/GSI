@@ -16,7 +16,7 @@
 
                 <h4>Consultar Classe de Dados</h4>
                 <br />
-                <br />
+                <br /> 
                 <center>
                 <asp:GridView ID="gdvClassesDados"  runat="server"  CellPadding="5">
                     <Columns>
