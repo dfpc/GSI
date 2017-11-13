@@ -105,8 +105,6 @@ function editProject(btn) {
     });
 }
 
-<<<<<<< HEAD
-
 function editProcess(btn) {
     var index = btn.parentNode.parentNode.rowIndex;
     $.ajax({
@@ -120,13 +118,11 @@ function editProcess(btn) {
                 window.location = data.d;
         }
     });
-=======
+}
+
 $(".btn").click(function (evt) {
     // This stops the form submission.
     evt.preventDefault();
-
-
-    // Carry on with your code here.
 });
 
 function DeleteEntidade() {
@@ -151,5 +147,4 @@ function ShowModal(btn) {
     var index = btn.parentNode.parentNode.rowIndex;
     $('#lkbDeleteEntity').attr('data-index', index);
     $('#deleteConfirm').modal();
->>>>>>> 37362095b9ac0342f1149fb65d39ba574c511ed2
 }

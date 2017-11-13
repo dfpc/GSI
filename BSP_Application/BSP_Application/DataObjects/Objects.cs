@@ -43,6 +43,14 @@ namespace BSP_Application.DataObjects
         public string Descricao { get; set; }
     }
 
+    public class ProjetoOrganizacao
+    {
+        public int IDProjeto { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public bool Associar { get; set; }
+    }
+
     public class Organizacao
     {
         public int Id { get; set; }
