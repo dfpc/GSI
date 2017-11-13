@@ -148,5 +148,13 @@ namespace BSP_Application.DataObjects
                     idprocess, nome, descricao, idproject);
             }
         }
+
+        public static List<Aplicacao> GetAllAplications()
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<Aplicacao>("SELECT * FROM Aplicacao").ToList();
+            }
+        }
     }
 }
