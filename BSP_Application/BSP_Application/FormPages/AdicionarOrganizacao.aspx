@@ -46,11 +46,11 @@
                                 <Columns>
                                     <asp:BoundField DataField="Nome" HeaderText="Nome" ReadOnly="True" SortExpression="Nome" />
                                     <asp:BoundField DataField="Descricao" HeaderText="Descrição" ReadOnly="True" SortExpression="Descricao" />
-                                    <asp:TemplateField HeaderText="Associar">
+                                  <%--  <asp:TemplateField HeaderText="Associar">
                                         <ItemTemplate>
                                             <asp:CheckBox ID="ckbAssociar" runat="server" Checked="<%#Bind("Associar")%>"></asp:CheckBox>
                                         </ItemTemplate>
-                                    </asp:TemplateField>
+                                    </asp:TemplateField>--%>
                                     <asp:TemplateField>
                                         <ItemTemplate>
                                             <button class="btn btn-block" onclick="editProject(this);" style="background-color: #FFFFFF; cursor: pointer; color: green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>

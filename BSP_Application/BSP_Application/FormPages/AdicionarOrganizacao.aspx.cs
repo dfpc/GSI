@@ -16,8 +16,8 @@ namespace BSP_Application.FormPages
         {
             if (!IsPostBack)
             {
-                //gdvProjetos.DataSource = AdicionarRegistos.GetAllProjectsToOrganization();
-                //gdvProjetos.DataBind();
+                gdvProjetos.DataSource = AdicionarRegistos.GetAllProjectsToOrganization();
+                gdvProjetos.DataBind();
             }
         }
 
