@@ -18,9 +18,22 @@ namespace BSP_Application.Matrizes
         {
             if (!IsPostBack)
             {
+
                 SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT O.Nome, P.Nome FROM Organizacao O, Processo P WHERE O.IDProjeto=P.IDProjeto", conn);
+                string com = "Select Nome, IDProjeto from Projeto";
+                SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
+                DataTable dt = new DataTable();
+                adpt.Fill(dt);
+                ListaProjetos.DataSource = dt;
+                ListaProjetos.DataTextField = "Nome";
+                ListaProjetos.DataValueField = "IDProjeto";
+                ListaProjetos.DataBind();
+
+
+
+                SqlConnection conn2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
+                conn2.Open();
+                SqlCommand cmd = new SqlCommand("SELECT O.Nome, P.Nome FROM Organizacao O, Processo P, OrganizacaoProjeto OP WHERE OP.IDProjeto=P.IDProjeto AND OP.IDOrganizacao=O.Id", conn2);
                 SqlDataReader rd = cmd.ExecuteReader();
                 table.Append("<table border='1'>");
                 table.Append("<tr><th>Processos/Organização</th>");

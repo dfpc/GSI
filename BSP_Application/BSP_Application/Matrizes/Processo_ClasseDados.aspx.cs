@@ -21,43 +21,55 @@ namespace BSP_Application.Matrizes
             if (!IsPostBack)
             {
                 SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CD.Nome AS Classe, P.Nome AS Processo FROM ClasseDados CD, Processo P WHERE CD.IDProjeto=P.IDProjeto", conn);
-                SqlDataReader rd = cmd.ExecuteReader();
-                table.Append("<table border='1'>");
-                table.Append("<tr><th>Processos/Classe de Dados</th>");
+                string com = "Select Nome, IDProjeto from Projeto";
+                SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
+                DataTable dt = new DataTable();
+                adpt.Fill(dt);
+                ListaProjetos.DataSource = dt;
+                ListaProjetos.DataTextField = "Nome";
+                ListaProjetos.DataValueField = "IDProjeto";
+                ListaProjetos.DataBind();
 
-                if (rd.HasRows)
-                {
-                    int count = 0;
-                    while(rd.Read())
-                    {
-                       
-                        table.Append("<th class='verticalTableHeader'>" + rd[0] + "</th>");
-                        count++;
+                 /*SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
+                 conn.Open();
+                 //SqlCommand cmd = new SqlCommand("SELECT CD.Nome AS Classe, P.Nome AS Processo FROM ClasseDados CD, Processo P WHERE CD.IDProjeto=P.IDProjeto", conn);
+                 SqlCommand cmd = new SqlCommand("SELECT CD.Nome AS Classe, P.Nome AS Processo FROM ClasseDados CD, Processo P, OrganizacaoProjeto WHERE CD.IDProjeto=OP.IDProjeto", conn);
+                 SqlDataReader rd = cmd.ExecuteReader();
+                 table.Append("<table border='1'>");
+                 table.Append("<tr><th>Processos/Classe de Dados</th>");
 
-                    }
-                    table.Append("</tr>");
-                    rd.Close();
-                   
+                 if (rd.HasRows)
+                 {
+                     int count = 0;
+                     while(rd.Read())
+                     {
+
+                         table.Append("<th class='verticalTableHeader'>" + rd[0] + "</th>");
+                         count++;
+
+                     }
+                     table.Append("</tr>");
+                     rd.Close();
 
 
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        table.Append("<tr>");
-                        table.Append("<td>" + dr[1] +"</td>");
-                        for (var i = 0; i < count; i++)
-                        {
-                            table.Append("<td></td>");
-                        }
-                        table.Append("</tr>");
 
-                    }
-                    dr.Close();
-                }
-                table.Append("</table>");
-                ProcessoClasse.Controls.Add(new Literal { Text = table.ToString() });
+                     SqlDataReader dr = cmd.ExecuteReader();
+                     while (dr.Read())
+                     {
+                         table.Append("<tr>");
+                         table.Append("<td>" + dr[1] +"</td>");
+                         for (var i = 0; i < count; i++)
+                         {
+                             table.Append("<td></td>");
+                         }
+                         table.Append("</tr>");
+
+                     }
+                     dr.Close();
+                 }
+                 table.Append("</table>");
+                 ProcessoClasse.Controls.Add(new Literal { Text = table.ToString() });
+                 */
 
             }
         }

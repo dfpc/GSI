@@ -15,6 +15,12 @@
                 <h4>Matriz Processos/Classe de Dados</h4>
                 <br />
                 <br />
+                  <label for="ListaProjetos" class="col-sm-4 control-label">Projeto Associado</label>
+                        <div class="col-sm-8">
+                        <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%"/>
+                           <br />
+
+                        </div>
                 <center>
                 <asp:PlaceHolder ID="ProcessoClasse" runat="server"></asp:PlaceHolder>
                 </center>
