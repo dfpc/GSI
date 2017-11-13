@@ -14,6 +14,8 @@
             <a href="/Conteudos/ConsultarOrganizacao.aspx" style="font-size:small;" class="list-group-item">Consultar Organizações</a>
             <a href="/FormPages/RegistoClasseDados.aspx" style="font-size:small;" class="list-group-item">Registar Classe de Dados</a>
             <a href="/Conteudos/ConsultarClasseDados.aspx" style="font-size:small;" class="list-group-item">Consultar Classes de Dados</a>
+             <a href="/FormPages/RegistoAplicacoes.aspx" style="font-size:small;" class="list-group-item">Registar Aplicações</a>
+            <a href="/Conteudos/ConsultarAplicacoes.aspx" style="font-size:small;" class="list-group-item">Consultar Aplicações</a>
         </div>
         <a href="#Matrizes1" class="list-group-item" data-toggle="collapse" data-parent="#MainMenu">Preencher Matriz da Arquitetura de Informação</a>
         <div class="collapse" id="Matrizes1">

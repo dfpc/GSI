@@ -188,6 +188,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Conteudos\ConsultarAplicacoes.aspx" />
     <Content Include="Conteudos\ConsultarClasseDados.aspx" />
     <Content Include="Conteudos\ConsultarEntidades.aspx" />
     <Content Include="Conteudos\ConsultarOrganizacao.aspx" />
@@ -199,6 +200,7 @@
     <Content Include="FormPages\PrioridadesAplicacoes.aspx" />
     <Content Include="FormPages\RegistarUtilizador.aspx" />
     <Content Include="FormPages\RegisterProcess.aspx" />
+    <Content Include="FormPages\RegistoAplicacoes.aspx" />
     <Content Include="FormPages\RegistoClasseDados.aspx" />
     <Content Include="FormPages\RegistoFuncoesEquipa.aspx" />
     <Content Include="FormPages\SumariacaoEntrevistas.aspx" />
@@ -263,6 +265,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="Conteudos\ConsultarAplicacoes.aspx.cs">
+      <DependentUpon>ConsultarAplicacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Conteudos\ConsultarAplicacoes.aspx.designer.cs">
+      <DependentUpon>ConsultarAplicacoes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Conteudos\ConsultarClasseDados.aspx.cs">
       <DependentUpon>ConsultarClasseDados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -349,6 +358,13 @@
     </Compile>
     <Compile Include="FormPages\RegisterProcess.aspx.designer.cs">
       <DependentUpon>RegisterProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormPages\RegistoAplicacoes.aspx.cs">
+      <DependentUpon>RegistoAplicacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormPages\RegistoAplicacoes.aspx.designer.cs">
+      <DependentUpon>RegistoAplicacoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormPages\RegistoClasseDados.aspx.cs">
       <DependentUpon>RegistoClasseDados.aspx</DependentUpon>

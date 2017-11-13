@@ -5,3 +5,6 @@ BSP_Application/.vs/BSP_Application/v15/.suo
 *.ldf
 *.mdf
 *.ldf
+*.config
+*.config
+BSP_Application/.vs/config/applicationhost.config
