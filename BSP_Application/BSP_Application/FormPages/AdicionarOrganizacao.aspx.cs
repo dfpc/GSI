@@ -17,13 +17,20 @@ namespace BSP_Application.FormPages
         {
             if (!IsPostBack)
             {
-                if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+                if (!string.IsNullOrEmpty(Request.QueryString["id"])) {
+                    EditOrganization(Convert.ToInt32(Request.QueryString["id"]));
                     Session["Projetos"] = AdicionarRegistos.GetAllProjectsToEditOrganization(Convert.ToInt32(Request.QueryString["id"]));
+                }
                 else
                     Session["Projetos"] = AdicionarRegistos.GetAllProjectsToOrganization();
                 gdvProjetos.DataSource = Session["Projetos"];
                 gdvProjetos.DataBind();
             }
+        }
+
+        private void EditOrganization(int id)
+        {
+
         }
 
         [WebMethod]
