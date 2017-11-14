@@ -41,14 +41,14 @@
 
 function CheckLoginData() {
     var error = false;
-    if ($('#tbxUsername').val() == ''){
+    if ($('#tbxUsername').val() == '') {
         $('#tbxUsername').addClass("is-invalid");
         error = true;
     }
     else
         $('#tbxUsername').removeClass("is-invalid");
 
-    if ($('#tbxPassword').val() == ''){
+    if ($('#tbxPassword').val() == '') {
         $('#tbxPassword').addClass("is-invalid");
         error = true;
     }
@@ -57,7 +57,7 @@ function CheckLoginData() {
     return error;
 }
 
-function ValidateProcessFields(){
+function ValidateProcessFields() {
     var error = false;
     if ($('#inputNome').val() == '') {
         $('#inputNome').addClass("is-invalid");
@@ -68,7 +68,7 @@ function ValidateProcessFields(){
     return error;
 }
 
-function ValidateOrganizationFields(){
+function ValidateOrganizationFields() {
     var error = false;
     if ($('#inputNome').val() == '') {
         $('#inputNome').addClass("is-invalid");
@@ -133,9 +133,9 @@ function DeleteEntidade() {
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({ index: $('#lkbDeleteEntity').attr('data-index') }),
         success: function (data) {
-            if (data.d==true)
+            if (data.d == true)
                 window.location = window.location;
-            else{
+            else {
                 $('#deleteConfirm').modal('hide');
                 $('#DeleteError').modal();
             }
@@ -147,4 +147,30 @@ function ShowModal(btn) {
     var index = btn.parentNode.parentNode.rowIndex;
     $('#lkbDeleteEntity').attr('data-index', index);
     $('#deleteConfirm').modal();
+}
+
+var projects = [];
+function SelectProject(check) {
+    var index = check.parentNode.parentNode.rowIndex;
+    if (check.checked)
+        projects.push(index);
+    else
+        for (i = 0; i < projects.length; i++)
+            if (projects[i] == index)
+                projects.splice(i, 1);
+}
+
+function SaveOrganization() {
+    if (!ValidateOrganizationFields()) {
+        $.ajax({
+            type: 'POST',
+            url: "/FormPages/AdicionarOrganizacao.aspx/SaveOrganization",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ nome: $('#inputNome').val(), descricao: $('#comment').val(), projetos: projects }),
+            success: function (data) {
+                window.location = "/Conteudos/ConsultarOrganizacao.aspx";
+            }
+        });
+    }
 }

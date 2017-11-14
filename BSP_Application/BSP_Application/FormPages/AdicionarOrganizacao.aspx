@@ -27,37 +27,32 @@
                         <label for="comment" class="col-sm-2 control-label">Descrição</label>
 
                         <div class="col-sm-8">
-                            <textarea class="form-control" rows="5" id="comment" placeholder="Descrição" runat="server"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <asp:Button ID="btnSave" CssClass="btn btn-block btn-success" Style="width: 20%" runat="server" OnClick="btnSave_Click" OnClientClick="return !ValidateOrganizationFields();" Text="Guardar"></asp:Button>
-                            <br />
-
+                            <textarea class="form-control" rows="5" id="comment" placeholder="Descrição" runat="server" clientidmode="static"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
 
-                        <label for="ListaProjetos" class="col-sm-4 control-label">Projetos Associados</label>
+                        <label for="ListaProjetos" class="col-sm-4 control-label">Projetos para associar</label>
                         <div class="col-sm-12">
                             <asp:GridView ID="gdvProjetos" runat="server" DataKeyNames="IDProjeto" CellPadding="10" AutoGenerateColumns="false">
                                 <Columns>
                                     <asp:BoundField DataField="Nome" HeaderText="Nome" ReadOnly="True" SortExpression="Nome" />
                                     <asp:BoundField DataField="Descricao" HeaderText="Descrição" ReadOnly="True" SortExpression="Descricao" />
-                                  <%--  <asp:TemplateField HeaderText="Associar">
+                                    <asp:TemplateField HeaderText="Associar">
                                         <ItemTemplate>
-                                            <asp:CheckBox ID="ckbAssociar" runat="server" Checked="<%#Bind("Associar")%>"></asp:CheckBox>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>--%>
-                                    <asp:TemplateField>
-                                        <ItemTemplate>
-                                            <button class="btn btn-block" onclick="editProject(this);" style="background-color: #FFFFFF; cursor: pointer; color: green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+                                            <input type="checkbox" ID="ckbAssociar" runat="server" HeaderText="IsSubscribed" Checked='<%#bool.Parse(Eval("Associar").ToString())%>' onchange="SelectProject(this);"/>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button ID="btnSave" Class="btn btn-block btn-success" Style="width: 20%" runat="server" onclick="SaveOrganization();">Guardar</button>
+                            <br />
 
                         </div>
                     </div>

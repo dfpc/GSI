@@ -40,15 +40,6 @@ namespace BSP_Application.FormPages {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea comment;
         
         /// <summary>
-        /// Controle btnSave.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
-        
-        /// <summary>
         /// Controle gdvProjetos.
         /// </summary>
         /// <remarks>
@@ -56,5 +47,14 @@ namespace BSP_Application.FormPages {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvProjetos;
+        
+        /// <summary>
+        /// Controle btnSave.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnSave;
     }
 }
