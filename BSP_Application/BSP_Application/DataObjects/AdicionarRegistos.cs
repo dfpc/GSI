@@ -33,12 +33,20 @@ namespace BSP_Application.DataObjects
             }
         }
 
-        public static void InsertOrganization(string name, string description, int idproject)
+        public static int InsertOrganization(string name, string description)
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                db.Database.ExecuteSqlCommand("INSERT INTO Organizacao (IDProjeto, Nome, Descricao) VALUES({0}, {1}, {2})",
-                    idproject, name, description);
+               return db.Database.SqlQuery<int>("INSERT INTO Organizacao (Nome, Descricao) VALUES({0}, {1}) SELECT CAST(SCOPE_IDENTITY() AS INT)", name, description).FirstOrDefault();
+            }
+        }
+
+        public static void InsertOrganizationProject(int idorganizacao, int idprojeto)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("INSERT INTO OrganizacaoProjeto (IDProjeto, IDOrganizacao) VALUES({0}, {1})", 
+                    idprojeto, idorganizacao);
             }
         }
 

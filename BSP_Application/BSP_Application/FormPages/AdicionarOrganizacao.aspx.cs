@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -16,14 +17,23 @@ namespace BSP_Application.FormPages
         {
             if (!IsPostBack)
             {
-                gdvProjetos.DataSource = AdicionarRegistos.GetAllProjectsToOrganization();
+                Session["Projetos"] = AdicionarRegistos.GetAllProjectsToOrganization();
+                gdvProjetos.DataSource = Session["Projetos"];
                 gdvProjetos.DataBind();
             }
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        [WebMethod]
+        public static void SaveOrganization(string nome, string descricao, int[] projetos)
         {
-            //AdicionarRegistos.InsertOrganization(inputNome.Value, comment.Value, Int32.Parse(ListaProjetos.SelectedValue));
+            int id = AdicionarRegistos.InsertOrganization(nome, descricao);
+            if (HttpContext.Current.Session["Projetos"] == null) return;
+            List<ProjetoOrganizacao> po = HttpContext.Current.Session["Projetos"] as List<ProjetoOrganizacao>;
+
+            foreach (int i in projetos)
+            {
+                AdicionarRegistos.InsertOrganizationProject(id, po.ElementAt(i).IDProjeto);
+            }
         }
     }
 }
