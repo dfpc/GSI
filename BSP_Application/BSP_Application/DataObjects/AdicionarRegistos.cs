@@ -111,7 +111,7 @@ namespace BSP_Application.DataObjects
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                db.Database.ExecuteSqlCommand("DELETE OrganizacaoProcesso WHERE IDOrganizacao = {0}", idorganization);
+                db.Database.ExecuteSqlCommand("DELETE OrganizacaoProjeto WHERE IDOrganizacao = {0}", idorganization);
             }
         }
 
@@ -119,7 +119,7 @@ namespace BSP_Application.DataObjects
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                db.Database.ExecuteSqlCommand("DELETE OrganizacaoProcesso WHERE IDProjeto = {0}", idproject);
+                db.Database.ExecuteSqlCommand("DELETE OrganizacaoProjeto WHERE IDProjeto = {0}", idproject);
             }
         }
 
@@ -162,7 +162,7 @@ namespace BSP_Application.DataObjects
                 return db.Database.SqlQuery<Projeto>("SELECT * FROM PROJETO WHERE IDProjeto = {0}", idproject).FirstOrDefault();
             }
         }
-
+        
         public static void EditProject(int idproject, string nome, string descricao)
         {
             using (DataBaseConnect db = new DataBaseConnect())
@@ -181,11 +181,28 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static void EditOrganization(int id, string nome, string descricao)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("UPDATE Organizacao SET Nome = {1}, Descricao = {2} WHERE Id = {0}",
+                    id, nome, descricao);
+            }
+        }
+
         public static Processo GetProcessById(int idprocess)
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
                 return db.Database.SqlQuery<Processo>("SELECT * FROM PROCESSO WHERE Id = {0}", idprocess).FirstOrDefault();
+            }
+        }
+
+        public static Organizacao GetOrganizacaoById(int id)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<Organizacao>("SELECT * FROM Organizacao WHERE Id = {0}", id).FirstOrDefault();
             }
         }
 

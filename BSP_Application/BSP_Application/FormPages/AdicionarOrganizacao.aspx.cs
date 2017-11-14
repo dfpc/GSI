@@ -17,8 +17,10 @@ namespace BSP_Application.FormPages
         {
             if (!IsPostBack)
             {
-                if (!string.IsNullOrEmpty(Request.QueryString["id"])) {
+                if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+                {
                     EditOrganization(Convert.ToInt32(Request.QueryString["id"]));
+                    hdIdOrganizacao.Value = Request.QueryString["id"];
                     Session["Projetos"] = AdicionarRegistos.GetAllProjectsToEditOrganization(Convert.ToInt32(Request.QueryString["id"]));
                 }
                 else
@@ -30,19 +32,29 @@ namespace BSP_Application.FormPages
 
         private void EditOrganization(int id)
         {
-
+            Organizacao o = AdicionarRegistos.GetOrganizacaoById(id);
+            inputNome.Value = o.Nome;
+            comment.Value = o.Descricao;
         }
 
         [WebMethod]
-        public static void SaveOrganization(string nome, string descricao, int[] projetos)
+        public static void SaveOrganization(string nome, string descricao, int[] projetos, int? id)
         {
-            int id = AdicionarRegistos.InsertOrganization(nome, descricao);
+            if (id != null && id > 0)
+            {
+                //AdicionarRegistos.DeleteOrganizationProjectByOrganization((int)id);
+                AdicionarRegistos.EditOrganization((int)id, nome, descricao);
+            }
+            else
+            {
+                id = AdicionarRegistos.InsertOrganization(nome, descricao);
+            }
             if (HttpContext.Current.Session["Projetos"] == null) return;
             List<ProjetoOrganizacao> po = HttpContext.Current.Session["Projetos"] as List<ProjetoOrganizacao>;
 
             foreach (int i in projetos)
             {
-                AdicionarRegistos.InsertOrganizationProject(id, po.ElementAt(i).IDProjeto);
+                AdicionarRegistos.InsertOrganizationProject((int)id, po.ElementAt(i).IDProjeto);
             }
         }
     }

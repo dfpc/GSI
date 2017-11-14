@@ -12,7 +12,7 @@
     <div class="card card-outline-secondary my-4">
         <div class="card-body">
             <div class="container-fluid">
-
+                  <input type="hidden" runat="server" clientidmode="static" id="hdIdOrganizacao"/>
                 <h4>Registar Organização</h4>
                 <br />
                 <br />

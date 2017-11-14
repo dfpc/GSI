@@ -182,7 +182,7 @@ function SaveOrganization() {
             url: "/FormPages/AdicionarOrganizacao.aspx/SaveOrganization",
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({ nome: $('#inputNome').val(), descricao: $('#comment').val(), projetos: projects }),
+            data: JSON.stringify({ nome: $('#inputNome').val(), descricao: $('#comment').val(), projetos: projects, id: $('#hdIdOrganizacao').val() }),
             success: function (data) {
                 window.location = "/Conteudos/ConsultarOrganizacao.aspx";
             }
