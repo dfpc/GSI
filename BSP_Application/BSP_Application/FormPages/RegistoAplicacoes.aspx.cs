@@ -28,5 +28,23 @@ namespace BSP_Application.FormPages
                 ListaProjetos.DataBind();
             }
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+          
+                string nome = inputNome.Value;
+                string descricao = comment.Value;
+                int idprojeto = ListaProjetos.SelectedIndex;
+
+                SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
+                string sql = "INSERT INTO Aplicacao (Nome, Descricao, IdProjeto) values (@nome, @descricao, @projeto)";
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.Parameters.AddWithValue("@descricao", descricao);
+                cmd.Parameters.AddWithValue("@projeto", idprojeto);
+                cmd.ExecuteNonQuery();
+            
+        }
     }
 }

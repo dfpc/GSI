@@ -18,20 +18,26 @@
                 <br />
                 <br />
                 <center>
-                <!--<asp:GridView ID="gdvEntidades"  runat="server"  CellPadding="10" AutoGenerateColumns="false">
+                <asp:GridView ID="gdvAplicacoes"  runat="server"  CellPadding="10" AutoGenerateColumns="false">
                     <Columns>
                         <asp:BoundField DataField="Nome" HeaderText="Nome" ReadOnly="True" SortExpression="Nome" />
-                        <asp:BoundField DataField="Tipo" HeaderText="Tipo" ReadOnly="True" SortExpression="Tipo" />
+                        <asp:BoundField DataField="Descricao" HeaderText="Descrição" ReadOnly="True" SortExpression="Tipo" />
                         <asp:TemplateField>
+                             <ItemTemplate>
+                              <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+                            </ItemTemplate>
+                       </asp:TemplateField>
+                                                <asp:TemplateField>
+
                             <ItemTemplate>
                                <!-- <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>-->
-                                  <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red" runat="server" type="button" onclick="ShowModal(this);">
+                                  <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red" runat="server" type="button">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
-                </asp:GridView>-->
+                </asp:GridView>
                 </center>
             </div>
             <!-- /.card -->

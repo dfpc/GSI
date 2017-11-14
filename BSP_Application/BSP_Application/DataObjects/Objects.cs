@@ -68,4 +68,14 @@ namespace BSP_Application.DataObjects
         public string Tipo { get; set; }
         public string NomeTipo { get; set; }
     }
+
+    public class Aplicacao
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public int IDProjeto { get; set; }
+
+
+    }
 }
