@@ -120,6 +120,21 @@ function editProcess(btn) {
     });
 }
 
+function EditOrganization(btn){
+    var index = btn.parentNode.parentNode.rowIndex;
+    $.ajax({
+        url: "/Conteudos/ConsultarOrganizacao.aspx/EditOrganization",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        type: 'POST',
+        data: JSON.stringify({ index: index }),
+        success: function (data) {
+            if (data.d != '')
+                window.location = data.d;
+        }
+    });
+}
+
 $(".btn").click(function (evt) {
     // This stops the form submission.
     evt.preventDefault();

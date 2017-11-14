@@ -103,7 +103,7 @@ namespace BSP_Application.DataObjects
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                return db.Database.SqlQuery<ProjetoOrganizacao>("exec GetAllProjectsToOrganization {0}", idorganization).ToList();
+                return db.Database.SqlQuery<ProjetoOrganizacao>("exec spGetAllProjectsByOrganization {0}", idorganization).ToList();
             }
         }
 

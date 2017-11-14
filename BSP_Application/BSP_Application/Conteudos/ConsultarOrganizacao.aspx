@@ -22,7 +22,7 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                              <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+                              <button class="btn btn-block" onclick="EditOrganization(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
