@@ -194,6 +194,7 @@
     <Content Include="Conteudos\ConsultarOrganizacao.aspx" />
     <Content Include="Conteudos\ConsultarProcesso.aspx" />
     <Content Include="Conteudos\ConsultarProjetos.aspx" />
+    <Content Include="Conteudos\ConsultarSumariacaoEntrevistas.aspx" />
     <Content Include="FormPages\AdicionarEntidade.aspx" />
     <Content Include="FormPages\AdicionarOrganizacao.aspx" />
     <Content Include="FormPages\AdicionarProjeto.aspx" />
@@ -306,6 +307,13 @@
     </Compile>
     <Compile Include="Conteudos\ConsultarProjetos.aspx.designer.cs">
       <DependentUpon>ConsultarProjetos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Conteudos\ConsultarSumariacaoEntrevistas.aspx.cs">
+      <DependentUpon>ConsultarSumariacaoEntrevistas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Conteudos\ConsultarSumariacaoEntrevistas.aspx.designer.cs">
+      <DependentUpon>ConsultarSumariacaoEntrevistas.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataObjects\AdicionarRegistos.cs" />
     <Compile Include="DataObjects\DataBaseConnect.cs" />
