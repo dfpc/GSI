@@ -29,12 +29,14 @@ namespace BSP_Application.FormPages
             }
         }
 
-        protected void btnSave_Click(object sender, EventArgs e)
+        protected void Guardar_Aplicacao(object sender, EventArgs e)
         {
-          
+            
                 string nome = inputNome.Value;
                 string descricao = comment.Value;
-                int idprojeto = ListaProjetos.SelectedIndex;
+                int idprojeto = Int32.Parse(ListaProjetos.SelectedValue);
+
+
 
                 SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
                 string sql = "INSERT INTO Aplicacao (Nome, Descricao, IdProjeto) values (@nome, @descricao, @projeto)";
