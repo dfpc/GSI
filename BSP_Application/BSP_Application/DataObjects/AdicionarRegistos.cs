@@ -164,5 +164,13 @@ namespace BSP_Application.DataObjects
                 return db.Database.SqlQuery<Aplicacao>("SELECT * FROM Aplicacao").ToList();
             }
         }
+
+        public static List<Problema> GetAllSumariacao()
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<Problema>("SELECT P.GrupoProcesso, P.Causa, P.Efeito, P.Importancia, P.PotencialSolucao, PR.Nome AS ProcessoC, CD.Nome AS ClasseC FROM Problema P, Processo PR, ClasseDados CD WHERE P.IDClasseDados = CD.Id AND P.IDProcesso = PR.Id").ToList();
+            }
+        }
     }
 }

@@ -75,7 +75,17 @@ namespace BSP_Application.DataObjects
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public int IDProjeto { get; set; }
+    }
 
+    public class Problema
+    {
+        public string GrupoProcesso { get; set; }
+        public string Causa { get; set; }
+        public string Efeito { get; set; }
+        public string Importancia { get; set; }
+        public string ProcessoC { get; set; }
+        public string ClasseC { get; set; }
+        public string PotencialSolucao { get; set; }
 
     }
 }
