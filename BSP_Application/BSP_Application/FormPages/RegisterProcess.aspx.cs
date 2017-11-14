@@ -49,19 +49,11 @@ namespace BSP_Application.FormPages
         {
             if (!string.IsNullOrEmpty(Request.QueryString["id"]))
             {
-                AdicionarRegistos.InsertProcess(inputNome.Value, comment.Value, Int32.Parse(ListaProjetos.SelectedValue));
+                AdicionarRegistos.EditProcess(Convert.ToInt32(Request.QueryString["id"]), inputNome.Value, comment.Value, Int32.Parse(ListaProjetos.SelectedValue), camadasDrop.Text);
             }
             else
-            { 
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-            string com = "Select Nome, IDProjeto from Projeto";
-            SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
-            DataTable dt = new DataTable();
-            adpt.Fill(dt);
-            ListaProjetos.DataSource = dt;
-            ListaProjetos.DataTextField = "Nome";
-            ListaProjetos.DataValueField = "IDProjeto";
-            ListaProjetos.DataBind();
+            {
+                AdicionarRegistos.InsertProcess(inputNome.Value, comment.Value, Int32.Parse(ListaProjetos.SelectedValue), camadasDrop.Text);
             }
             Response.Redirect("/Conteudos/ConsultarProcesso.aspx");
 

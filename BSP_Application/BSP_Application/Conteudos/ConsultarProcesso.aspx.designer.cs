@@ -22,24 +22,6 @@ namespace BSP_Application.Conteudos {
         protected global::BSP_Application.UserControls.MainMenu MainMenu1;
         
         /// <summary>
-        /// Controle ScriptManager2.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager2;
-        
-        /// <summary>
-        /// Controle upGridProcessos.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upGridProcessos;
-        
-        /// <summary>
         /// Controle gdvProcesso.
         /// </summary>
         /// <remarks>

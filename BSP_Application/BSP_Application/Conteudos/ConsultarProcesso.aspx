@@ -20,9 +20,6 @@
                 <br />
 
                 <center>
-                 <asp:ScriptManager ID = "ScriptManager2" runat = "server"></asp:ScriptManager>
-                <asp:UpdatePanel ID="upGridProcessos" runat="server" ClientIDMode="Static" UpdateMode="Conditional" >
-                <ContentTemplate>
                 <asp:GridView ID="gdvProcesso" runat="server" DataKeyNames="Id" CellPadding="5" ClientIDMode="Static" AutoGenerateColumns="false">
                     <Columns>
                          <asp:BoundField DataField="Nome" HeaderText="Nome" ReadOnly="True" SortExpression="Nome" />
@@ -43,8 +40,6 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
-                         </ContentTemplate>
-                </asp:UpdatePanel>
                     </center>
             </div>
             <!-- /.card -->

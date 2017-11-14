@@ -24,12 +24,12 @@ namespace BSP_Application.DataObjects
             }
         }
 
-        public static void InsertProcess(string name, string description, int idproject)
+        public static void InsertProcess(string name, string description, int idproject, string camada)
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                db.Database.ExecuteSqlCommand("INSERT INTO Processo (IDProjeto, Nome, Descricao) VALUES({0}, {1}, {2})",
-                    idproject, name, description);
+                db.Database.ExecuteSqlCommand("INSERT INTO Processo (IDProjeto, Nome, Descricao, Camada) VALUES({0}, {1}, {2}, {3})",
+                    idproject, name, description, camada);
             }
         }
 
@@ -37,7 +37,7 @@ namespace BSP_Application.DataObjects
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-               return db.Database.SqlQuery<int>("INSERT INTO Organizacao (Nome, Descricao) VALUES({0}, {1}) SELECT CAST(SCOPE_IDENTITY() AS INT)", name, description).FirstOrDefault();
+                return db.Database.SqlQuery<int>("INSERT INTO Organizacao (Nome, Descricao) VALUES({0}, {1}) SELECT CAST(SCOPE_IDENTITY() AS INT)", name, description).FirstOrDefault();
             }
         }
 
@@ -45,7 +45,7 @@ namespace BSP_Application.DataObjects
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                db.Database.ExecuteSqlCommand("INSERT INTO OrganizacaoProjeto (IDProjeto, IDOrganizacao) VALUES({0}, {1})", 
+                db.Database.ExecuteSqlCommand("INSERT INTO OrganizacaoProjeto (IDProjeto, IDOrganizacao) VALUES({0}, {1})",
                     idprojeto, idorganizacao);
             }
         }
@@ -143,8 +143,17 @@ namespace BSP_Application.DataObjects
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                db.Database.ExecuteSqlCommand("UPDATE PROJETO SET Nome = {1}, Descricao = {2} WHERE IDProjeto = {0}", 
+                db.Database.ExecuteSqlCommand("UPDATE PROJETO SET Nome = {1}, Descricao = {2} WHERE IDProjeto = {0}",
                     idproject, nome, descricao);
+            }
+        }
+
+        public static void EditProcess(int id, string nome, string descricao, int projeto, string camada)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("UPDATE Processo SET Nome = {1}, Descricao = {2}, Camada ={3}, IDProjeto = {4} WHERE Id = {0}",
+                    id, nome, descricao, camada, projeto);
             }
         }
 
@@ -153,15 +162,6 @@ namespace BSP_Application.DataObjects
             using (DataBaseConnect db = new DataBaseConnect())
             {
                 return db.Database.SqlQuery<Processo>("SELECT * FROM PROCESSO WHERE Id = {0}", idprocess).FirstOrDefault();
-            }
-        }
-
-        public static void EditProcess(int idprocess, string nome, string descricao, int idproject)
-        {
-            using (DataBaseConnect db = new DataBaseConnect())
-            {
-                db.Database.ExecuteSqlCommand("UPDATE Processo SET Nome = {1}, Descricao = {2}, IDProjeto = {3} WHERE Id = {0}",
-                    idprocess, nome, descricao, idproject);
             }
         }
 

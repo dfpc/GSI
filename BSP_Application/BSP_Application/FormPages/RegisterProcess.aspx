@@ -34,8 +34,8 @@
 
                         <asp:DropDownList ID="camadasDrop" class="form-control" runat="server" style="width:40%">
                             <asp:ListItem Selected="True">Planeamento</asp:ListItem>
-                            <asp:ListItem Value="Aquisi&#231;&#227;o e Implementa&#231;&#227;o">Aquisi&#231;&#227;o e Implementa&#231;&#227;o</asp:ListItem>
-                            <asp:ListItem>Utiliza&#231;&#227;o</asp:ListItem>
+                            <asp:ListItem Value="Aquisição e Implementação">Aquisição e Implementação</asp:ListItem>
+                            <asp:ListItem>Utilização</asp:ListItem>
                             <asp:ListItem>Retirada e Reforma</asp:ListItem>
                         </asp:DropDownList>
                         </div>
@@ -52,7 +52,7 @@
                     <div class="form-group">
 
                         <div class="col-sm-offset-2 col-sm-10">
-                            <asp:Button id="btnSave" cssclass="btn btn-block btn-success" style="width: 20%" runat="server" OnClick="btnSave_Click" OnClientClick="return !ValidateProcessFields();" Text="Guardar"></asp:Button>
+                            <asp:Button id="btnSave" cssclass="btn-block btn-success" style="width: 20%" runat="server" OnClick="btnSave_Click" OnClientClick="return !ValidateProcessFields();" Text="Guardar"></asp:Button>
                             <br />
 
                         </div>
