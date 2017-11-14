@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <a href="#demo5">Adicionar Mais</a><br />
+                          <!--  <a href="#demo5">Adicionar Mais</a><br />-->
                             <br />
                             <button type="button" class="btn btn-block btn-success" style="width: 20%">Guardar</button>
                             <br />

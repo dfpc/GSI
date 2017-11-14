@@ -49,12 +49,12 @@ namespace BSP_Application.FormPages {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea comment;
         
         /// <summary>
-        /// Controle btnSave.
+        /// Controle registaraplicacao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.Button registaraplicacao;
     }
 }
