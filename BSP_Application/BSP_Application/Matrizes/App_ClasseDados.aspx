@@ -15,6 +15,13 @@
                 <h4>Matriz Aplicações/Classe de Dados</h4>
                 <br />
                 <br />
+                 <label for="ListaProjetos" class="col-sm-4 control-label">Projeto Associado</label>
+                   <div class="col-sm-8">
+                    <asp:DropDownList ID="ListaProjetos"   AutoPostBack="True" OnSelectedIndexChanged="ListaProjetos_SelectedIndexChanged" class="form-control" runat="server" style="width:40%"/>
+                      <br />
+                        </div>
+                <center>
+                <asp:PlaceHolder ID="AplicacaoClasse" runat="server"></asp:PlaceHolder>
                 <!--<br />-->
             </div>
             <!-- /.card -->
