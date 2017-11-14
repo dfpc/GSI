@@ -99,6 +99,30 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static List<ProjetoOrganizacao> GetAllProjectsToEditOrganization(int idorganization)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<ProjetoOrganizacao>("exec GetAllProjectsToOrganization {0}", idorganization).ToList();
+            }
+        }
+
+        public static void DeleteOrganizationProjectByOrganization(int idorganization)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("DELETE OrganizacaoProcesso WHERE IDOrganizacao = {0}", idorganization);
+            }
+        }
+
+        public static void DeleteOrganizationProjectByProject(int idproject)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("DELETE OrganizacaoProcesso WHERE IDProjeto = {0}", idproject);
+            }
+        }
+
         public static List<Organizacao> GetAllOrganizations()
         {
             using (DataBaseConnect db = new DataBaseConnect())

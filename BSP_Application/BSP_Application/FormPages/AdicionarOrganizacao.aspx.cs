@@ -17,7 +17,10 @@ namespace BSP_Application.FormPages
         {
             if (!IsPostBack)
             {
-                Session["Projetos"] = AdicionarRegistos.GetAllProjectsToOrganization();
+                if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+                    Session["Projetos"] = AdicionarRegistos.GetAllProjectsToEditOrganization(Convert.ToInt32(Request.QueryString["id"]));
+                else
+                    Session["Projetos"] = AdicionarRegistos.GetAllProjectsToOrganization();
                 gdvProjetos.DataSource = Session["Projetos"];
                 gdvProjetos.DataBind();
             }
