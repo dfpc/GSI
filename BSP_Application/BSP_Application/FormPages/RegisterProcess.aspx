@@ -52,7 +52,7 @@
                     <div class="form-group">
 
                         <div class="col-sm-offset-2 col-sm-10">
-                            <asp:Button id="btnSave" cssclass="btn-block btn-success" style="width: 20%" runat="server" OnClick="btnSave_Click" OnClientClick="return !ValidateProcessFields();" Text="Guardar"></asp:Button>
+                            <asp:Button id="btnSave" cssclass="btn btn-block btn-success" style="width: 20%" runat="server" OnClick="btnSave_Click" OnClientClick="return !ValidateProcessFields();" Text="Guardar"></asp:Button>
                             <br />
 
                         </div>

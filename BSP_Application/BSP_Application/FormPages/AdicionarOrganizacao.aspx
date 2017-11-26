@@ -51,7 +51,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button ID="btnSave" Class="btn btn-block btn-success" Style="width: 20%" runat="server" onclick="SaveOrganization();">Guardar</button>
+                            <button ID="btnSave" Class="btn btn-block btn-success simple-btn" Style="width: 20%" runat="server" onclick="SaveOrganization();">Guardar</button>
                             <br />
 
                         </div>

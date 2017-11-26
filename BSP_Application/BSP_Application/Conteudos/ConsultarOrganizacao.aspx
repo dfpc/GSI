@@ -22,13 +22,13 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                              <button class="btn btn-block" onclick="EditOrganization(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+                              <button class="btn btn-block simple-btn" onclick="EditOrganization(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
 
-                                <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmModal" data-postcommand="">
+                                <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmModal" data-postcommand="">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
@@ -49,14 +49,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title" id="myModalLabel">Remover organização</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close simple-btn" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
                         Confirma que pretende eliminar esta Organização?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Cancelar</button>
                         <asp:LinkButton ID="lkbDeleteOrganization" runat="server" ClientIDMode="Static" OnClick="lkbDeleteOrganization_Click" CssClass="btn btn-primary">Confirmar</asp:LinkButton>
                     </div>
                 </div>

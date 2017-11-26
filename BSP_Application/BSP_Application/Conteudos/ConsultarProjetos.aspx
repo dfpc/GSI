@@ -26,12 +26,12 @@
                         <asp:BoundField DataField="Descricao" HeaderText="Descrição" ReadOnly="True" SortExpression="Descricao" />
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button class="btn btn-block" onclick="editProject(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+                                <button class="btn btn-block simple-btn" onclick="editProject(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmProject"  data-postcommand="">
+                                <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmProject"  data-postcommand="">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
@@ -59,7 +59,7 @@
                     Confirma que pretende eliminar este Projeto?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Cancelar</button>
                     <asp:LinkButton ID="lkbDeleteProject" runat="server" ClientIDMode="Static" OnClick="lkbDeleteProjeto_Click" CssClass="btn btn-primary">Confirmar</asp:LinkButton>
                 </div>
             </div>

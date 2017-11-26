@@ -27,13 +27,13 @@
                         <asp:BoundField DataField="Projeto" HeaderText="Projeto Associado" ReadOnly="True" SortExpression="Projeto" />
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button class="btn btn-block" onclick="editProcess(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+                                <button class="btn btn-block simple-btn" onclick="editProcess(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField>
                             <ItemTemplate>
-                                 <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmProcess" data-postcommand="">
+                                 <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmProcess" data-postcommand="">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
@@ -60,7 +60,7 @@
                         Confirma que pretende eliminar este Processo?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Cancelar</button>
                         <asp:LinkButton ID="lkbDeleteProcess" runat="server" ClientIDMode="Static" OnClick="lkbDeleteProcesso_Click" CssClass="btn btn-primary">Confirmar</asp:LinkButton>
                     </div>
                 </div>

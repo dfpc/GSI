@@ -135,7 +135,7 @@ function EditOrganization(btn){
     });
 }
 
-$(".btn").click(function (evt) {
+$(".simple-btn").click(function (evt) {
     // This stops the form submission.
     evt.preventDefault();
 });

@@ -25,7 +25,7 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                <!-- <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>-->
-                                  <button  class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red" runat="server" type="button" onclick="ShowModal(this);">
+                                  <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red" runat="server" type="button" onclick="ShowModal(this);">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
@@ -50,7 +50,7 @@
                     Confirma que pretende eliminar esta Entidade?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Cancelar</button>
                     <button id="lkbDeleteEntity" runat="server" clientidmode="Static" onclick="DeleteEntidade();" class="btn btn-primary">Confirmar</button>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                     Por favor verifique se tem Classes de dados associadas a esta entidade!
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Ok</button>
                 </div>
             </div>
         </div>
