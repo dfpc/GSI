@@ -20,50 +20,66 @@ namespace BSP_Application.Matrizes
             {
 
                 SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-                string com = "Select Nome, IDProjeto from Projeto";
+                string com = "Select DISTINCT Nome, O.IDProjeto AS idp from Projeto O, OrganizacaoProjeto OP WHERE O.IDProjeto=OP.IDProjeto";
                 SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
                 DataTable dt = new DataTable();
                 adpt.Fill(dt);
                 ListaProjetos.DataSource = dt;
                 ListaProjetos.DataTextField = "Nome";
-                ListaProjetos.DataValueField = "IDProjeto";
+                ListaProjetos.DataValueField = "idp";
                 ListaProjetos.DataBind();
+            }
+        }
 
+        protected void ListaProjetos_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+            int idprojeto = ListaProjetos.SelectedIndex;
+            SqlConnection conn2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
+            conn2.Open();
+            SqlCommand cmd = new SqlCommand("SELECT O.Nome, P.Nome FROM Organizacao O, Processo P, OrganizacaoProjeto OP WHERE OP.IDProjeto=P.IDProjeto AND OP.IDProjeto=@idprojeto AND OP.IDOrganizacao=O.Id ORDER BY O.Nome, P.Nome", conn2);
+            cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
 
-                SqlConnection conn2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-                conn2.Open();
-                SqlCommand cmd = new SqlCommand("SELECT O.Nome, P.Nome FROM Organizacao O, Processo P, OrganizacaoProjeto OP WHERE OP.IDProjeto=P.IDProjeto AND OP.IDOrganizacao=O.Id", conn2);
-                SqlDataReader rd = cmd.ExecuteReader();
-                table.Append("<table border='1'>");
-                table.Append("<tr><th>Processos/Organização</th>");
+            SqlDataReader rd = cmd.ExecuteReader();
+            table.Append("<table border='1'>");
+            table.Append("<tr><th>Processos/Organização</th>");
 
+            string organizacao = "";
                 if (rd.HasRows)
                 {
                     int count = 0;
                     while (rd.Read())
                     {
-
+                        if (organizacao != rd[0].ToString()) { 
                         table.Append("<th class='verticalTableHeader'>" + rd[0] + "</th>");
                         count++;
+                        }
+                         organizacao = rd[0].ToString();
 
-                    }
+                }
                     table.Append("</tr>");
                     rd.Close();
 
 
 
                     SqlDataReader dr = cmd.ExecuteReader();
+                    string processo = "";
+
+
                     while (dr.Read())
                     {
-                        table.Append("<tr>");
-                        table.Append("<td>" + dr[1] + "</td>");
-                        for (var i = 0; i < count; i++)
+                        if (processo != dr[1].ToString())
                         {
-                            table.Append("<td></td>");
-                        }
-                        table.Append("</tr>");
+                            table.Append("<tr>");
+                            table.Append("<td>" + dr[1] + "</td>");
+                            for (var i = 0; i < count; i++)
+                            {
+                                table.Append("<td></td>");
+                            }
+                            table.Append("</tr>");
+                            processo = dr[1].ToString();
 
+                        }
                     }
                     dr.Close();
                 }
@@ -73,4 +89,3 @@ namespace BSP_Application.Matrizes
             }
         }
     }
-}
