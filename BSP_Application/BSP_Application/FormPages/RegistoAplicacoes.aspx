@@ -41,7 +41,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <asp:Button ID="registaraplicacao" runat="server" class="btn-block btn-success" style="width: 20%" Text="Guardar" OnClick="Guardar_Aplicacao"/>
+                            <asp:Button ID="registaraplicacao" runat="server" class="btn-block btn-success" style="width: 20%" Text="Guardar" OnClick="registaraplicacao_Click"/>
                             <br />
 
                         </div>

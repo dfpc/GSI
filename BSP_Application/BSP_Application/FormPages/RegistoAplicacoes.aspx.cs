@@ -29,9 +29,8 @@ namespace BSP_Application.FormPages
             }
         }
 
-        protected void Guardar_Aplicacao(object sender, EventArgs e)
+        protected void registaraplicacao_Click(object sender, EventArgs e)
         {
-            
                 string nome = inputNome.Value;
                 string descricao = comment.Value;
                 int idprojeto = Int32.Parse(ListaProjetos.SelectedValue);
@@ -46,7 +45,7 @@ namespace BSP_Application.FormPages
                 cmd.Parameters.AddWithValue("@descricao", descricao);
                 cmd.Parameters.AddWithValue("@projeto", idprojeto);
                 cmd.ExecuteNonQuery();
-            
+
         }
     }
 }
