@@ -59,7 +59,10 @@
                         <label for="comment" class="col-sm-2 control-label">Importância</label>
 
                         <div class="col-sm-8">
-                            <textarea class="form-control" rows="2" id="importancia" placeholder="Importância" runat="server"></textarea>
+                            <asp:DropDownList ID="ListaImportancia" class="form-control" runat="server" style="width:40%">
+                                <asp:ListItem>Relativa</asp:ListItem>
+                                <asp:ListItem>Cr&#237;tica</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                  <div class="form-group">
