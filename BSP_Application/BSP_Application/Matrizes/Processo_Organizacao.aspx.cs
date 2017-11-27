@@ -34,10 +34,10 @@ namespace BSP_Application.Matrizes
         protected void ListaProjetos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            int idprojeto = ListaProjetos.SelectedIndex;
+            string idprojeto = ListaProjetos.SelectedValue;
             SqlConnection conn2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
             conn2.Open();
-            SqlCommand cmd = new SqlCommand("SELECT O.Nome, P.Nome FROM Organizacao O, Processo P, OrganizacaoProjeto OP WHERE OP.IDProjeto=P.IDProjeto AND OP.IDProjeto=@idprojeto AND OP.IDOrganizacao=O.Id ORDER BY O.Nome, P.Nome", conn2);
+            SqlCommand cmd = new SqlCommand("SELECT O.Nome, P.Nome, O.Id idorg, P.Id idproc FROM Organizacao O, Processo P, OrganizacaoProjeto OP WHERE OP.IDProjeto=P.IDProjeto AND OP.IDProjeto=@idprojeto AND OP.IDOrganizacao=O.Id ORDER BY O.Nome, P.Nome", conn2);
             cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
 
             SqlDataReader rd = cmd.ExecuteReader();
@@ -74,7 +74,13 @@ namespace BSP_Application.Matrizes
                             table.Append("<td>" + dr[1] + "</td>");
                             for (var i = 0; i < count; i++)
                             {
-                                table.Append("<td></td>");
+                                table.Append("<td>"+
+                                             "<center><select onchange='Proc_OrganizacaoChange(this.value, " + dr[2].ToString() + "," + dr[3].ToString() + ");>" +
+                                             "<option value = 'D' > D </ option >"+
+                                             "<option value = 'F' > F </ option >"+
+                                             "<option value = 'A' > A </ option >"+
+                                             "</select></center></td>"
+                                             );
                             }
                             table.Append("</tr>");
                             processo = dr[1].ToString();
