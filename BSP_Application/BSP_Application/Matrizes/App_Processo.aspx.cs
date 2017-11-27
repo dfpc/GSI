@@ -41,6 +41,7 @@ namespace BSP_Application.Matrizes
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT A.Nome, P.Nome, A.Id as IDAplicacao, P.Id as IDProcesso FROM Aplicacao A, Processo P WHERE A.IdProjeto=P.IDProjeto AND A.IdProjeto=@idprojeto ORDER BY A.Nome", con);
             cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
+            List<App_Process> appProcess = new List<App_Process>();
 
             SqlDataReader rd = cmd.ExecuteReader();
             table.Append("<table border='1'>");
@@ -78,11 +79,25 @@ namespace BSP_Application.Matrizes
 
                         for (var i = 0; i < count; i++)
                         {
+                            string aux = AdicionarRegistos.GetAppProcess(Convert.ToInt32(dr[2]), ids[i]);
+                            appProcess.Add(new App_Process() { IDApp = Convert.ToInt32(dr[2]), IDProcess = ids[i], Value = aux });
                             table.Append("<td><select onchange='App_ProcessoChange(this.value, " + dr[2].ToString() + "," + ids[i].ToString() + ");'>");
-                            table.Append("<option Value='0'></option>");
-                            table.Append("<option Value='1'>A</option>");
-                            table.Append("<option Value='2'>P</option>");
-                            table.Append("<option Value='3'>A/P</option>");
+                            if (string.IsNullOrEmpty(aux))
+                            {
+                                table.Append("<option Value='0' selected></option>");
+                            }
+                            if (aux == "A")
+                                table.Append("<option Value='1' selected>A</option>");
+                            else
+                                table.Append("<option Value='1'>A</option>");
+                            if (aux == "P")
+                                table.Append("<option Value='2' selected>P</option>");
+                            else
+                                table.Append("<option Value='2'>P</option>");
+                            if (aux == "A/P")
+                                table.Append("<option Value='3' selected>A/P</option>");
+                            else
+                                table.Append("<option Value='3'>A/P</option>");
                             table.Append("</select></td>");
                         }
                         table.Append("</tr>");
@@ -93,6 +108,7 @@ namespace BSP_Application.Matrizes
             }
             table.Append("</table>");
             AplicacaoProcesso.Controls.Add(new Literal { Text = table.ToString() });
+            Session["ListAppProcess"] = appProcess;
         }
 
         protected void ListaProjetos_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,16 +117,17 @@ namespace BSP_Application.Matrizes
         }
 
         [WebMethod]
+        public static List<App_Process> FirstGet()
+        {
+            if (HttpContext.Current.Session["ListAppProcess"] == null) return new List<App_Process>();
+                return HttpContext.Current.Session["ListAppProcess"] as List<App_Process>;
+        }
+
+        [WebMethod]
         public static void SaveApp_Process(List<App_Process> appProcess)
         {
             foreach (App_Process ap in appProcess)
                 AdicionarRegistos.SaveAppProcess(ap.IDApp, ap.IDProcess, ap.Value);
         }
-    }
-    public class App_Process
-    {
-        public int IDApp { get; set; }
-        public int IDProcess { get; set; }
-        public string Value { get; set; }
     }
 }

@@ -226,7 +226,15 @@ namespace BSP_Application.DataObjects
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                db.Database.ExecuteSqlCommand("INSERT INTO AplicacaoProcesso (IdAplicacao, IDProcesso, Apoio) VALUES({0}, {1}, {2})", idapp, idprocess, value);
+                db.Database.ExecuteSqlCommand("exec spInsertAppProcess @idApp={0}, @Idprocess={1}, @Apoio={2}", idapp, idprocess, value);
+            }
+        }
+
+        public static string GetAppProcess(int idapp, int idprocess)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<string>("SELECT Apoio FROM AplicacaoProcesso WHERE IdAplicacao = {0} AND IDProcesso = {1}", idapp, idprocess).FirstOrDefault();
             }
         }
     }
