@@ -221,5 +221,13 @@ namespace BSP_Application.DataObjects
                 return db.Database.SqlQuery<Problema>("SELECT P.GrupoProcesso, P.Causa, P.Efeito, P.Importancia, P.PotencialSolucao, PR.Nome AS ProcessoC, CD.Nome AS ClasseC FROM Problema P, Processo PR, ClasseDados CD WHERE P.IDClasseDados = CD.Id AND P.IDProcesso = PR.Id").ToList();
             }
         }
+
+        public static void SaveAppProcess(int idapp, int idprocess, string value)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("INSERT INTO AplicacaoProcesso (IdAplicacao, IDProcesso, Apoio) VALUES({0}, {1}, {2})", idapp, idprocess, value);
+            }
+        }
     }
 }
