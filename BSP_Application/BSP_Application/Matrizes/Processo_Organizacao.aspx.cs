@@ -30,6 +30,8 @@ namespace BSP_Application.Matrizes
                 ListaProjetos.DataTextField = "Nome";
                 ListaProjetos.DataValueField = "idp";
                 ListaProjetos.DataBind();
+
+                BuildMatrix();
             }
         }
 
@@ -38,87 +40,99 @@ namespace BSP_Application.Matrizes
             string idprojeto = ListaProjetos.SelectedValue;
             SqlConnection conn2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
             conn2.Open();
-            SqlCommand cmd = new SqlCommand("SELECT O.Nome, P.Nome, O.Id, P.Id  FROM Organizacao O, Processo P, OrganizacaoProjeto OP WHERE OP.IDProjeto=P.IDProjeto AND OP.IDProjeto=@idprojeto AND OP.IDOrganizacao=O.Id ORDER BY O.Nome, P.Nome", conn2);
+            SqlCommand cmd = new SqlCommand("SELECT O.Nome, O.Id FROM Organizacao O, OrganizacaoProjeto OP WHERE OP.IDProjeto=@idprojeto AND OP.IDOrganizacao=O.Id ORDER BY O.Nome", conn2);
             cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
 
             SqlDataReader rd = cmd.ExecuteReader();
+
+            conn2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
+            conn2.Open();
+            cmd = new SqlCommand("SELECT P.Nome, P.Id  FROM Processo P WHERE p.IDProjeto=@idprojeto ORDER BY P.Nome", conn2);
+            cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
+
+            SqlDataReader dr = cmd.ExecuteReader();
             table.Append("<table border='1'>");
             table.Append("<tr><th>Processos/Organização</th>");
             int[] ids = new int[100];
+            List<Org_Process> OrgProcess = new List<Org_Process>();
 
-
-            string organizacao = "";
             if (rd.HasRows)
             {
                 int count = 0;
                 while (rd.Read())
                 {
-                    if (organizacao != rd[0].ToString())
-                    {
-                        table.Append("<th class='verticalTableHeader'>" + rd[0] + "</th>");
-                        ids[count] = Convert.ToInt32(rd[3]);
-                        count++;
-                    }
-                    organizacao = rd[0].ToString();
-
+                    table.Append("<th class='verticalTableHeader'>" + rd[0] + "</th>");
+                    ids[count] = Convert.ToInt32(rd[1]);
+                    count++;
                 }
                 table.Append("</tr>");
                 rd.Close();
 
                 if (ids[0] == 0) return;
 
-                SqlDataReader dr = cmd.ExecuteReader();
-                string processo = "";
-
-
                 while (dr.Read())
                 {
-                    if (processo != dr[1].ToString())
+                    table.Append("<tr>");
+                    table.Append("<td>" + dr[0] + "</td>");
+                    for (var i = 0; i < count; i++)
                     {
-                        table.Append("<tr>");
-                        table.Append("<td>" + dr[1] + "</td>");
-                        for (var i = 0; i < count; i++)
+                        string aux = AdicionarRegistos.GetOrgProcess(Convert.ToInt32(dr[1]), ids[i]);
+                        OrgProcess.Add(new Org_Process() { IDOrg = Convert.ToInt32(dr[1]), IDProcess = ids[i], Value = aux });
+                        table.Append("<td>" +
+                                     "<center><select onchange='Proc_OrganizacaoChange(this.value, " + dr[1].ToString() + "," + ids[i].ToString() + ");'>");
+                        if (string.IsNullOrEmpty(aux))
                         {
-                            table.Append("<td>" +
-                                         "<center><select onchange='Proc_OrganizacaoChange(this.value, " + dr[2].ToString() + "," + ids[i].ToString() + ");'>" +
-                                         "<option value = 'D' > D </ option >" +
-                                         "<option value = 'F' > F </ option >" +
-                                         "<option value = 'A' > A </ option >" +
-                                         "</select></center></td>"
-                                         );
+                            table.Append("<option value = ' ' selected>  </ option >");
                         }
-                        table.Append("</tr>");
-                        processo = dr[1].ToString();
-
-                    }
+                        else
+                            table.Append("<option value = ' '>  </ option >");
+                        if (aux == "A")
+                            table.Append("<option Value='A' selected>A</option>");
+                        else
+                            table.Append("<option value = 'A' > A </ option >");
+                        if (aux == "D")
+                            table.Append("<option Value='D' selected>D</option>");
+                        else
+                            table.Append(" <option value = 'D' > D </ option> ");
+                        if (aux == "A/P")
+                            table.Append("<option Value='F' selected>F</option>");
+                        else
+                            table.Append("<option value = 'F' > F </ option >");
+                        table.Append("</select></center></td>");
                 }
-                dr.Close();
+                table.Append("</tr>");
             }
-            table.Append("</table>");
-            ProcessoOrganizacao.Controls.Add(new Literal { Text = table.ToString() });
-
+            dr.Close();
+        }
+        table.Append("</table>");
+            ProcessoOrganizacao.Controls.Add(new Literal { Text = table.ToString()
+    });
+            Session["ListOrgProcess"] = OrgProcess;
         }
 
+protected void ListaProjetos_SelectedIndexChanged(object sender, EventArgs e)
+{
+    BuildMatrix();
+}
 
+[WebMethod]
+public static List<Org_Process> FirstGet()
+{
+    if (HttpContext.Current.Session["ListOrgProcess"] == null) return new List<Org_Process>();
+    return HttpContext.Current.Session["ListOrgProcess"] as List<Org_Process>;
+}
 
-
-        protected void ListaProjetos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            BuildMatrix();
-        }
-
-        [WebMethod]
-        public static void SaveOrg_Process(List<Org_Process> orgProcess)
-        {
-            foreach (Org_Process op in orgProcess)
-                AdicionarRegistos.SaveOrgProcess(op.IDOrg, op.IDProcess, op.Value);
-        }
+[WebMethod]
+public static void SaveOrg_Process(List<Org_Process> orgProcess)
+{
+    foreach (Org_Process op in orgProcess)
+        AdicionarRegistos.SaveOrgProcess(op.IDOrg, op.IDProcess, op.Value);
+}
     }
     public class Org_Process
-    {
-        public int IDOrg { get; set; }
-        public int IDProcess { get; set; }
-        public string Value { get; set; }
-    }
+{
+    public int IDOrg { get; set; }
+    public int IDProcess { get; set; }
+    public string Value { get; set; }
+}
 }
