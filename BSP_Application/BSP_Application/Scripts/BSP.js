@@ -120,7 +120,7 @@ function editProcess(btn) {
     });
 }
 
-function EditOrganization(btn){
+function EditOrganization(btn) {
     var index = btn.parentNode.parentNode.rowIndex;
     $.ajax({
         url: "/Conteudos/ConsultarOrganizacao.aspx/EditOrganization",
@@ -188,4 +188,40 @@ function SaveOrganization() {
             }
         });
     }
+}
+
+var App_Process = [];
+function App_ProcessoChange(selectedValue, IDApp, IDProcess) {
+    var value = '';
+    if (selectedValue == 1)
+        value = "A";
+    else if (selectedValue == 2)
+        value = "P";
+    else if (selectedValue == "3")
+        value = "A/P";
+    var exists = false;
+    for (i = 0; i < App_Process.length; i++) {
+        if (App_Process[i].IDApp == IDApp && App_Process[i].IDProcess == IDProcess) {
+            exists = true;
+            App_Process[i].Value = value;
+        }
+    }
+
+    if (!exists) {
+        App_Process.push({
+            IDApp: IDApp, IDProcess: IDProcess, Value: value
+        });
+    }
+}
+
+function SaveAppProcessMatrix() {
+    $.ajax({
+        type: 'POST',
+        url: "/Matrizes/App_Processo.aspx/SaveApp_Process",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ appProcess: App_Process }),
+        success: function (data) {
+        }
+    });
 }
