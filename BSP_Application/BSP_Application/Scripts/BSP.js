@@ -191,7 +191,20 @@ function SaveOrganization() {
 }
 
 var App_Process = [];
+var firstget_AppProcess = true;
 function App_ProcessoChange(selectedValue, IDApp, IDProcess) {
+    if (firstget_AppProcess) {
+        $.ajax({
+            type: 'POST',
+            url: "/Matrizes/App_Processo.aspx/FirstGet",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            success: function (data) {
+            }
+        });
+        firstget_AppProcess = false;
+    }
     var value = '';
     if (selectedValue == 1)
         value = "A";

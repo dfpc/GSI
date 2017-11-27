@@ -86,6 +86,12 @@ namespace BSP_Application.DataObjects
         public string ProcessoC { get; set; }
         public string ClasseC { get; set; }
         public string PotencialSolucao { get; set; }
+    }
 
+    public class App_Process
+    {
+        public int IDApp { get; set; }
+        public int IDProcess { get; set; }
+        public string Value { get; set; }
     }
 }
