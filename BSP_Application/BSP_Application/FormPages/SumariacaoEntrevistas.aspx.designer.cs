@@ -58,13 +58,13 @@ namespace BSP_Application.FormPages {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea efeito;
         
         /// <summary>
-        /// Controle importancia.
+        /// Controle ListaImportancia.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea importancia;
+        protected global::System.Web.UI.WebControls.DropDownList ListaImportancia;
         
         /// <summary>
         /// Controle ListaProcesso.

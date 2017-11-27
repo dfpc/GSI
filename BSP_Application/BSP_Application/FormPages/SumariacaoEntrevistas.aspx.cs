@@ -52,7 +52,7 @@ namespace BSP_Application.FormPages
             string grupo_ = grupo_processos.Value;
             string causa_ = causa.Value;
             string efeito_ = efeito.Value;
-            string importancia_ = importancia.Value;
+            string importancia_ = ListaImportancia.SelectedValue;
             string solucao_ = solucao_potencial.Value;
             int idProcesso = Int32.Parse(ListaProcesso.SelectedValue);
             int idClasse = Int32.Parse(ListaClasse.SelectedValue);
