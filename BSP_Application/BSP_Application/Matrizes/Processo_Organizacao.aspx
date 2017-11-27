@@ -37,7 +37,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-block btn-success simple-btn" style="width: 20%">Guardar</button>
+                <button type="button" class="btn btn-block btn-success simple-btn" style="width: 20%" onclick="SaveOrgProcessMatrix();">Guardar</button>
                 <br />
             </div>
         </div>

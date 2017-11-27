@@ -229,5 +229,13 @@ namespace BSP_Application.DataObjects
                 db.Database.ExecuteSqlCommand("INSERT INTO AplicacaoProcesso (IdAplicacao, IDProcesso, Apoio) VALUES({0}, {1}, {2})", idapp, idprocess, value);
             }
         }
+
+        public static void SaveOrgProcess(int idorg, int idprocess, string value)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("INSERT INTO ProcessoOrganizacao (IdProcesso, IDOrganizacao, Relacao) VALUES({0}, {1}, {2})", idprocess, idorg, value);
+            }
+        }
     }
 }
