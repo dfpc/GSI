@@ -23,10 +23,16 @@
                         </div>
                  <center>
                 <asp:PlaceHolder ID="ProcessoOrganizacao" runat="server"></asp:PlaceHolder>
-                </center>
+                     </center>
+                     <br />
+                     <br />
+                     <h8 class="col-sm-4 control-label"><b>D</b> - Decisor </h8><br />
+                     <h8 class="col-sm-4 control-label"><b>F</b> - Fortemente envolvido</h8><br />
+                     <h8 class="col-sm-4 control-label"><b>A</b> - Algum envolvimento</h8> 
             </div>
             <!-- /.card -->
-        </div>
+       
+            </div>
         <!-- /.col-lg-9 -->
 
         <div class="form-group">
