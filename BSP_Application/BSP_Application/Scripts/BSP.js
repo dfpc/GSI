@@ -120,7 +120,24 @@ function editProcess(btn) {
     });
 }
 
+function editSumariacao(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $.ajax({
+        url: "/Conteudos/ConsultarSumariacaoEntrevistas.aspx/EditSumariacao",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        type: 'POST',
+        data: JSON.stringify({ index: index }),
+        success: function (data) {
+            if (data.d != '')
+                window.location = data.d;
+        }
+    });
+}
+
 function EditOrganization(btn) {
+   // var element = document.getElementsByTagName('h4');
+    //element.innerHTML = 'Editar Organização';
     var index = btn.parentNode.parentNode.rowIndex;
     $.ajax({
         url: "/Conteudos/ConsultarOrganizacao.aspx/EditOrganization",
@@ -275,3 +292,15 @@ function SaveOrgProcessMatrix() {
         }
     });
 }
+
+
+/*var url = window.location.href;
+
+var url_org = url.substring(23, 62);
+var organizacao = "FormPages/AdicionarOrganizacao.aspx?id=";
+if (url_org == organizacao)
+{
+    document.getElementsByTagName('h4').innerTHML = 'Editar Organização';
+
+}
+*/
