@@ -39,70 +39,64 @@ namespace BSP_Application.Matrizes
 
             SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT A.Nome, P.Nome, A.Id as IDAplicacao, P.Id as IDProcesso FROM Aplicacao A, Processo P WHERE A.IdProjeto=P.IDProjeto AND A.IdProjeto=@idprojeto ORDER BY A.Nome", con);
+            SqlCommand cmd = new SqlCommand("SELECT P.Nome, P.Id as IDProcesso FROM Processo P WHERE P.IdProjeto=@idprojeto ORDER BY P.Nome", con);
             cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
             List<App_Process> appProcess = new List<App_Process>();
 
             SqlDataReader rd = cmd.ExecuteReader();
+
             table.Append("<table border='1'>");
             table.Append("<tr><th>Aplicações/Processos</th>");
             int[] ids = new int[100];
 
-            string processo = "";
             if (rd.HasRows)
             {
                 int count = 0;
                 while (rd.Read())
                 {
-                    if (processo != rd[1].ToString())
-                    {
-                        table.Append("<th class='verticalTableHeader'>" + rd[1] + "</th>");
-                        ids[count] = Convert.ToInt32(rd[3]);
-                        count++;
-                    }
-                    processo = rd[1].ToString();
+                    table.Append("<th class='verticalTableHeader'>" + rd[0] + "</th>");
+                    ids[count] = Convert.ToInt32(rd[1]);
+                    count++;
                 }
                 table.Append("</tr>");
                 rd.Close();
 
                 if (ids[0] == 0) return;
+                cmd = new SqlCommand("SELECT A.Nome, A.Id as IDAplicacao FROM Aplicacao A WHERE A.IdProjeto=@idprojeto ORDER BY A.Nome", con);
+                cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
                 SqlDataReader dr = cmd.ExecuteReader();
-                string aplicacao = "";
 
                 while (dr.Read())
                 {
+                    table.Append("<tr>");
+                    table.Append("<td>" + dr[0] + "</td>");
 
-                    if (aplicacao != dr[0].ToString())
+                    for (var i = 0; i < count; i++)
                     {
-                        table.Append("<tr>");
-                        table.Append("<td>" + dr[0] + "</td>");
-
-                        for (var i = 0; i < count; i++)
+                        string aux = AdicionarRegistos.GetAppProcess(Convert.ToInt32(dr[1]), ids[i]);
+                        appProcess.Add(new App_Process() { IDApp = Convert.ToInt32(dr[1]), IDProcess = ids[i], Value = aux });
+                        table.Append("<td><select onchange='App_ProcessoChange(this.value, " + dr[1].ToString() + "," + ids[i].ToString() + ");'>");
+                        if (string.IsNullOrEmpty(aux))
                         {
-                            string aux = AdicionarRegistos.GetAppProcess(Convert.ToInt32(dr[2]), ids[i]);
-                            appProcess.Add(new App_Process() { IDApp = Convert.ToInt32(dr[2]), IDProcess = ids[i], Value = aux });
-                            table.Append("<td><select onchange='App_ProcessoChange(this.value, " + dr[2].ToString() + "," + ids[i].ToString() + ");'>");
-                            if (string.IsNullOrEmpty(aux))
-                            {
-                                table.Append("<option Value='0' selected></option>");
-                            }
-                            if (aux == "A")
-                                table.Append("<option Value='1' selected>A</option>");
-                            else
-                                table.Append("<option Value='1'>A</option>");
-                            if (aux == "P")
-                                table.Append("<option Value='2' selected>P</option>");
-                            else
-                                table.Append("<option Value='2'>P</option>");
-                            if (aux == "A/P")
-                                table.Append("<option Value='3' selected>A/P</option>");
-                            else
-                                table.Append("<option Value='3'>A/P</option>");
-                            table.Append("</select></td>");
+                            table.Append("<option Value='0' selected></option>");
                         }
-                        table.Append("</tr>");
-                        aplicacao = dr[0].ToString();
+                        else
+                            table.Append("<option Value='0'></option>");
+                        if (aux == "A")
+                            table.Append("<option Value='1' selected>A</option>");
+                        else
+                            table.Append("<option Value='1'>A</option>");
+                        if (aux == "P")
+                            table.Append("<option Value='2' selected>P</option>");
+                        else
+                            table.Append("<option Value='2'>P</option>");
+                        if (aux == "A/P")
+                            table.Append("<option Value='3' selected>A/P</option>");
+                        else
+                            table.Append("<option Value='3'>A/P</option>");
+                        table.Append("</select></td>");
                     }
+                    table.Append("</tr>");
                 }
                 dr.Close();
             }
@@ -120,7 +114,7 @@ namespace BSP_Application.Matrizes
         public static List<App_Process> FirstGet()
         {
             if (HttpContext.Current.Session["ListAppProcess"] == null) return new List<App_Process>();
-                return HttpContext.Current.Session["ListAppProcess"] as List<App_Process>;
+            return HttpContext.Current.Session["ListAppProcess"] as List<App_Process>;
         }
 
         [WebMethod]

@@ -44,9 +44,7 @@ namespace BSP_Application.Matrizes
             cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
 
             SqlDataReader rd = cmd.ExecuteReader();
-
-            conn2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-            conn2.Open();
+            
             cmd = new SqlCommand("SELECT P.Nome, P.Id  FROM Processo P WHERE p.IDProjeto=@idprojeto ORDER BY P.Nome", conn2);
             cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
 
