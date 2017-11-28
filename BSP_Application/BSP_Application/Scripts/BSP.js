@@ -312,7 +312,6 @@ function SaveOrgProcessMatrix() {
     });
 }
 
-<<<<<<< HEAD
 var app_Org = [];
 var firstget_app_Org = true;
 function app_OrganizacaoChange(selectedValue, IDOrg, idapp) {
@@ -368,7 +367,55 @@ function SaveAppOrgMatrix() {
         }
     });
 }
-=======
+
+var app_CD = [];
+var firstget_app_CD = true;
+function app_CDChange(selectedValue, IDCD, idapp) {
+    if (firstget_app_CD) {
+        $.ajax({
+            type: 'POST',
+            url: "/Matrizes/App_Organizacao.aspx/FirstGet",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            success: function (data) {
+                for (i = 0; i < data.d.lenght; i++)
+                    app_CD.push(data.d[i]);
+            }
+        });
+        firstget_app_CD = false;
+    }
+    var exists = false;
+    for (i = 0; i < app_CD.length; i++) {
+        if (app_CD[i].IDClasseDados == IDCD && app_CD[i].IDApp == idapp) {
+            exists = true;
+            if (selectedValue == '') {
+                app_CD.splice(i, 1);
+                return;
+            }
+            app_CD[i].Value = selectedValue;
+            break;
+        }
+    }
+    if (selectedValue == '') return;
+    if (!exists) {
+        app_CD.push({
+            IDClasseDados: IDCD, IDApp: idapp, Value: selectedValue
+        });
+    }
+}
+
+function SaveAppCDMatrix() {
+    $.ajax({
+        type: 'POST',
+        url: "/Matrizes/App_ClasseDados.aspx/SaveApp_CD",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ appCD: app_CD }),
+        success: function (data) {
+        }
+    });
+}
 
 /*var url = window.location.href;
 
@@ -380,4 +427,3 @@ if (url_org == organizacao)
 
 }
 */
->>>>>>> f70324cfe02e7d55ab6d5b3bca5579d2d073c07c

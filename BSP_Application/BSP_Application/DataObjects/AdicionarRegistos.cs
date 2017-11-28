@@ -246,6 +246,13 @@ namespace BSP_Application.DataObjects
                 db.Database.ExecuteSqlCommand("exec spInsertAppOrg @idApp={0}, @idOrg={1}, @Apoio={2}", idapp, idorg, value);
             }
         }
+        public static void SaveAppCD(int idapp, int idcd, string value)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("exec spInsertAppCD @idApp={0}, @idCD={1}, @Relacao={2}", idapp, idcd, value);
+            }
+        }
 
         public static string GetAppProcess(int idapp, int idprocess)
         {
@@ -260,6 +267,14 @@ namespace BSP_Application.DataObjects
             using (DataBaseConnect db = new DataBaseConnect())
             {
                 return db.Database.SqlQuery<string>("SELECT Apoio FROM AplicacaoOrganizacao WHERE IdAplicacao = {0} AND IDOrganizacao = {1}", idapp, idOrg).FirstOrDefault();
+            }
+        }
+
+        public static string GetAppCD(int idapp, int idClasseDados)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<string>("SELECT Relacao FROM AplicacaoClasseDados WHERE IdAplicacao = {0} AND IDClasseDados = {1}", idapp, idClasseDados).FirstOrDefault();
             }
         }
 
