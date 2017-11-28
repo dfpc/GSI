@@ -74,7 +74,8 @@ namespace BSP_Application.Matrizes
                     for (var i = 0; i < count; i++)
                     {
                         string aux = AdicionarRegistos.GetAppProcess(Convert.ToInt32(dr[1]), ids[i]);
-                        appProcess.Add(new App_Process() { IDApp = Convert.ToInt32(dr[1]), IDProcess = ids[i], Value = aux });
+                        if (!string.IsNullOrEmpty(aux))
+                            appProcess.Add(new App_Process() { IDApp = Convert.ToInt32(dr[1]), IDProcess = ids[i], Value = aux });
                         table.Append("<td><select onchange='App_ProcessoChange(this.value, " + dr[1].ToString() + "," + ids[i].ToString() + ");'>");
                         if (string.IsNullOrEmpty(aux))
                         {

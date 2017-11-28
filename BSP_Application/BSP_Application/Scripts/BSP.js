@@ -201,14 +201,16 @@ function App_ProcessoChange(selectedValue, IDApp, IDProcess) {
             contentType: "application/json; charset=utf-8",
             data: {},
             success: function (data) {
+                for (i = 0; i < data.d.lenght; i++)
+                    App_Process.push(data.d[i]);
             }
         });
         firstget_AppProcess = false;
     }
     var value = '';
-    if (selectedValue == 1)
+    if (selectedValue == "1")
         value = "A";
-    else if (selectedValue == 2)
+    else if (selectedValue == "2")
         value = "P";
     else if (selectedValue == "3")
         value = "A/P";
@@ -216,6 +218,10 @@ function App_ProcessoChange(selectedValue, IDApp, IDProcess) {
     for (i = 0; i < App_Process.length; i++) {
         if (App_Process[i].IDApp == IDApp && App_Process[i].IDProcess == IDProcess) {
             exists = true;
+            if (value == '') {
+                App_Process.splice(i, 1);
+                return;
+            }
             App_Process[i].Value = value;
         }
     }
@@ -241,11 +247,31 @@ function SaveAppProcessMatrix() {
 
 
 var Org_Process = [];
+var firstget_OrgProcess = true;
 function Proc_OrganizacaoChange(selectedValue, IDOrg, IDProcess) {
+    if (firstget_AppProcess) {
+        $.ajax({
+            type: 'POST',
+            url: "/Matrizes/ProcessoOrganizacao.aspx/FirstGet",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            success: function (data) {
+                for (i = 0; i < data.d.lenght; i++)
+                    Org_Process.push(data.d[i]);
+            }
+        });
+        firstget_OrgProcess = false;
+    }
+
     var exists = false;
     for (i = 0; i < Org_Process.length; i++) {
         if (Org_Process[i].IDOrg == IDOrg && Org_Process[i].IDProcess == IDProcess) {
             exists = true;
+            if (value == '') {
+                Org_Process.splice(i, 1);
+                return;
+            }
             Org_Process[i].Value = selectedValue;
         }
     }
@@ -264,6 +290,62 @@ function SaveOrgProcessMatrix() {
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({ orgProcess: Org_Process }),
+        success: function (data) {
+        }
+    });
+}
+
+var app_Org = [];
+var firstget_app_Org = true;
+function app_OrganizacaoChange(selectedValue, IDOrg, idapp) {
+    if (firstget_app_Org) {
+        $.ajax({
+            type: 'POST',
+            url: "/Matrizes/App_Organizacao.aspx/FirstGet",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            success: function (data) {
+                for (i = 0; i < data.d.lenght; i++)
+                    app_Org.push(data.d[i]);
+            }
+        });
+        firstget_app_Org = false;
+    }
+    var value = '';
+    if (selectedValue == "1")
+        value = "A";
+    else if (selectedValue == "2")
+        value = "P";
+    else if (selectedValue == "3")
+        value = "A/P";
+    var exists = false;
+    for (i = 0; i < app_Org.length; i++) {
+        if (app_Org[i].IDOrg == IDOrg && app_Org[i].IDApp == idapp) {
+            exists = true;
+            if (value == ''){
+                app_Org.splice(i, 1);
+                return;
+            }
+            app_Org[i].Value = value;
+            break;
+        }
+    }
+    if (value == '') return;
+    if (!exists) {
+        app_Org.push({
+            IDOrg: IDOrg, IDApp: idapp, Value: value
+        });
+    }
+}
+
+function SaveAppOrgMatrix() {
+    $.ajax({
+        type: 'POST',
+        url: "/Matrizes/App_Organizacao.aspx/SaveApp_Organization",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ appOrganization: app_Org }),
         success: function (data) {
         }
     });

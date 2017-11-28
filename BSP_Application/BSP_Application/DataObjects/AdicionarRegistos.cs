@@ -230,11 +230,27 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static void SaveAppOrganization(int idapp, int idorg, string value)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("exec spInsertAppOrg @idApp={0}, @idOrg={1}, @Apoio={2}", idapp, idorg, value);
+            }
+        }
+
         public static string GetAppProcess(int idapp, int idprocess)
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
                 return db.Database.SqlQuery<string>("SELECT Apoio FROM AplicacaoProcesso WHERE IdAplicacao = {0} AND IDProcesso = {1}", idapp, idprocess).FirstOrDefault();
+            }
+        }
+
+        public static string GetAppOrg(int idapp, int idOrg)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<string>("SELECT Apoio FROM AplicacaoOrganizacao WHERE IdAplicacao = {0} AND IDOrganizacao = {1}", idapp, idOrg).FirstOrDefault();
             }
         }
 

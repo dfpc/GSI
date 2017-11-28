@@ -75,7 +75,8 @@ namespace BSP_Application.Matrizes
                     for (var i = 0; i < count; i++)
                     {
                         string aux = AdicionarRegistos.GetOrgProcess(Convert.ToInt32(dr[1]), ids[i]);
-                        OrgProcess.Add(new Org_Process() { IDOrg = Convert.ToInt32(dr[1]), IDProcess = ids[i], Value = aux });
+                        if (!string.IsNullOrEmpty(aux))
+                            OrgProcess.Add(new Org_Process() { IDOrg = Convert.ToInt32(dr[1]), IDProcess = ids[i], Value = aux });
                         table.Append("<td>" +
                                      "<center><select onchange='Proc_OrganizacaoChange(this.value, " + dr[1].ToString() + "," + ids[i].ToString() + ");'>");
                         if (string.IsNullOrEmpty(aux))
