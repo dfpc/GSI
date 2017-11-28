@@ -312,7 +312,7 @@ function SaveOrgProcessMatrix() {
     });
 }
 
-<<<<<<< HEAD
+
 var app_Org = [];
 var firstget_app_Org = true;
 function app_OrganizacaoChange(selectedValue, IDOrg, idapp) {
@@ -368,7 +368,74 @@ function SaveAppOrgMatrix() {
         }
     });
 }
-=======
+
+
+/*var app_Org = [];
+var firstget_app_Org = true;
+function Proc_ClasseChange(selectedValue, IDProcesso, idclasse) {
+    if (firstget_app_Org) {
+        $.ajax({
+            type: 'POST',
+            url: "/Matrizes/App_Organizacao.aspx/FirstGet",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            success: function (data) {
+                for (i = 0; i < data.d.lenght; i++)
+                    app_Org.push(data.d[i]);
+            }
+        });
+        firstget_app_Org = false;
+    }
+    var value = '';
+    if (selectedValue == "1")
+        value = "A";
+    else if (selectedValue == "2")
+        value = "P";
+    else if (selectedValue == "3")
+        value = "A/P";
+    var exists = false;
+    for (i = 0; i < app_Org.length; i++) {
+        if (app_Org[i].IDOrg == IDOrg && app_Org[i].IDApp == idapp) {
+            exists = true;
+            if (value == '') {
+                app_Org.splice(i, 1);
+                return;
+            }
+            app_Org[i].Value = value;
+            break;
+        }
+    }
+    if (value == '') return;
+    if (!exists) {
+        app_Org.push({
+            IDOrg: IDOrg, IDApp: idapp, Value: value
+        });
+    }
+}
+
+
+
+
+*/
+
+
+
+
+
+
+function SaveProcessClasseMatrix() {
+    $.ajax({
+        type: 'POST',
+        url: "/Matrizes/Processo_ClasseDados.aspx/SaveProcesso_Classe",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ appOrganization: app_Org }),
+        success: function (data) {
+        }
+    });
+}
+
 
 /*var url = window.location.href;
 
@@ -380,4 +447,3 @@ if (url_org == organizacao)
 
 }
 */
->>>>>>> f70324cfe02e7d55ab6d5b3bca5579d2d073c07c

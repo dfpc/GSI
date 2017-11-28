@@ -17,13 +17,17 @@
                 <br />
                   <label for="ListaProjetos" class="col-sm-4 control-label">Projeto Associado</label>
                         <div class="col-sm-8">
-                        <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%"/>
+                        <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%" AutoPostBack="True" OnSelectedIndexChanged="ListaProjetos_SelectedIndexChanged"/>
                            <br />
 
                         </div>
                 <center>
                 <asp:PlaceHolder ID="ProcessoClasse" runat="server"></asp:PlaceHolder>
-                </center>
+                     </center>
+                     <br />
+                     <br />
+                     <h8 class="col-sm-4 control-label"><b>C</b> - Classe de dados criada </h8><br />
+                     <h8 class="col-sm-4 control-label"><b>U</b> - Classe de dados usada</h8><br />
             </div>
             <!-- /.card -->
         </div>
@@ -31,7 +35,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-block btn-success" style="width: 20%">Guardar</button>
+                <button type="button" class="btn btn-block btn-success" style="width: 20%"  onclick="SaveProcessClasseMatrix();">Guardar</button>
                 <br />
             </div>
         </div>

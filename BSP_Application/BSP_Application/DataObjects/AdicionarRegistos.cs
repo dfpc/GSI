@@ -278,5 +278,22 @@ namespace BSP_Application.DataObjects
                 db.Database.ExecuteSqlCommand("exec spInsertOrgProcess @Idprocess={0}, @idOrg={1}, @Relacao={2}", idprocess, idorg, value);
             }
         }
+
+        public static string GetProcessoClass(int idprocess, int idclasse)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<string>("SELECT Relacao FROM ProcessoClasseDados WHERE IdProcesso = {0} AND IDClasseDados = {1}", idclasse, idprocess).FirstOrDefault();
+            }
+        }
+
+
+        public static void SaveProcessClasse(int idclasse, int idprocesso, string value)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("exec spInsertProcClasse @idProc={0}, @idClasse={1}, @relacao={2}", idprocesso, idclasse, value);
+            }
+        }
     }
 }
