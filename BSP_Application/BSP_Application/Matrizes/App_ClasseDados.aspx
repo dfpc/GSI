@@ -30,7 +30,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="button" class="btn btn-block btn-success" style="width: 20%">Guardar</button>
+                <button type="button" class="btn btn-block btn-success" style="width: 20%" onclick="SaveAppCDMatrix();">Guardar</button>
                 <br />
             </div>
         </div>
