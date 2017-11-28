@@ -20,5 +20,12 @@ namespace BSP_Application.Conteudos
             }
 
         }
+        [WebMethod]
+        public static string EditSumariacao(int index)
+        {
+            if (HttpContext.Current.Session["ListaProblemas"] == null) return string.Empty;
+            int id = (HttpContext.Current.Session["ListaProblemas"] as List<Problema>).ElementAt(index - 1).IDProblema;
+            return string.Concat("/FormPages/SumariacaoEntrevistas.aspx?id=", id.ToString());
+        }
     }
 }

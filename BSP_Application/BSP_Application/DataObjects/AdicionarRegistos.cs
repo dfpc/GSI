@@ -190,6 +190,15 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static void EditSumariacao(int idproblem, string causa, string efeito, string importancia, int idprocesso, int idclasse, string solucao, string grupo)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("UPDATE Problema SET Causa = {1}, Efeito = {2}, Importancia = {3}, IDProcesso = {4}, IDClasseDados = {5}, PotencialSolucao = {6}, GrupoProcesso = {7} WHERE Id = {0}",
+                    idproblem, causa, efeito, importancia, idprocesso, idclasse, solucao, grupo);
+            }
+        }
+
         public static Processo GetProcessById(int idprocess)
         {
             using (DataBaseConnect db = new DataBaseConnect())

@@ -79,6 +79,7 @@ namespace BSP_Application.DataObjects
 
     public class Problema
     {
+        public int IDProblema { get; set; }
         public string GrupoProcesso { get; set; }
         public string Causa { get; set; }
         public string Efeito { get; set; }
