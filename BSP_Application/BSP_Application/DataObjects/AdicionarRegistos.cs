@@ -215,6 +215,14 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static Problema GetProblemaById(int id)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<Problema>("SELECT * FROM Problema WHERE Id = {0}", id).FirstOrDefault();
+            }
+        }
+
         public static List<Aplicacao> GetAllAplications()
         {
             using (DataBaseConnect db = new DataBaseConnect())
@@ -227,7 +235,7 @@ namespace BSP_Application.DataObjects
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                return db.Database.SqlQuery<Problema>("SELECT P.GrupoProcesso, P.Causa, P.Efeito, P.Importancia, P.PotencialSolucao, PR.Nome AS ProcessoC, CD.Nome AS ClasseC FROM Problema P, Processo PR, ClasseDados CD WHERE P.IDClasseDados = CD.Id AND P.IDProcesso = PR.Id").ToList();
+                return db.Database.SqlQuery<Problema>("SELECT P.Id as IDProblema, P.GrupoProcesso, P.Causa, P.Efeito, P.Importancia, P.PotencialSolucao, PR.Nome AS ProcessoC, CD.Nome AS ClasseC FROM Problema P, Processo PR, ClasseDados CD WHERE P.IDClasseDados = CD.Id AND P.IDProcesso = PR.Id").ToList();
             }
         }
 
@@ -298,7 +306,7 @@ namespace BSP_Application.DataObjects
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                return db.Database.SqlQuery<string>("SELECT Relacao FROM ProcessoClasseDados WHERE IdProcesso = {0} AND IDClasseDados = {1}", idclasse, idprocess).FirstOrDefault();
+                return db.Database.SqlQuery<string>("SELECT Relacao FROM ProcessoClasseDados WHERE IdProcesso = {0} AND IDClasseDados = {1}", idprocess, idclasse).FirstOrDefault();
             }
         }
 

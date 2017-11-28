@@ -81,17 +81,17 @@ namespace BSP_Application.Matrizes
                     table.Append("<td>" + dr[0] + "</td>");
                     for (var i = 0; i < count; i++)
                     {
-                        string aux = AdicionarRegistos.GetProcessoClass(Convert.ToInt32(dr[1]), ids[i]);
+                        string aux = AdicionarRegistos.GetProcessoClass(Convert.ToInt32(dr[1]),ids[i]);
                         if (!string.IsNullOrEmpty(aux))
-                            ProcClasse.Add(new Processo_Classe() { IDClasse = Convert.ToInt32(dr[1]), IDProcess = ids[i], Value = aux });
+                            ProcClasse.Add(new Processo_Classe() { IDClasseDados = ids[i], IDProcesso = Convert.ToInt32(dr[1]), Value = aux });
 
                         table.Append("<td><center>" +
-                            "<select onchange='Proc_ClasseChange(this.value, ' + dr[1].ToString() + ',' + ids[i].ToString() + ');'>');> ");
-                           if (string.IsNullOrEmpty(aux))
+                            "<select onchange='Proc_ClasseChange(this.value, \"" + dr[1].ToString() + "\",\"" + ids[i].ToString() + "\");'> ");
+                        if (string.IsNullOrEmpty(aux))
                             table.Append("<option value = ' ' selected='selected'>  </ option >");
-                           else
-                           table.Append("<option value = ' '>  </ option >");
-                        
+                        else
+                            table.Append("<option value = ' '>  </ option >");
+
                         if (aux == "C")
                             table.Append("<option Value='C' selected='selected'>C</option>");
                         else
@@ -105,15 +105,12 @@ namespace BSP_Application.Matrizes
 
                     }
                     table.Append("</tr>");
-
                 }
                 dr.Close();
             }
             table.Append("</table>");
             ProcessoClasse.Controls.Add(new Literal { Text = table.ToString() });
             Session["ListProcClasse"] = ProcClasse;
-
-
         }
 
         protected void ListaProjetos_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,13 +129,13 @@ namespace BSP_Application.Matrizes
         public static void SaveProcesso_Classe(List<Processo_Classe> processClasse)
         {
             foreach (Processo_Classe pc in processClasse)
-                AdicionarRegistos.SaveProcessClasse(pc.IDClasse, pc.IDProcess, pc.Value);
+                AdicionarRegistos.SaveProcessClasse(pc.IDClasseDados, pc.IDProcesso, pc.Value);
         }
     }
     public class Processo_Classe
     {
-        public int IDClasse { get; set; }
-        public int IDProcess { get; set; }
+        public int IDClasseDados { get; set; }
+        public int IDProcesso { get; set; }
         public string Value { get; set; }
     }
 }

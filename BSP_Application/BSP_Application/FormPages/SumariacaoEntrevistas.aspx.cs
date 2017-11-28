@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BSP_Application.DataObjects;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -27,6 +28,10 @@ namespace BSP_Application.FormPages
                 ListaClasse.DataBind();
                 conn.Close();
 
+                if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+                {
+                    editSumariacaoEntrevistas(Convert.ToInt32(Request.QueryString["id"]));
+                }
             }
 
             if (!IsPostBack)
@@ -43,9 +48,23 @@ namespace BSP_Application.FormPages
                 ListaProcesso.DataBind();
                 conn.Close();
 
+                editSumariacaoEntrevistas(Convert.ToInt32(Request.QueryString["id"]));
             }
 
         }
+
+        private void editSumariacaoEntrevistas(int id)
+        {
+            Problema problema = AdicionarRegistos.GetProblemaById(id);
+            ListaProcesso.SelectedIndex = ListaProcesso.Items.IndexOf(ListaProcesso.Items.FindByText(problema.ProcessoC));
+            ListaClasse.SelectedIndex = ListaClasse.Items.IndexOf(ListaClasse.Items.FindByText(problema.ClasseC));
+            grupo_processos.Value = problema.GrupoProcesso;
+            causa.Value = problema.Causa;
+            efeito.Value = problema.Efeito;
+            solucao_potencial.Value = problema.PotencialSolucao;
+            ListaImportancia.SelectedIndex = ListaImportancia.Items.IndexOf(ListaImportancia.Items.FindByText(problema.Importancia));
+        }
+
         protected void Guardar_SumariacaoEntrevistas(object sender, EventArgs e)
         {
             

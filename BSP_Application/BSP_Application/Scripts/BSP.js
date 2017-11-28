@@ -136,7 +136,7 @@ function editSumariacao(btn) {
 }
 
 function EditOrganization(btn) {
-   // var element = document.getElementsByTagName('h4');
+    // var element = document.getElementsByTagName('h4');
     //element.innerHTML = 'Editar Organização';
     var index = btn.parentNode.parentNode.rowIndex;
     $.ajax({
@@ -312,10 +312,6 @@ function SaveOrgProcessMatrix() {
     });
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b71b8793d4492285c444ed6888cb1607ff8a475c
 var app_Org = [];
 var firstget_app_Org = true;
 function app_OrganizacaoChange(selectedValue, IDOrg, idapp) {
@@ -344,7 +340,7 @@ function app_OrganizacaoChange(selectedValue, IDOrg, idapp) {
     for (i = 0; i < app_Org.length; i++) {
         if (app_Org[i].IDOrg == IDOrg && app_Org[i].IDApp == idapp) {
             exists = true;
-            if (value == ''){
+            if (value == '') {
                 app_Org.splice(i, 1);
                 return;
             }
@@ -372,56 +368,56 @@ function SaveAppOrgMatrix() {
     });
 }
 
-<<<<<<< HEAD
-
-/*var app_Org = [];
-var firstget_app_Org = true;
+var proc_CD = [];
+var firstget_proc_CD = true;
 function Proc_ClasseChange(selectedValue, IDProcesso, idclasse) {
-    if (firstget_app_Org) {
-=======
-var app_CD = [];
-var firstget_app_CD = true;
-function app_CDChange(selectedValue, IDCD, idapp) {
-    if (firstget_app_CD) {
->>>>>>> b71b8793d4492285c444ed6888cb1607ff8a475c
+    if (firstget_proc_CD) {
         $.ajax({
             type: 'POST',
-            url: "/Matrizes/App_Organizacao.aspx/FirstGet",
+            url: "/Matrizes/Processo_ClasseDados.aspx/FirstGet",
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             data: {},
             success: function (data) {
                 for (i = 0; i < data.d.lenght; i++)
-<<<<<<< HEAD
-                    app_Org.push(data.d[i]);
+                    proc_CD.push(data.d[i]);
             }
         });
-        firstget_app_Org = false;
+        firstget_proc_CD = false;
     }
-    var value = '';
-    if (selectedValue == "1")
-        value = "A";
-    else if (selectedValue == "2")
-        value = "P";
-    else if (selectedValue == "3")
-        value = "A/P";
     var exists = false;
-    for (i = 0; i < app_Org.length; i++) {
-        if (app_Org[i].IDOrg == IDOrg && app_Org[i].IDApp == idapp) {
+    for (i = 0; i < proc_CD.length; i++) {
+        if (proc_CD[i].IDProcesso == IDProcesso && proc_CD[i].IDClasseDados == idclasse) {
             exists = true;
-            if (value == '') {
-                app_Org.splice(i, 1);
+            if (selectedValue == '') {
+                proc_CD.splice(i, 1);
                 return;
             }
-            app_Org[i].Value = value;
+            proc_CD[i].Value = selectedValue;
             break;
         }
     }
-    if (value == '') return;
+    if (selectedValue == '') return;
     if (!exists) {
-        app_Org.push({
-            IDOrg: IDOrg, IDApp: idapp, Value: value
-=======
+        proc_CD.push({
+            IDProcesso: IDProcesso, IDClasseDados: idclasse, Value: selectedValue
+        });
+    }
+    firstget_proc_CD = false;
+}
+
+var app_CD = [];
+var firstget_app_CD = true;
+function app_CDChange(selectedValue, IDCD, idapp) {
+    if (firstget_app_CD) {
+        $.ajax({
+            type: 'POST',
+            url: "/Matrizes/Processo_ClasseDados.aspx/FirstGet",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            success: function (data) {
+                for (i = 0; i < data.d.lenght; i++)
                     app_CD.push(data.d[i]);
             }
         });
@@ -443,21 +439,9 @@ function app_CDChange(selectedValue, IDCD, idapp) {
     if (!exists) {
         app_CD.push({
             IDClasseDados: IDCD, IDApp: idapp, Value: selectedValue
->>>>>>> b71b8793d4492285c444ed6888cb1607ff8a475c
         });
     }
 }
-
-<<<<<<< HEAD
-
-
-
-*/
-
-
-
-
-
 
 function SaveProcessClasseMatrix() {
     $.ajax({
@@ -465,8 +449,10 @@ function SaveProcessClasseMatrix() {
         url: "/Matrizes/Processo_ClasseDados.aspx/SaveProcesso_Classe",
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ appOrganization: app_Org }),
-=======
+        data: JSON.stringify({ processClasse: proc_CD }),
+    });
+}
+
 function SaveAppCDMatrix() {
     $.ajax({
         type: 'POST',
@@ -474,15 +460,10 @@ function SaveAppCDMatrix() {
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({ appCD: app_CD }),
->>>>>>> b71b8793d4492285c444ed6888cb1607ff8a475c
         success: function (data) {
         }
     });
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> b71b8793d4492285c444ed6888cb1607ff8a475c
 
 /*var url = window.location.href;
 
@@ -493,8 +474,4 @@ if (url_org == organizacao)
     document.getElementsByTagName('h4').innerTHML = 'Editar Organização';
 
 }
-<<<<<<< HEAD
 */
-=======
-*/
->>>>>>> b71b8793d4492285c444ed6888cb1607ff8a475c

@@ -15,7 +15,8 @@ namespace BSP_Application.Conteudos
         {
             if (!IsPostBack)
             {
-                gdvEntrevistas.DataSource = AdicionarRegistos.GetAllSumariacao();
+                Session["ListaProblemas"] = AdicionarRegistos.GetAllSumariacao();
+                gdvEntrevistas.DataSource = Session["ListaProblemas"];
                 gdvEntrevistas.DataBind();
             }
 
