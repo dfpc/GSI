@@ -44,11 +44,7 @@ namespace BSP_Application.Matrizes
             cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
 
             SqlDataReader rd = cmd.ExecuteReader();
-            
-            cmd = new SqlCommand("SELECT P.Nome, P.Id  FROM Processo P WHERE p.IDProjeto=@idprojeto ORDER BY P.Nome", conn2);
-            cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
 
-            SqlDataReader dr = cmd.ExecuteReader();
             table.Append("<table border='1'>");
             table.Append("<tr><th>Processos/Organização</th>");
             int[] ids = new int[100];
@@ -68,6 +64,10 @@ namespace BSP_Application.Matrizes
 
                 if (ids[0] == 0) return;
 
+                cmd = new SqlCommand("SELECT P.Nome, P.Id  FROM Processo P WHERE p.IDProjeto=@idprojeto ORDER BY P.Nome", conn2);
+                cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
+
+                SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     table.Append("<tr>");
@@ -98,40 +98,42 @@ namespace BSP_Application.Matrizes
                         else
                             table.Append("<option value = 'F' > F </ option >");
                         table.Append("</select></center></td>");
+                    }
+                    table.Append("</tr>");
                 }
-                table.Append("</tr>");
+                dr.Close();
             }
-            dr.Close();
-        }
-        table.Append("</table>");
-            ProcessoOrganizacao.Controls.Add(new Literal { Text = table.ToString()
-    });
+            table.Append("</table>");
+            ProcessoOrganizacao.Controls.Add(new Literal
+            {
+                Text = table.ToString()
+            });
             Session["ListOrgProcess"] = OrgProcess;
         }
 
-protected void ListaProjetos_SelectedIndexChanged(object sender, EventArgs e)
-{
-    BuildMatrix();
-}
+        protected void ListaProjetos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BuildMatrix();
+        }
 
-[WebMethod]
-public static List<Org_Process> FirstGet()
-{
-    if (HttpContext.Current.Session["ListOrgProcess"] == null) return new List<Org_Process>();
-    return HttpContext.Current.Session["ListOrgProcess"] as List<Org_Process>;
-}
+        [WebMethod]
+        public static List<Org_Process> FirstGet()
+        {
+            if (HttpContext.Current.Session["ListOrgProcess"] == null) return new List<Org_Process>();
+            return HttpContext.Current.Session["ListOrgProcess"] as List<Org_Process>;
+        }
 
-[WebMethod]
-public static void SaveOrg_Process(List<Org_Process> orgProcess)
-{
-    foreach (Org_Process op in orgProcess)
-        AdicionarRegistos.SaveOrgProcess(op.IDOrg, op.IDProcess, op.Value);
-}
+        [WebMethod]
+        public static void SaveOrg_Process(List<Org_Process> orgProcess)
+        {
+            foreach (Org_Process op in orgProcess)
+                AdicionarRegistos.SaveOrgProcess(op.IDOrg, op.IDProcess, op.Value);
+        }
     }
     public class Org_Process
-{
-    public int IDOrg { get; set; }
-    public int IDProcess { get; set; }
-    public string Value { get; set; }
-}
+    {
+        public int IDOrg { get; set; }
+        public int IDProcess { get; set; }
+        public string Value { get; set; }
+    }
 }
