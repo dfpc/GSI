@@ -247,11 +247,19 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static string GetOrgProcess(int idorg, int idprocess)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<string>("SELECT Relacao FROM ProcessoOrganizacao WHERE IDOrganizacao = {0} AND IdProcesso = {1}", idorg, idprocess).FirstOrDefault();
+            }
+        }
+
         public static void SaveOrgProcess(int idorg, int idprocess, string value)
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                db.Database.ExecuteSqlCommand("INSERT INTO ProcessoOrganizacao (IdProcesso, IDOrganizacao, Relacao) VALUES({0}, {1}, {2})", idprocess, idorg, value);
+                db.Database.ExecuteSqlCommand("exec spInsertOrgProcess @Idprocess={0}, @idOrg={1}, @Relacao={2}", idprocess, idorg, value);
             }
         }
     }

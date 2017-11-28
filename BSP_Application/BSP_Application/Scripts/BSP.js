@@ -259,24 +259,17 @@ function SaveAppProcessMatrix() {
 
 var Org_Process = [];
 function Proc_OrganizacaoChange(selectedValue, IDOrg, IDProcess) {
-    var value = '';
-    if (selectedValue == 1)
-        value = "D";
-    else if (selectedValue == 2)
-        value = "F";
-    else if (selectedValue == "3")
-        value = "A";
     var exists = false;
     for (i = 0; i < Org_Process.length; i++) {
-        if (Org_Process[i].IDOrg == IDOrg && App_Process[i].IDProcess == IDProcess) {
+        if (Org_Process[i].IDOrg == IDOrg && Org_Process[i].IDProcess == IDProcess) {
             exists = true;
-            Org_Process[i].Value = value;
+            Org_Process[i].Value = selectedValue;
         }
     }
 
     if (!exists) {
         Org_Process.push({
-            IDOrg: IDOrg, IDProcess: IDProcess, Value: value
+            IDOrg: IDOrg, IDProcess: IDProcess, Value: selectedValue
         });
     }
 }
