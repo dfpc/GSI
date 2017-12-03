@@ -14,12 +14,14 @@
         <div class="card-body">
             <div class="container-fluid">
 
-                <h4>Consultar Organizações</h4>
+                <h4>Consultar Entidades da Organização</h4>
                 <br />
                 <br />
                 <center>
-                <asp:GridView ID="gdvOrganizacao" runat="server" DataKeyNames="Id" CellPadding="5">
+                <asp:GridView ID="gdvOrganizacao" runat="server" DataKeyNames="Id" CellPadding="5" AutoGenerateColumns="false">
                     <Columns>
+                         <asp:BoundField DataField="Nome" HeaderText="Nome" ReadOnly="True" SortExpression="Nome" />
+                        <asp:BoundField DataField="Descricao" HeaderText="Descrição" ReadOnly="True" SortExpression="Tipo" />
                         <asp:TemplateField>
                             <ItemTemplate>
                               <button class="btn btn-block simple-btn" onclick="EditOrganization(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
