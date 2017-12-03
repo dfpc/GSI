@@ -37,6 +37,6 @@ namespace BSP_Application.Conteudos {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkbDeleteProject;
+        protected global::System.Web.UI.HtmlControls.HtmlButton lkbDeleteProject;
     }
 }

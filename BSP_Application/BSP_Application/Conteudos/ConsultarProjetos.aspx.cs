@@ -23,10 +23,6 @@ namespace BSP_Application.Conteudos
             }
         }
 
-        protected void lkbDeleteProjeto_Click(object sender, EventArgs e)
-        {
-            //AdicionarRegistos.DeleteOrganization
-        }
 
         [WebMethod]
         public static string EditProject(int index)
@@ -35,6 +31,14 @@ namespace BSP_Application.Conteudos
             int id = (HttpContext.Current.Session["ListaProjetos"] as List<Projeto>).ElementAt(index-1).IDProjeto;
             return string.Concat("/FormPages/AdicionarProjeto.aspx?id=", id.ToString());
         }
-        
+
+        [WebMethod]
+        public static bool DeleteProject(int index)
+        {
+            if (HttpContext.Current.Session["ListaProjetos"] == null) return false;
+            int id = (HttpContext.Current.Session["ListaProjetos"] as List<Projeto>).ElementAt(index - 1).IDProjeto;
+            return AdicionarRegistos.DeleteProject(id);
+        }
+
     }
 }

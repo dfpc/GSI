@@ -175,10 +175,57 @@ function DeleteEntidade() {
     });
 }
 
+
+
+function DeleteProjeto() {
+    $.ajax({
+        type: 'POST',
+        url: "/Conteudos/ConsultarProjetos.aspx/DeleteProject",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ index: $('#lkbDeleteProject').attr('data-index') }),
+        success: function (data) {
+            if (data.d == true)
+                window.location = window.location;
+            else {
+                $('#deleteConfirmProject').modal('hide');
+            }
+        }
+    });
+}
+
+
+function DeleteProcesso() {
+    $.ajax({
+        type: 'POST',
+        url: "/Conteudos/ConsultarProcesso.aspx/DeleteProcess",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ index: $('#lkbDeletProcess').attr('data-index') }),
+        success: function (data) {
+            if (data.d == true)
+                window.location = window.location;
+            else {
+                $('#deleteConfirmProcess').modal('hide');
+                $('#DeleteError').modal();
+
+            }
+        }
+    });
+}
+
+
 function ShowModal(btn) {
     var index = btn.parentNode.parentNode.rowIndex;
     $('#lkbDeleteEntity').attr('data-index', index);
     $('#deleteConfirm').modal();
+}
+
+
+function showModalProcess(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $('#lkbDeletProcess').attr('data-index', index);
+    $('#deleteConfirmProcess').modal();
 }
 
 var projects = [];
