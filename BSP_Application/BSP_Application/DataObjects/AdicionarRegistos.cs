@@ -139,6 +139,22 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static bool DeleteClass(int idclasse)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<bool>("exec spDeleteClass {0}", idclasse).FirstOrDefault();
+            }
+        }
+
+        public static bool DeleteApplication(int idaplicacao)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<bool>("exec spDeleteAplication {0}", idaplicacao).FirstOrDefault();
+            }
+        }
+
         public static bool DeleteProject(int idproject)
         {
             using (DataBaseConnect db = new DataBaseConnect())

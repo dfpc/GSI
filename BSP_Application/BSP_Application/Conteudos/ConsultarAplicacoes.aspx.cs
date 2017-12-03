@@ -19,5 +19,13 @@ namespace BSP_Application.Conteudos
                 gdvAplicacoes.DataBind();
             }
         }
+
+        [WebMethod]
+        public static bool DeleteApplication(int index)
+        {
+            if (HttpContext.Current.Session["ListaAplicacoes"] == null) return false;
+            int id = (HttpContext.Current.Session["ListaAplicacoes"] as List<Aplicacao>).ElementAt(index - 1).Id;
+            return AdicionarRegistos.DeleteApplication(id);
+        }
     }
 }

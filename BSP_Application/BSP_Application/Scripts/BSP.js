@@ -189,10 +189,31 @@ function DeleteProjeto() {
                 window.location = window.location;
             else {
                 $('#deleteConfirmProject').modal('hide');
+                $('#DeleteError').modal();
             }
         }
     });
 }
+
+function DeleteClasse() {
+    $.ajax({
+        type: 'POST',
+        url: "/Conteudos/ConsultarClasseDados.aspx/DeleteClass",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ index: $('#lkbDeletClass').attr('data-index') }),
+        success: function (data) {
+            if (data.d == true)
+                window.location = window.location;
+            else {
+                $('#deleteConfirmClass').modal('hide');
+                $('#DeleteError').modal();
+            }
+        }
+    });
+}
+
+
 
 
 function DeleteProcesso() {
@@ -207,6 +228,24 @@ function DeleteProcesso() {
                 window.location = window.location;
             else {
                 $('#deleteConfirmProcess').modal('hide');
+                $('#DeleteError').modal();
+
+            }
+        }
+    });
+}
+function DeleteAplicacao() {
+    $.ajax({
+        type: 'POST',
+        url: "/Conteudos/ConsultarAplicacoes.aspx/DeleteApplication",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ index: $('#lkbDeleteApplication').attr('data-index') }),
+        success: function (data) {
+            if (data.d == true)
+                window.location = window.location;
+            else {
+                $('#deleteConfirmApplication').modal('hide');
                 $('#DeleteError').modal();
 
             }
@@ -228,6 +267,23 @@ function showModalProcess(btn) {
     $('#deleteConfirmProcess').modal();
 }
 
+function showModalProject(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $('#lkbDeleteProject').attr('data-index', index);
+    $('#deleteConfirmProject').modal();
+}
+
+function showModalClass(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $('#lkbDeletClass').attr('data-index', index);
+    $('#deleteConfirmClass').modal();
+}
+
+function showModalApplication(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $('#lkbDeleteApplication').attr('data-index', index);
+    $('#deleteConfirmApplication').modal();
+}
 var projects = [];
 function SelectProject(check) {
     var index = check.parentNode.parentNode.rowIndex;
