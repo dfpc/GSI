@@ -13,7 +13,7 @@
         <div class="card-body">
             <div class="container-fluid">
 
-                <h4>Registar Aplicações</h4>
+                <h4 id="hTitle" runat="server">Registar Aplicações</h4>
                 <br />
                 <br />
                 <div class="box-body">
