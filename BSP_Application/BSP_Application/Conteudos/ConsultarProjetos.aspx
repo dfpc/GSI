@@ -31,7 +31,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmProject"  data-postcommand="">
+                                <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" onclick="showModalProject(this);"  data-postcommand="">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
@@ -60,7 +60,28 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Cancelar</button>
-                    <button id="lkbDeleteProject" runat="server" clientidmode="Static" onclick="DeleteProjeto();" class="btn btn-primary">Confirmar</button>
+                    <button id="lkbDeleteProject" runat="server" clientidmode="Static" onclick="DeleteProjeto();" class="btn btn-primary simple-btn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="modal fade" id="DeleteError" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="alert alert-danger">
+                      <strong>Erro!</strong> Não foi possível eliminar o projeto.
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    Por favor verifique se tem dados associados ao projeto!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Ok</button>
                 </div>
             </div>
         </div>

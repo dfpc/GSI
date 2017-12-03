@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -19,9 +20,14 @@ namespace BSP_Application.Conteudos
             }
         }
 
-        protected void lkbDeleteClass_Click(object sender, EventArgs e)
+        [WebMethod]
+        public static bool DeleteClass(int index)
         {
-
+            if (HttpContext.Current.Session["ListaClasses"] == null) return false;
+            int id = (HttpContext.Current.Session["ListaClasses"] as List<ClasseDados>).ElementAt(index - 1).IDClasseDados;
+            return AdicionarRegistos.DeleteClass(id);
         }
+
+
     }
 }

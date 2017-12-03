@@ -31,7 +31,7 @@
 
                             <ItemTemplate>
                                <!-- <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>-->
-                                  <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red" runat="server" type="button">
+                                  <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red" data-toggle="modal" runat="server" type="button" onclick="showModalApplication(this);" data-postcommand="">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
@@ -44,7 +44,45 @@
         </div>
         <!-- /.col-lg-9 -->
     </div>
-   
+     <div class="modal fade" id="deleteConfirmApplication" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Remover Aplicação</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        Confirma que pretende eliminar esta Aplicação?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Cancelar</button>
+                         <button id="lkbDeleteApplication" runat="server" clientidmode="Static" onclick="DeleteAplicacao();" class="btn btn-primary simple-btn">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="DeleteError" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="alert alert-danger">
+                      <strong>Erro!</strong> Não foi possível eliminar a aplicação.
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    Por favor verifique se tem dados associados à aplicação!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     
     <!-- /.container -->

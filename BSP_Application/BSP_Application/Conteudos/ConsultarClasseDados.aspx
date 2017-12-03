@@ -32,7 +32,7 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                <!-- <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>-->
-                                  <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmClass" data-postcommand="">
+                                  <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" onclick="showModalClass(this);" data-postcommand="">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
@@ -59,11 +59,32 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <asp:LinkButton ID="lkbDeleteClass" runat="server" ClientIDMode="Static" OnClick="lkbDeleteClass_Click" CssClass="btn btn-primary">Confirmar</asp:LinkButton>
+                         <button id="lkbDeletClass" runat="server" clientidmode="Static" onclick="DeleteClasse();" class="btn btn-primary simple-btn">Confirmar</button>
                     </div>
                 </div>
             </div>
         </div>
+
+
+            <div class="modal fade" id="DeleteError" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="alert alert-danger">
+                      <strong>Erro!</strong> Não foi possível eliminar a classe de dados.
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    Por favor verifique se tem dados associados à classe de dados!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- /.container -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
