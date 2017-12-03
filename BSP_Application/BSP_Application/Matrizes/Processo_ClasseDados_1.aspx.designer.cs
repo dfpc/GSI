@@ -1,0 +1,51 @@
+﻿//------------------------------------------------------------------------------
+// <gerado automaticamente>
+//     Este código foi gerado por uma ferramenta.
+//
+//     As alterações ao arquivo poderão causar comportamento incorreto e serão perdidas se
+//     o código for recriado
+// </gerado automaticamente>
+//------------------------------------------------------------------------------
+
+namespace BSP_Application.Matrizes {
+    
+    
+    public partial class Processo_ClasseDados_1 {
+        
+        /// <summary>
+        /// Controle MainMenu1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::BSP_Application.UserControls.MainMenu MainMenu1;
+        
+        /// <summary>
+        /// Controle ListaProjetos.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ListaProjetos;
+        
+        /// <summary>
+        /// Controle divProjectsForm.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divProjectsForm;
+        
+        /// <summary>
+        /// Controle btnNext.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnNext;
+    }
+}
