@@ -155,6 +155,14 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static bool DeleteProcess(int idprocesso)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<bool>("exec spDeleteProcesso {0}", idprocesso).FirstOrDefault();
+            }
+        }
+
         public static Projeto GetProjectById(int idproject)
         {
             using (DataBaseConnect db = new DataBaseConnect())

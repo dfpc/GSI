@@ -60,7 +60,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Cancelar</button>
-                    <asp:LinkButton ID="lkbDeleteProject" runat="server" ClientIDMode="Static" OnClick="lkbDeleteProjeto_Click" CssClass="btn btn-primary">Confirmar</asp:LinkButton>
+                    <button id="lkbDeleteProject" runat="server" clientidmode="Static" onclick="DeleteProjeto();" class="btn btn-primary">Confirmar</button>
                 </div>
             </div>
         </div>

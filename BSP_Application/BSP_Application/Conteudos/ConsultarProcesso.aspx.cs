@@ -23,17 +23,20 @@ namespace BSP_Application.Conteudos
             }
         }
 
-        protected void lkbDeleteProcesso_Click(object sender, EventArgs e)
-        {
-
-        }
-
         [WebMethod]
         public static string EditProcess(int index)
         {
             if (HttpContext.Current.Session["ListaProcessos"] == null) return string.Empty;
             int id = (HttpContext.Current.Session["ListaProcessos"] as List<Processo>).ElementAt(index - 1).Id;
             return string.Concat("/FormPages/RegisterProcess.aspx?id=", id.ToString());
+        }
+
+        [WebMethod]
+        public static bool DeleteProcess(int index)
+        {
+            if (HttpContext.Current.Session["ListaProcessos"] == null) return false;
+            int id = (HttpContext.Current.Session["ListaProcessos"] as List<Processo>).ElementAt(index - 1).Id;
+            return AdicionarRegistos.DeleteProcess(id);
         }
     }
 }

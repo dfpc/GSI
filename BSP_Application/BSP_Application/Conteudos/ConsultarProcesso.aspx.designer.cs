@@ -31,12 +31,12 @@ namespace BSP_Application.Conteudos {
         protected global::System.Web.UI.WebControls.GridView gdvProcesso;
         
         /// <summary>
-        /// Controle lkbDeleteProcess.
+        /// Controle lkbDeletProcess.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkbDeleteProcess;
+        protected global::System.Web.UI.HtmlControls.HtmlButton lkbDeletProcess;
     }
 }
