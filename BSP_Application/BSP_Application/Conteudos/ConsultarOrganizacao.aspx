@@ -30,7 +30,7 @@
                         <asp:TemplateField>
                             <ItemTemplate>
 
-                                <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" data-target="#deleteConfirmModal" data-postcommand="">
+                                <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red"  data-toggle="modal" runat="server" type="button" onclick="showModalOrgEntity(this);"  data-postcommand="">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
@@ -45,25 +45,45 @@
     </div>
     <!-- /.container -->
 
-    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog"
+    <div class="modal fade" id="deleteConfirmModalOrganization" tabindex="-1" role="dialog"
             aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Remover organização</h4>
+                        <h4 class="modal-title" id="myModalLabel">Remover Entidade da Organização</h4>
                         <button type="button" class="close simple-btn" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
-                        Confirma que pretende eliminar esta Organização?
+                        Confirma que pretende eliminar esta Entidade da Organização?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Cancelar</button>
-                        <asp:LinkButton ID="lkbDeleteOrganization" runat="server" ClientIDMode="Static" OnClick="lkbDeleteOrganization_Click" CssClass="btn btn-primary">Confirmar</asp:LinkButton>
+                    <button id="lkbDeleteOrgEntity" runat="server" clientidmode="Static" onclick="DeleteEntOrganizacao();" class="btn btn-primary simple-btn">Confirmar</button>
                     </div>
                 </div>
             </div>
         </div>
+
+         <div class="modal fade" id="DeleteError" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="alert alert-danger">
+                      <strong>Erro!</strong> Não foi possível eliminar a Entidade da Organização.
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    Por favor verifique se tem dados associados à Entidade da Organização!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>

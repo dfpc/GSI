@@ -28,5 +28,13 @@ namespace BSP_Application.Conteudos
             int id = (HttpContext.Current.Session["ListaProblemas"] as List<Problema>).ElementAt(index - 1).IDProblema;
             return string.Concat("/FormPages/SumariacaoEntrevistas.aspx?id=", id.ToString());
         }
+
+        [WebMethod]
+        public static bool DeleteProblem(int index)
+        {
+            if (HttpContext.Current.Session["ListaProblemas"] == null) return false;
+            int id = (HttpContext.Current.Session["ListaProblemas"] as List<Problema>).ElementAt(index - 1).IDProblema;
+            return AdicionarRegistos.DeleteProblem(id);
+        }
     }
 }

@@ -21,10 +21,7 @@ namespace BSP_Application.Conteudos
             }
         }
 
-        protected void lkbDeleteOrganization_Click(object sender, EventArgs e)
-        {
 
-        }
 
         [WebMethod]
         public static string EditOrganization(int index)
@@ -32,6 +29,14 @@ namespace BSP_Application.Conteudos
             if (HttpContext.Current.Session["ListaOrganizacoes"] == null) return string.Empty;
             int id = (HttpContext.Current.Session["ListaOrganizacoes"] as List<Organizacao>).ElementAt(index - 1).Id;
             return string.Concat("/FormPages/AdicionarOrganizacao.aspx?id=", id.ToString());
+        }
+
+        [WebMethod]
+        public static bool DeleteOrgEntity(int index)
+        {
+            if (HttpContext.Current.Session["ListaOrganizacoes"] == null) return false;
+            int id = (HttpContext.Current.Session["ListaOrganizacoes"] as List<Organizacao>).ElementAt(index - 1).Id;
+            return AdicionarRegistos.DeleteOrgEntity(id);
         }
     }
 }
