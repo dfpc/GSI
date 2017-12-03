@@ -24,7 +24,6 @@
                     <Columns>
                          <asp:BoundField DataField="Nome" HeaderText="Nome" ReadOnly="True" SortExpression="Nome" />
                         <asp:BoundField DataField="Descricao" HeaderText="Descrição" ReadOnly="True" SortExpression="Descricao" />
-                        <asp:BoundField DataField="Projeto" HeaderText="Projeto Associado" ReadOnly="True" SortExpression="Projeto" />
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <button class="btn btn-block simple-btn" onclick="editProcess(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>

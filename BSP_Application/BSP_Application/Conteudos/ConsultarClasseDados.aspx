@@ -18,8 +18,12 @@
                 <br />
                 <br /> 
                 <center>
-                <asp:GridView ID="gdvClassesDados"  runat="server"  CellPadding="5">
+                <asp:GridView ID="gdvClassesDados"  runat="server"  CellPadding="5" AutoGenerateColumns="false">
                     <Columns>
+                         <asp:BoundField DataField="Nome" HeaderText="Nome" ReadOnly="True" SortExpression="Nome" />
+                        <asp:BoundField DataField="Descricao" HeaderText="Descrição" ReadOnly="True" SortExpression="Tipo" />
+                        <asp:BoundField DataField="Projeto" HeaderText="Projecto Associado" ReadOnly="True" SortExpression="Tipo" />
+
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <button class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
