@@ -68,15 +68,13 @@ namespace BSP_Application.Matrizes
                 rd.Close();
 
                 if (ids[0] == 0) return;
-
-
+                
                 cmd = new SqlCommand("SELECT Nome, Id FROM Processo WHERE IDProjeto=@idprojeto", conn2);
                 cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-
                     table.Append("<tr>");
                     table.Append("<td>" + dr[0] + "</td>");
                     for (var i = 0; i < count; i++)
@@ -92,17 +90,11 @@ namespace BSP_Application.Matrizes
                         else
                             table.Append("<option value = ' '>  </ option >");
 
-                        if (aux == "C")
-                            table.Append("<option Value='C' selected='selected'>C</option>");
-                        else
-                            table.Append("<option value = 'C' > C </ option >");
                         if (aux == "U")
                             table.Append("<option Value='U' selected='selected'>U</option>");
                         else
                             table.Append("<option value = 'U' > U </ option >");
                         table.Append("</select></center></td>");
-
-
                     }
                     table.Append("</tr>");
                 }

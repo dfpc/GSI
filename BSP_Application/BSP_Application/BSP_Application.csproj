@@ -222,6 +222,7 @@
     <Content Include="Matrizes\App_Organizacao.aspx" />
     <Content Include="Matrizes\App_Processo.aspx" />
     <Content Include="Matrizes\Processo_ClasseDados.aspx" />
+    <Content Include="Matrizes\Processo_ClasseDados_1.aspx" />
     <Content Include="Matrizes\Processo_Organizacao.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
@@ -425,6 +426,13 @@
     </Compile>
     <Compile Include="Matrizes\Processo_ClasseDados.aspx.designer.cs">
       <DependentUpon>Processo_ClasseDados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Matrizes\Processo_ClasseDados_1.aspx.cs">
+      <DependentUpon>Processo_ClasseDados_1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Matrizes\Processo_ClasseDados_1.aspx.designer.cs">
+      <DependentUpon>Processo_ClasseDados_1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Matrizes\Processo_Organizacao.aspx.cs">
       <DependentUpon>Processo_Organizacao.aspx</DependentUpon>

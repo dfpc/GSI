@@ -335,5 +335,21 @@ namespace BSP_Application.DataObjects
                     p.Causa, p.Efeito, p.Importancia, idprocesso, idclassedados, p.PotencialSolucao, p.GrupoProcesso, p.IDProblema);
             }
         }
+
+        public static List<ClasseDados> GetClassDataByProject(int idproject)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<ClasseDados>("SELECT Nome, Id AS IDClasseDados FROM ClasseDados WHERE IDProjeto= {0}", idproject).ToList();
+            }
+        }
+
+        public static List<Processo> GetProcessByProject(int idproject)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<Processo>("SELECT Nome, Id FROM Processo WHERE IDProjeto= {0}", idproject).ToList();
+            }
+        }
     }
 }
