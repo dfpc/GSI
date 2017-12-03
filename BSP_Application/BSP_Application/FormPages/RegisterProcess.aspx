@@ -11,7 +11,7 @@
     <div class="card card-outline-secondary my-4">
         <div class="card-body">
             <div class="container-fluid">
-                <h4>Registar Processo</h4>
+                <h4 id="hTitle" runat="server">Registar Processo</h4>
                 <div class="box-body" style="margin-top: 50px;">
                     <div class="form-group">
 

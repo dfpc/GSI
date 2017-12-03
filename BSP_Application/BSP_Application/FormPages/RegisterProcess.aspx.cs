@@ -39,6 +39,7 @@ namespace BSP_Application.FormPages
 
         private void EditProcess(int id)
         {
+            hTitle.InnerText = "Editar Processo";
             Processo p = AdicionarRegistos.GetProcessById(id);
             inputNome.Value = p.Nome;
             comment.Value = p.Descricao;
@@ -56,7 +57,6 @@ namespace BSP_Application.FormPages
                 AdicionarRegistos.InsertProcess(inputNome.Value, comment.Value, Int32.Parse(ListaProjetos.SelectedValue), camadasDrop.Text);
             }
             Response.Redirect("/Conteudos/ConsultarProcesso.aspx");
-
         }
 
 

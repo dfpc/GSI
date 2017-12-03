@@ -47,14 +47,15 @@ namespace BSP_Application.FormPages
                 ListaProcesso.DataValueField = "Id";
                 ListaProcesso.DataBind();
                 conn.Close();
-
-                editSumariacaoEntrevistas(Convert.ToInt32(Request.QueryString["id"]));
+                if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+                    editSumariacaoEntrevistas(Convert.ToInt32(Request.QueryString["id"]));
             }
 
         }
 
         private void editSumariacaoEntrevistas(int id)
         {
+            hTitle.InnerText = "Editar Sumariação de Entrevistas";
             Problema problema = AdicionarRegistos.GetProblemaById(id);
             ListaProcesso.SelectedIndex = ListaProcesso.Items.IndexOf(ListaProcesso.Items.FindByText(problema.ProcessoC));
             ListaClasse.SelectedIndex = ListaClasse.Items.IndexOf(ListaClasse.Items.FindByText(problema.ClasseC));
@@ -67,27 +68,20 @@ namespace BSP_Application.FormPages
 
         protected void Guardar_SumariacaoEntrevistas(object sender, EventArgs e)
         {
-            
-            string grupo_ = grupo_processos.Value;
-            string causa_ = causa.Value;
-            string efeito_ = efeito.Value;
-            string importancia_ = ListaImportancia.SelectedValue;
-            string solucao_ = solucao_potencial.Value;
             int idProcesso = Int32.Parse(ListaProcesso.SelectedValue);
             int idClasse = Int32.Parse(ListaClasse.SelectedValue);
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-            string sql = "INSERT INTO Problema (Causa, Efeito, Importancia, IDProcesso, IDClasseDados, PotencialSolucao, GrupoProcesso) values (@causa, @efeito, @importancia, @idprocesso, @idclasse, @potencialsolucao, @grupoprocesso)";
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@causa", causa_);
-            cmd.Parameters.AddWithValue("@efeito", efeito_);
-            cmd.Parameters.AddWithValue("@importancia", importancia_);
-            cmd.Parameters.AddWithValue("@idprocesso", idProcesso );
-            cmd.Parameters.AddWithValue("@idclasse", idClasse);
-            cmd.Parameters.AddWithValue("@potencialsolucao", solucao_);
-            cmd.Parameters.AddWithValue("@grupoprocesso", grupo_);
-
-            cmd.ExecuteNonQuery();
+            Problema p = new Problema()
+            {
+                Causa = causa.Value,
+                Efeito = efeito.Value,
+                Importancia = ListaImportancia.SelectedValue,
+                PotencialSolucao = solucao_potencial.Value,
+                GrupoProcesso = grupo_processos.Value
+            };
+            if (!string.IsNullOrEmpty(Request.QueryString["id"]))
+                p.IDProblema = (Convert.ToInt32(Request.QueryString["id"]));
+            AdicionarRegistos.SaveProblems(p, idProcesso, idClasse);
+            Response.Redirect("/Conteudos/ConsultarSumariacaoEntrevistas.aspx");
         }
     }
 }

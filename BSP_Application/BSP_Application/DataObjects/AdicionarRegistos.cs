@@ -326,5 +326,14 @@ namespace BSP_Application.DataObjects
                 db.Database.ExecuteSqlCommand("exec spInsertProcClasse @idProc={0}, @idClasse={1}, @relacao={2}", idprocesso, idclasse, value);
             }
         }
+
+        public static void SaveProblems(Problema p, int idprocesso, int idclassedados)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("exec spInsertUpdateProblems @Causa = {0}, @Efeito = {1}, @Importancia = {2}, @IDProcesso ={3}, @IDClasseDados ={4}, @PotencialSolucao = {5}, @GrupoProcesso ={6}, @IDProblema = {7}", 
+                    p.Causa, p.Efeito, p.Importancia, idprocesso, idclassedados, p.PotencialSolucao, p.GrupoProcesso, p.IDProblema);
+            }
+        }
     }
 }

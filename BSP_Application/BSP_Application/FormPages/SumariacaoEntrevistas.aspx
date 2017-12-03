@@ -12,7 +12,7 @@
     <div class="card card-outline-secondary my-4">
         <div class="card-body">
             <div class="container-fluid">
-                <h4>Sumariação de Entrevistas</h4>
+                <h4 id="hTitle" runat="server">Sumariação de Entrevistas</h4>
                 <br />
                 <br />
                 <!--<asp:GridView ID="gdvSumariacaoEntrevistas" runat="server" DataKeyNames="Id" CellPadding="5">

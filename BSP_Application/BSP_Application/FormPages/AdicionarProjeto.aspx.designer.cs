@@ -22,6 +22,15 @@ namespace BSP_Application.FormPages {
         protected global::BSP_Application.UserControls.MainMenu MainMenu1;
         
         /// <summary>
+        /// Controle hTitle.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hTitle;
+        
+        /// <summary>
         /// Controle inputNome.
         /// </summary>
         /// <remarks>

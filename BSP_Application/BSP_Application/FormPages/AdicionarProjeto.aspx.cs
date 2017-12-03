@@ -25,6 +25,7 @@ namespace BSP_Application.FormPages
 
         private void EditProject(int id)
         {
+            hTitle.InnerText = "Editar Projecto";
             Projeto p = AdicionarRegistos.GetProjectById(id);
             inputNome.Value = p.Nome;
             comment.Value = p.Descricao;

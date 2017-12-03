@@ -13,7 +13,7 @@
         <div class="card-body">
             <div class="container-fluid">
                   <input type="hidden" runat="server" clientidmode="static" id="hdIdOrganizacao"/>
-                <h4>Registar Organização</h4>
+                <h4 id="hTitle" runat="server">Registar Entidade da Organização</h4>
                 <br />
                 <br />
                 <div class="box-body">

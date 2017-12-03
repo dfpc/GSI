@@ -32,6 +32,7 @@ namespace BSP_Application.FormPages
 
         private void EditOrganization(int id)
         {
+            hTitle.InnerText = "Editar Entidade da Organização";
             Organizacao o = AdicionarRegistos.GetOrganizacaoById(id);
             inputNome.Value = o.Nome;
             comment.Value = o.Descricao;
