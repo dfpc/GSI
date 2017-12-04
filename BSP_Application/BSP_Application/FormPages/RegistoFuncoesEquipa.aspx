@@ -36,7 +36,7 @@
                         <div class="col-sm-offset-2 col-sm-10">
                           <!--  <a href="#demo5">Adicionar Mais</a><br />-->
                             <br />
-                            <asp:Button ID="avancar" runat="server" class="btn btn-block btn-success" style="width: 20%" Text="Guardar" OnClick="avancar_Click1" />
+                            <asp:Button ID="avancar" runat="server" class="btn btn-block btn-success" style="width: 20%" Text="Avançar" OnClick="avancar_Click1" />
                            
 
                             <br />

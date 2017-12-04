@@ -129,3 +129,4 @@ C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\Do
 C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\bin\DotNetOpenAuth.AspNet.xml
 C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\BSP_Application.dll
 C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\BSP_Application.pdb
+C:\Users\Solange Paz\Documents\GitHub\GSI\BSP_Application\BSP_Application\obj\Debug\BSP_Application.csprojResolveAssemblyReference.cache

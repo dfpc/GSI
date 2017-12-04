@@ -21,10 +21,14 @@
     <HeaderStyle HorizontalAlign="Center" />
 
        <Columns>
+
            <asp:BoundField DataField="Grupo" HeaderText="Grupo" ItemStyle-Width="150" />
            <asp:BoundField DataField="Funcao" HeaderText="Função" ItemStyle-Width="150" />
+           <asp:BoundField DataField="" HeaderText="" ItemStyle-Width="150" />
+
        </Columns>
    </asp:GridView>
+
 </center>
 
 

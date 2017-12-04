@@ -50,6 +50,8 @@ namespace BSP_Application.FormPages
                 cmd.Parameters.AddWithValue("@idgrupo", idgrupo);
                 cmd.ExecuteNonQuery();
             }
+
+            Response.Redirect("/Conteudos/ConsultarFuncoesEquipa.aspx");
         }
     }
 }
