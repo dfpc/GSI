@@ -15,9 +15,21 @@ namespace BSP_Application.Conteudos
         {
             if (!IsPostBack)
             {
-                gdvAplicacoes.DataSource = AdicionarRegistos.GetAllAplications();
+                /*gdvAplicacoes.DataSource = AdicionarRegistos.GetAllAplications();
+                gdvAplicacoes.DataBind();*/
+
+                Session["ListaAplicacoes"] = AdicionarRegistos.GetAllAplications();
+                gdvAplicacoes.DataSource = Session["ListaAplicacoes"];
                 gdvAplicacoes.DataBind();
             }
+        }
+
+        [WebMethod]
+        public static string EditApplication(int index)
+        {
+            if (HttpContext.Current.Session["ListaAplicacoes"] == null) return string.Empty;
+            int id = (HttpContext.Current.Session["ListaAplicacoes"] as List<Aplicacao>).ElementAt(index - 1).Id;
+            return string.Concat("/FormPages/RegistoAplicacoes.aspx?id=", id.ToString());
         }
 
         [WebMethod]

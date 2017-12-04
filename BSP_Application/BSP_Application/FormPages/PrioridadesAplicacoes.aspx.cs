@@ -35,6 +35,8 @@ namespace BSP_Application.FormPages
             foreach (Aplicacao a in apps)
             {
                 ulPrioridades.FindControl("priority1" + a.Id);
+                
+               
             }
         }
     }

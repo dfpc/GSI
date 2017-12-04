@@ -10,7 +10,7 @@
 namespace BSP_Application.FormPages {
     
     
-    public partial class RegistoFuncoesEquipa {
+    public partial class RegistoFuncoesEquipaP2 {
         
         /// <summary>
         /// Controle MainMenu1.
@@ -22,30 +22,30 @@ namespace BSP_Application.FormPages {
         protected global::BSP_Application.UserControls.MainMenu MainMenu1;
         
         /// <summary>
-        /// Controle ListaProjetos.
+        /// Controle ListaGrupos.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListaProjetos;
+        protected global::System.Web.UI.WebControls.DropDownList ListaGrupos;
         
         /// <summary>
-        /// Controle grupotextarea.
+        /// Controle funcaotextarea.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea grupotextarea;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea funcaotextarea;
         
         /// <summary>
-        /// Controle avancar.
+        /// Controle guardar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button avancar;
+        protected global::System.Web.UI.WebControls.Button guardar;
     }
 }

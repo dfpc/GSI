@@ -191,6 +191,7 @@
     <Content Include="Conteudos\ConsultarAplicacoes.aspx" />
     <Content Include="Conteudos\ConsultarClasseDados.aspx" />
     <Content Include="Conteudos\ConsultarEntidades.aspx" />
+    <Content Include="Conteudos\ConsultarFuncoesEquipa.aspx" />
     <Content Include="Conteudos\ConsultarOrganizacao.aspx" />
     <Content Include="Conteudos\ConsultarProcesso.aspx" />
     <Content Include="Conteudos\ConsultarProjetos.aspx" />
@@ -204,6 +205,7 @@
     <Content Include="FormPages\RegistoAplicacoes.aspx" />
     <Content Include="FormPages\RegistoClasseDados.aspx" />
     <Content Include="FormPages\RegistoFuncoesEquipa.aspx" />
+    <Content Include="FormPages\RegistoFuncoesEquipaP2.aspx" />
     <Content Include="FormPages\SumariacaoEntrevistas.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -287,6 +289,13 @@
     </Compile>
     <Compile Include="Conteudos\ConsultarEntidades.aspx.designer.cs">
       <DependentUpon>ConsultarEntidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Conteudos\ConsultarFuncoesEquipa.aspx.cs">
+      <DependentUpon>ConsultarFuncoesEquipa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Conteudos\ConsultarFuncoesEquipa.aspx.designer.cs">
+      <DependentUpon>ConsultarFuncoesEquipa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Conteudos\ConsultarOrganizacao.aspx.cs">
       <DependentUpon>ConsultarOrganizacao.aspx</DependentUpon>
@@ -388,6 +397,13 @@
     </Compile>
     <Compile Include="FormPages\RegistoFuncoesEquipa.aspx.designer.cs">
       <DependentUpon>RegistoFuncoesEquipa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormPages\RegistoFuncoesEquipaP2.aspx.cs">
+      <DependentUpon>RegistoFuncoesEquipaP2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormPages\RegistoFuncoesEquipaP2.aspx.designer.cs">
+      <DependentUpon>RegistoFuncoesEquipaP2.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormPages\SumariacaoEntrevistas.aspx.cs">
       <DependentUpon>SumariacaoEntrevistas.aspx</DependentUpon>

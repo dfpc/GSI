@@ -15,10 +15,25 @@ namespace BSP_Application.Conteudos
         {
             if (!IsPostBack)
             {
-                gdvClassesDados.DataSource = AdicionarRegistos.GetAllDataClasses();
+               /* gdvClassesDados.DataSource = AdicionarRegistos.GetAllDataClasses();
+                gdvClassesDados.DataBind();*/
+
+
+                Session["ListaClasses"] = AdicionarRegistos.GetAllDataClasses();
+                gdvClassesDados.DataSource = Session["ListaClasses"];
                 gdvClassesDados.DataBind();
             }
         }
+
+
+        [WebMethod]
+        public static string EditClass(int index)
+        {
+            if (HttpContext.Current.Session["ListaClasses"] == null) return string.Empty;
+            int id = (HttpContext.Current.Session["ListaClasses"] as List<ClasseDados>).ElementAt(index - 1).IDClasseDados;
+            return string.Concat("/FormPages/RegistoClasseDados.aspx?id=", id.ToString());
+        }
+
 
         [WebMethod]
         public static bool DeleteClass(int index)

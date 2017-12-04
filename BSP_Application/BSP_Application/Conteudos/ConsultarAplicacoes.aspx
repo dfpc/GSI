@@ -24,8 +24,9 @@
                         <asp:BoundField DataField="Descricao" HeaderText="Descrição" ReadOnly="True" SortExpression="Tipo" />
                         <asp:TemplateField>
                              <ItemTemplate>
-                              <button class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
-                            </ItemTemplate>
+                              <button class="btn btn-block simple-btn" onclick="editApplication(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+
+                             </ItemTemplate>
                        </asp:TemplateField>
                                                 <asp:TemplateField>
 

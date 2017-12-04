@@ -200,13 +200,40 @@ namespace BSP_Application.DataObjects
                 return db.Database.SqlQuery<Projeto>("SELECT * FROM PROJETO WHERE IDProjeto = {0}", idproject).FirstOrDefault();
             }
         }
-        
+
+
+        public static Aplicacao GetApplicationById(int idapp)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<Aplicacao>("SELECT A.*, P.Nome as NomeProjeto FROM Aplicacao A, Projeto P WHERE A.IdProjeto = P.IDProjeto AND A.Id = {0}", idapp).FirstOrDefault();
+            }
+        }
+
+        public static ClasseDados GetClassDataById(int idclass)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<ClasseDados>("SELECT CD.*, P.Nome as NomeProjeto, E.Nome as NomeEntidade FROM ClasseDados CD, Entidade E, Projeto P WHERE P.IDProjeto = CD.IDProjeto AND E.Id = CD.IDEntidade AND CD.Id = {0}", idclass).FirstOrDefault();
+            }
+        }
+
         public static void EditProject(int idproject, string nome, string descricao)
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
                 db.Database.ExecuteSqlCommand("UPDATE PROJETO SET Nome = {1}, Descricao = {2} WHERE IDProjeto = {0}",
                     idproject, nome, descricao);
+            }
+        }
+
+
+        public static void EditClass(int idclasse, string nome, string descricao, int idprojeto, int identidade)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("UPDATE ClasseDados SET Nome = {1}, Descricao = {2}, IDProjeto = {3}, IDEntidade = {4} WHERE Id = {0}",
+                    idclasse, nome, descricao, idprojeto, identidade);
             }
         }
 
@@ -227,6 +254,16 @@ namespace BSP_Application.DataObjects
                     id, nome, descricao);
             }
         }
+
+        public static void EditApplication(int id, string nome, string descricao, int idprojeto)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("UPDATE Aplicacao SET Nome = {1}, Descricao = {2}, IdProjeto = {3} WHERE Id = {0}",
+                    id, nome, descricao, idprojeto);
+            }
+        }
+
 
         public static void EditSumariacao(int idproblem, string causa, string efeito, string importancia, int idprocesso, int idclasse, string solucao, string grupo)
         {

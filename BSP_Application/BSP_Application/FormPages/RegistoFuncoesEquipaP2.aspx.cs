@@ -11,47 +11,47 @@ using System.Data;
 
 namespace BSP_Application.FormPages
 {
-    public partial class RegistoFuncoesEquipa : System.Web.UI.Page
+    public partial class RegistoFuncoesEquipaP2 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-                string com = "Select Nome, IdProjeto FROM Projeto";
+                string com = "Select Nome, Id FROM GrupoDirecao";
                 SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
                 DataTable dt = new DataTable();
                 adpt.Fill(dt);
-                ListaProjetos.DataSource = dt;
-                ListaProjetos.DataTextField = "Nome";
-                ListaProjetos.DataValueField = "IDProjeto";
-                ListaProjetos.DataBind();
+                ListaGrupos.DataSource = dt;
+                ListaGrupos.DataTextField = "Nome";
+                ListaGrupos.DataValueField = "Id";
+                ListaGrupos.DataBind();
             }
+
         }
 
+     
 
-
-        protected void avancar_Click1(object sender, EventArgs e)
+        protected void guardar_Click1(object sender, EventArgs e)
         {
+
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-            string sql = "INSERT INTO GrupoDirecao (IDProjeto, Nome) values (@idprojeto, @nome)";
+            string sql = "INSERT INTO Funcao (IDGrupoDirecao, Nome) values (@idgrupo, @nome)";
             conn.Open();
 
-            int idprojeto = Int32.Parse(ListaProjetos.SelectedValue);
-            string grupo = grupotextarea.Value;
+            int idgrupo = Int32.Parse(ListaGrupos.SelectedValue);
+            string funcao = funcaotextarea.Value;
 
-            string[] sArray = grupo.Split(';');
-            for (int i=0; i<sArray.Length;i++)
+            string[] sArray = funcao.Split(';');
+            for (int i = 0; i < sArray.Length; i++)
             {
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@nome", sArray[i]);
-                cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
+                cmd.Parameters.AddWithValue("@idgrupo", idgrupo);
                 cmd.ExecuteNonQuery();
             }
 
-            Response.Redirect("/FormPages/RegistoFuncoesEquipaP2.aspx");
-
-
+            Response.Redirect("/Conteudos/ConsultarFuncoesEquipa.aspx");
         }
     }
 }
