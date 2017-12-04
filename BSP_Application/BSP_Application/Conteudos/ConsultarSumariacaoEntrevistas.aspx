@@ -38,7 +38,7 @@
 
                             <ItemTemplate>
                                <!-- <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>-->
-                                  <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red" runat="server" type="button">
+                                  <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red" runat="server" type="button" onclick="showModalProblem(this);"  data-postcommand="">
                                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                                 </button>
                             </ItemTemplate>
@@ -52,7 +52,46 @@
         <!-- /.col-lg-9 -->
     </div>
    
+      <div class="modal fade" id="deleteConfirmProblem" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Remover Sumariação de Entrevistas</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    Confirma que pretende eliminar esta sumariação de entrevistas?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Cancelar</button>
+                    <button id="lkbDeleteProblem" runat="server" clientidmode="Static" onclick="DeleteProblema();" class="btn btn-primary simple-btn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+
+        <div class="modal fade" id="DeleteError" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="alert alert-danger">
+                      <strong>Erro!</strong> Não foi possível eliminar a sumariação de entrevistas.
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    Por favor verifique se tem dados associados à sumariação de entrevistas!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- /.container -->
 </asp:Content>

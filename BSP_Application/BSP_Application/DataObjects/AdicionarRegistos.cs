@@ -139,6 +139,20 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static bool DeleteProblem(int idproblema)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<bool>("exec spDeleteProblem {0}", idproblema).FirstOrDefault();
+            }
+        }
+        public static bool DeleteOrgEntity(int idorganizacao)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<bool>("exec spDeleteOrgEntity {0}", idorganizacao).FirstOrDefault();
+            }
+        }
         public static bool DeleteClass(int idclasse)
         {
             using (DataBaseConnect db = new DataBaseConnect())

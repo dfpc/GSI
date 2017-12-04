@@ -31,12 +31,12 @@ namespace BSP_Application.Conteudos {
         protected global::System.Web.UI.WebControls.GridView gdvOrganizacao;
         
         /// <summary>
-        /// Controle lkbDeleteOrganization.
+        /// Controle lkbDeleteOrgEntity.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkbDeleteOrganization;
+        protected global::System.Web.UI.HtmlControls.HtmlButton lkbDeleteOrgEntity;
     }
 }

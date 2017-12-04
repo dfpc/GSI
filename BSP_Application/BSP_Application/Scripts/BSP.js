@@ -175,6 +175,24 @@ function DeleteEntidade() {
     });
 }
 
+function DeleteProblema() {
+    $.ajax({
+        type: 'POST',
+        url: "/Conteudos/ConsultarSumariacaoEntrevistas.aspx/DeleteProblem",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ index: $('#lkbDeleteProblem').attr('data-index') }),
+        success: function (data) {
+            if (data.d == true)
+                window.location = window.location;
+            else {
+                $('#deleteConfirmProblem').modal('hide');
+                $('#DeleteError').modal();
+            }
+        }
+    });
+}
+
 
 
 function DeleteProjeto() {
@@ -253,6 +271,24 @@ function DeleteAplicacao() {
     });
 }
 
+function DeleteEntOrganizacao() {
+    $.ajax({
+        type: 'POST',
+        url: "/Conteudos/ConsultarOrganizacao.aspx/DeleteOrgEntity",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ index: $('#lkbDeleteOrgEntity').attr('data-index') }),
+        success: function (data) {
+            if (data.d == true)
+                window.location = window.location;
+            else {
+                $('#deleteConfirmModalOrganization').modal('hide');
+                $('#DeleteError').modal();
+
+            }
+        }
+    });
+}
 
 function ShowModal(btn) {
     var index = btn.parentNode.parentNode.rowIndex;
@@ -284,6 +320,20 @@ function showModalApplication(btn) {
     $('#lkbDeleteApplication').attr('data-index', index);
     $('#deleteConfirmApplication').modal();
 }
+
+function showModalProblem(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $('#lkbDeleteProblem').attr('data-index', index);
+    $('#deleteConfirmProblem').modal();
+}
+
+function showModalOrgEntity(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $('#lkbDeleteOrgEntity').attr('data-index', index);
+    $('#deleteConfirmModalOrganization').modal();
+}
+
+
 var projects = [];
 function SelectProject(check) {
     var index = check.parentNode.parentNode.rowIndex;
