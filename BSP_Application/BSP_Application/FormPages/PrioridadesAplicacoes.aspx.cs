@@ -27,31 +27,5 @@ namespace BSP_Application.FormPages
                 }
             }
         }
-
-        /*  protected void btnSavePrioridades_Click(object sender, EventArgs e)
-          {
-              List<Aplicacao> apps = AdicionarRegistos.GetAllAplications();
-
-              foreach (Aplicacao a in apps)
-              {
-                   ulPrioridades.FindControl("priority1" + a.Id);
-
-
-
-
-              }
-          }
-          */
-
-<<<<<<< HEAD
-            foreach (Aplicacao a in apps)
-            {
-                 ulPrioridades.FindControl("priority1" + a.Id);
-               
-            
-=======
->>>>>>> e674ef9b1f907cffe2d15a7d3407d04ee719dd33
-
-
     }
 }
