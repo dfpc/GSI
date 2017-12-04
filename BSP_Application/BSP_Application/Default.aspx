@@ -65,4 +65,9 @@
         </div>
         <!-- /.container -->
     </footer>
+    <script>
+        $(document).ready(function () {
+            $("#logout").hide();
+        });
+    </script>
 </asp:Content>
