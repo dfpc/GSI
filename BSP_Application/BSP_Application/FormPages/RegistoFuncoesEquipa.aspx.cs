@@ -48,7 +48,7 @@ namespace BSP_Application.FormPages
                 cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
                 cmd.ExecuteNonQuery();
             }
-
+           
             Response.Redirect("/FormPages/RegistoFuncoesEquipaP2.aspx");
 
 

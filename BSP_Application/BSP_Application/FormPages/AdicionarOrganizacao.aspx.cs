@@ -56,7 +56,13 @@ namespace BSP_Application.FormPages
             foreach (int i in projetos)
             {
                 AdicionarRegistos.InsertOrganizationProject((int)id, po.ElementAt(i).IDProjeto);
+                
+
             }
+
         }
+
+       
     }
+
 }

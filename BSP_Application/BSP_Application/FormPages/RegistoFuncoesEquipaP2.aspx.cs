@@ -51,7 +51,8 @@ namespace BSP_Application.FormPages
                 cmd.ExecuteNonQuery();
             }
 
-            Response.Redirect("/Conteudos/ConsultarFuncoesEquipa.aspx");
+            Response.Write("<script>alert('Sucesso!');window.location.href ='/Conteudos/ConsultarFuncoesEquipa.aspx';</script>");
+        
         }
     }
 }

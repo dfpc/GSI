@@ -69,7 +69,8 @@ namespace BSP_Application.FormPages
                 cmd.ExecuteNonQuery();
 
             }
-            Response.Redirect("/Conteudos/ConsultarAplicacoes.aspx");
+            Response.Write("<script>alert('Aplicação registada com sucesso!');window.location.href ='/Conteudos/ConsultarAplicacoes.aspx';</script>");
+        
         }
 
         [WebMethod]

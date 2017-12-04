@@ -18,7 +18,9 @@ namespace BSP_Application.FormPages
         protected void btnSave_Click(object sender, EventArgs e)
         {
             AdicionarRegistos.InsertEntidade(inputNome.Value, cmbType.Items[cmbType.SelectedIndex].Text, ckbIntern.Checked);
-            Response.Redirect("/Conteudos/ConsultarEntidades.aspx");
+
+            Response.Write("<script>alert('Entidade adicionada com sucesso!');window.location.href ='/Conteudos/ConsultarEntidades.aspx';</script>");
+        
         }
     }
 }

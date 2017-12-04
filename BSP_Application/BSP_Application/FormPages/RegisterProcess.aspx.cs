@@ -56,7 +56,8 @@ namespace BSP_Application.FormPages
             {
                 AdicionarRegistos.InsertProcess(inputNome.Value, comment.Value, Int32.Parse(ListaProjetos.SelectedValue), camadasDrop.Text);
             }
-            Response.Redirect("/Conteudos/ConsultarProcesso.aspx");
+            Response.Write("<script>alert('Processo registado com sucesso!');window.location.href ='/Conteudos/ConsultarProcesso.aspx';</script>");
+        
         }
 
 

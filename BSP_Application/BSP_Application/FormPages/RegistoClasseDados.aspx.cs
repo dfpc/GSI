@@ -74,7 +74,8 @@ namespace BSP_Application.FormPages
 
             cmd.ExecuteNonQuery();
             }
-            Response.Redirect("/Conteudos/ConsultarClasseDados.aspx");
+            Response.Write("<script>alert('Classe de dados registada com sucesso!');window.location.href ='/Conteudos/ConsultarClasseDados.aspx';</script>");
+      
 
         }
 
