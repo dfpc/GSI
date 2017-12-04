@@ -95,4 +95,13 @@ namespace BSP_Application.DataObjects
         public int IDProcess { get; set; }
         public string Value { get; set; }
     }
+
+    public class ProcessoClasseDados
+    {
+        public int IDProcesso { get; set; }
+        public int IDClasseDados { get; set; }
+        public string Processo { get; set; }
+        public string ClasseDados { get; set; }
+        public int? Posicao { get; set; }
+    }
 }

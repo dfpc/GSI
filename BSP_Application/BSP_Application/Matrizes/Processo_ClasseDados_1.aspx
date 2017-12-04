@@ -17,7 +17,7 @@
                 <br />
                 <label for="ListaProjetos" class="col-sm-4 control-label">Projeto Associado</label>
                 <div class="col-sm-8">
-                    <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" Style="width: 40%" AutoPostBack="True" OnSelectedIndexChanged="ListaProjetos_SelectedIndexChanged" />
+                    <asp:DropDownList ID="ListaProjetos" ClientIDMode="Static" class="form-control" runat="server" Style="width: 40%" AutoPostBack="True" OnSelectedIndexChanged="ListaProjetos_SelectedIndexChanged" />
                     <br />
                 </div>
                 <div id="divProjectsForm" runat="server" class="col-sm-12">
@@ -27,9 +27,29 @@
                 <br /> <br />
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button ID="btnNext" CssClass="btn btn-block btn-success" Style="width: 20%" runat="server" OnClick="btnNext_Click" Text="Avançar"/>
+                        <button ID="btnNext" Class="btn btn-block btn-success simple-btn" Style="width: 20%" runat="server" onclick="SaveProcessClassData();">Avançar</button>
                         <br />
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="NextError" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="alert alert-danger">
+                      <strong>Erro!</strong> Não é possível avançar.
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    Cada processo tem que criar pelo menos uma classe de dados!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default simple-btn" data-dismiss="modal">Ok</button>
                 </div>
             </div>
         </div>

@@ -31,6 +31,33 @@ namespace BSP_Application.Matrizes {
         protected global::System.Web.UI.WebControls.DropDownList ListaProjetos;
         
         /// <summary>
+        /// Controle selectProcess.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect selectProcess;
+        
+        /// <summary>
+        /// Controle tbxPosition.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl tbxPosition;
+        
+        /// <summary>
+        /// Controle btnOrder.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOrder;
+        
+        /// <summary>
         /// Controle ProcessoClasse.
         /// </summary>
         /// <remarks>

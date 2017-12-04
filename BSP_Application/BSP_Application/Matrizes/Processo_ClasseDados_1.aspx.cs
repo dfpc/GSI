@@ -37,6 +37,7 @@ namespace BSP_Application.Matrizes
 
             List<ClasseDados> cd = AdicionarRegistos.GetClassDataByProject(idProject);
             List<Processo> p = AdicionarRegistos.GetProcessByProject(idProject);
+            List<ProcessoClasseDados> pcd = AdicionarRegistos.GetProcessoClasseDadosByProject(Convert.ToInt32(idProject));
 
             foreach (ClasseDados c in cd)
             {
@@ -52,13 +53,14 @@ namespace BSP_Application.Matrizes
                 div2.ID = "div2" + c.IDClasseDados;
                 HtmlSelect select = new HtmlSelect();
                 select.ID = "select" + c.IDClasseDados;
-                select.Attributes.Add("id", "select" + c.IDClasseDados);
-                select.Attributes.Add("runat", "server");
                 foreach (Processo process in p)
                 {
                     select.Items.Add(new ListItem(process.Nome, process.Id.ToString()));
                 }
-                select.Attributes.Add("class", "form-control");
+                ProcessoClasseDados aux = pcd.FirstOrDefault(it => it.IDClasseDados == c.IDClasseDados);
+                if (aux != null)
+                    select.SelectedIndex = select.Items.IndexOf(select.Items.FindByValue(aux.IDProcesso.ToString()));
+                select.Attributes.Add("class", "form-control process-selection");
                 div2.Controls.Add(select);
                 div.Controls.Add(div2);
                 divProjectsForm.Controls.Add(div);
@@ -74,14 +76,21 @@ namespace BSP_Application.Matrizes
         public static string SaveClassDataProcess(int[] array, int idproject)
         {
             List<ClasseDados> cd = AdicionarRegistos.GetClassDataByProject(idproject);
-
+            List<Processo> p = AdicionarRegistos.GetProcessByProject(idproject);
             int count = 0;
+            List<int> aux = array.ToList();
+            foreach(Processo paux in p)
+            {
+                if (!aux.Exists(it => it == paux.Id)) return string.Empty;
+            }
+            
             foreach (ClasseDados c in cd)
             {
+                AdicionarRegistos.DeleteProcessClasseByClass(c.IDClasseDados, "C");
                 AdicionarRegistos.SaveProcessClasse(c.IDClasseDados, array[count], "C");
                 count++;
             }
-            return "/Matrizes/Processo_ClasseDados.aspx";
+            return "/Matrizes/Processo_ClasseDados.aspx?id="+idproject.ToString();
         }
     }
 }
