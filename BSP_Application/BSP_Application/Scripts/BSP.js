@@ -676,6 +676,41 @@ function SaveProcessClassData() {
         }
     });
 }
+
+
+function getPrioridades() {
+    var prioridades = new Array;
+    var size = document.getElementsByClassName("row").length;
+    for (var i = 3; i < size; i++) {
+            var aux = document.getElementsByClassName("row")[i].getElementsByTagName("input");
+            var beneficio = aux[0].val;
+            var impacto = aux[1].val;
+            var probabilidade = aux[2].val;
+            var procura = aux[3].val;
+
+            prioridades.push(beneficio);
+            prioridades.push(impacto);
+            prioridades.push(probabilidade);
+            prioridades.push(procura);
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: "/FormPages/PrioridadesAplicacoes.aspx/SavePriority",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ array: prioridades}),
+        success: function (data) {
+            if (data.d != '')
+                window.location = data.d;
+            else {
+                
+            }
+        }
+    });
+}
+
+
 /*var url = window.location.href;
 
 var url_org = url.substring(23, 62);

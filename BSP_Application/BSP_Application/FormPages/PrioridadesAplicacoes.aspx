@@ -51,7 +51,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <asp:Button cssclass="btn btn-block btn-success" runat="server" id="btnSavePrioridades" OnClick="btnSavePrioridades_Click" style="width: 20%" Text="Guardar"></asp:Button>
+                <asp:Button cssclass="btn btn-block btn-success" runat="server" id="btnSavePrioridades" OnClientClick="getPrioridades();return false;" style="width: 20%" Text="Guardar"></asp:Button>
                 <br />
             </div>
         </div>

@@ -50,6 +50,8 @@
                         <ul class="navbar-nav ml-auto">
                         </ul>
                     </div>
+                    <asp:LinkButton ID="logout" runat="server" Text="Terminar Sessão" />
+
                 </div>
             </nav>
         </header>
