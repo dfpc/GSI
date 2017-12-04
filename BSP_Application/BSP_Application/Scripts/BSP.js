@@ -686,3 +686,33 @@ if (url_org == organizacao)
 
 }
 */
+var group = [];
+function selectPosition(td, idprocess, idclass) {
+    if (td.className.indexOf("tdSelected") >= 0) {
+        td.className = ("Table-style");
+        for (i = 0; i < group.lenght; i++)
+            if (group[i] == idprocess + "|" + idclass)
+                group.splice(i, 1);
+    }
+    else {
+        td.className = ("Table-style tdSelected");
+        group.push(idprocess + "|" + idclass);
+        $('#divGrupButton').attr("style", "display:block");
+    }
+}
+
+function SaveGroup() {
+    if ($('#groupName').val() != '') {
+        $.ajax({
+            type: 'POST',
+            url: "/Matrizes/Processo_ClasseDados.aspx/SaveGroup",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ group: group, name: $('#groupName').val() }),
+            success: function (data) {
+                group = [];
+                $('#divGrupButton').attr("style", "display:none");
+            }
+        });
+    }
+}

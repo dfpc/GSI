@@ -68,7 +68,7 @@ namespace BSP_Application.Matrizes
                 {
                     table.Append("<tr>");
                     table.Append("<td>" + p.Processo + "</td>");
-                    if(p.Posicao==null)
+                    if (p.Posicao == null)
                         AdicionarRegistos.SaveProcessPosition(p.IDProcesso, count);
                     count++;
                     for (var i = 0; i < idsc.Count; i++)
@@ -78,11 +78,11 @@ namespace BSP_Application.Matrizes
                             ProcClasse.Add(new Processo_Classe() { IDClasseDados = idsc[i], IDProcesso = p.IDProcesso, Value = aux });
                         if (aux == "C")
                         {
-                            table.Append("<td><center><label>C</label></center></td>");
+                            table.Append("<td  class='Table-style' id='\"td" + p.IDProcesso + "" + idsc[i] + "\"' onclick='selectPosition(this," + p.IDProcesso + "," + idsc[i] + ");'><center><label>C</label></center></td>");
                         }
                         else
                         {
-                            table.Append("<td><center>" +
+                            table.Append("<td class='Table-style' id='\"td" + p.IDProcesso + "" + idsc[i] + "\"' onclick='selectPosition(this," + p.IDProcesso + "," + idsc[i] + ");'><center>" +
                                 "<select onchange='Proc_ClasseChange(this.value, \"" + p.IDProcesso.ToString() + "\",\"" + idsc[i].ToString() + "\");' > ");
                             if (string.IsNullOrEmpty(aux))
                                 table.Append("<option value = ' ' selected='selected'>  </ option >");
@@ -145,6 +145,17 @@ namespace BSP_Application.Matrizes
             }
 
             BuildMatrix();
+        }
+
+        [WebMethod]
+        public static void SaveGroup(string[] group, string name)
+        {
+            for(int i =0; i<group.Length;i++)
+            {
+                string[] element = group[i].Split('|');
+                AdicionarRegistos.SaveGroups(Convert.ToInt32(element[1]), Convert.ToInt32(element[0]), name);
+            }
+
         }
     }
     public class Processo_Classe

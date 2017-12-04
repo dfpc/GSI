@@ -1,5 +1,4 @@
-﻿<%@ Page  Title=""  Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultarSumariacaoEntrevistas.aspx.cs" Inherits="BSP_Application.Conteudos.ConsultarSumariacaoEntrevistas" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultarSumariacaoEntrevistas.aspx.cs" Inherits="BSP_Application.Conteudos.ConsultarSumariacaoEntrevistas" %>
 
 <%@ Register Src="~/UserControls/MainMenu.ascx" TagPrefix="uc1" TagName="MainMenu" %>
 
@@ -34,8 +33,7 @@
                               <button class="btn btn-block simple-btn" onclick="editSumariacao(this);" style="background-color:#FFFFFF; cursor: pointer; color:green"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
                             </ItemTemplate>
                        </asp:TemplateField>
-                                                <asp:TemplateField>
-
+                       <asp:TemplateField>
                             <ItemTemplate>
                                <!-- <button class="btn btn-block" style="background-color:#FFFFFF; cursor: pointer; color:red"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>-->
                                   <button  class="btn btn-block simple-btn" style="background-color:#FFFFFF; cursor: pointer; color:red" runat="server" type="button" onclick="showModalProblem(this);"  data-postcommand="">
@@ -51,8 +49,8 @@
         </div>
         <!-- /.col-lg-9 -->
     </div>
-   
-      <div class="modal fade" id="deleteConfirmProblem" tabindex="-1" role="dialog"
+
+    <div class="modal fade" id="deleteConfirmProblem" tabindex="-1" role="dialog"
         aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -73,12 +71,12 @@
     </div>
 
 
-        <div class="modal fade" id="DeleteError" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="DeleteError" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="alert alert-danger">
-                      <strong>Erro!</strong> Não foi possível eliminar a sumariação de entrevistas.
+                        <strong>Erro!</strong> Não foi possível eliminar a sumariação de entrevistas.
                     </div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
@@ -92,7 +90,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- /.container -->
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">

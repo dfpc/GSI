@@ -107,4 +107,12 @@ namespace BSP_Application.DataObjects
         public string ClasseDados { get; set; }
         public int? Posicao { get; set; }
     }
+
+    public class Group
+    {
+        public int IDProcess { get; set; }
+        public int IDClasseDados { get; set; }
+        public string NomeGrupo { get; set; }
+        public int Id { get; set; }
+    }
 }

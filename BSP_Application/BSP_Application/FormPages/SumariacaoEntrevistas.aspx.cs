@@ -36,12 +36,13 @@ namespace BSP_Application.FormPages
 
             if (!IsPostBack)
             {
-                // Lista Classes de Dados
+                //Lista Classes de Dados
                 SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
                 string com = "Select Nome, Id from Processo";
                 SqlDataAdapter adpt = new SqlDataAdapter(com, conn);
                 DataTable dt = new DataTable();
                 adpt.Fill(dt);
+
                 ListaProcesso.DataSource = dt;
                 ListaProcesso.DataTextField = "Nome";
                 ListaProcesso.DataValueField = "Id";
@@ -49,6 +50,14 @@ namespace BSP_Application.FormPages
                 conn.Close();
                 if (!string.IsNullOrEmpty(Request.QueryString["id"]))
                     editSumariacaoEntrevistas(Convert.ToInt32(Request.QueryString["id"]));
+
+              List<Group> groups = new List<Group>();
+                groups.Add(new Group() { Id = 1, NomeGrupo = "Grupo 1" });
+                groups.Add(new Group() { Id = 2, NomeGrupo = "Grupo 2" });
+                grupo_processos.DataSource = groups;
+                grupo_processos.DataTextField = "NomeGrupo";
+                grupo_processos.DataValueField = "Id";
+                grupo_processos.DataBind();
             }
 
         }

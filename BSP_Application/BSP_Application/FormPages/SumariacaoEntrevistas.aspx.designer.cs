@@ -31,22 +31,13 @@ namespace BSP_Application.FormPages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl hTitle;
         
         /// <summary>
-        /// Controle gdvSumariacaoEntrevistas.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvSumariacaoEntrevistas;
-        
-        /// <summary>
         /// Controle grupo_processos.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText grupo_processos;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect grupo_processos;
         
         /// <summary>
         /// Controle causa.

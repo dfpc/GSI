@@ -35,3 +35,16 @@ h5 {
         display: inline-block;
         vertical-align: middle;
     }
+
+
+.Table-style {
+    cursor:pointer;
+}
+
+.Table-style:hover {
+    background-color:gainsboro;
+}
+
+.tdSelected {
+    background-color:#4682B4;
+}

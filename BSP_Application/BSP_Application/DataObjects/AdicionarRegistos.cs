@@ -406,7 +406,7 @@ namespace BSP_Application.DataObjects
         {
             using (DataBaseConnect db = new DataBaseConnect())
             {
-                db.Database.ExecuteSqlCommand("exec spInsertUpdateProblems @Causa = {0}, @Efeito = {1}, @Importancia = {2}, @IDProcesso ={3}, @IDClasseDados ={4}, @PotencialSolucao = {5}, @GrupoProcesso ={6}, @IDProblema = {7}", 
+                db.Database.ExecuteSqlCommand("exec spInsertUpdateProblems @Causa = {0}, @Efeito = {1}, @Importancia = {2}, @IDProcesso ={3}, @IDClasseDados ={4}, @PotencialSolucao = {5}, @GrupoProcesso ={6}, @IDProblema = {7}",
                     p.Causa, p.Efeito, p.Importancia, idprocesso, idclassedados, p.PotencialSolucao, p.GrupoProcesso, p.IDProblema);
             }
         }
@@ -440,6 +440,22 @@ namespace BSP_Application.DataObjects
             using (DataBaseConnect db = new DataBaseConnect())
             {
                 db.Database.ExecuteSqlCommand("UPDATE ProcessoClasseDados set Posicao = {0} WHERE IDProcesso = {1}", position, idprocess);
+            }
+        }
+
+        public static void SaveGroups(int idclasse, int idprocess, string name)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("INSERT INTO GrupoProcessoClasseDados (IDClasseDados, IDProcesso, NomeGrupo) VALUES({0}, {1}, {2})", idclasse, idprocess, name);
+            }
+        }
+
+        public static List<Group> GetGroups()
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<Group>("SELECT * FROM GrupoProcessoClasseDados").ToList();
             }
         }
     }
