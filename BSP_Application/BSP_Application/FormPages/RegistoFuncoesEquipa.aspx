@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentLeftSide" runat="server">
-    <uc1:MainMenu runat="server" ID="MainMenu" />
+    <uc1:MainMenu runat="server" ID="MainMenu1" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
     <!-- Page Content -->
@@ -13,26 +13,32 @@
         <div class="card-body">
             <div class="container-fluid">
                 <h4>Registar Funções da Equipa de direção dos SI</h4>
+                <h5>1º Passo</h5>
                 <div class="box-body" style="margin-top: 50px;">
+                   
                     <div class="form-group">
-                        <label for="inputEmail3" class="col-sm-4 control-label">Grupo</label>
-
+                          <label for="ListaProjetos" class="col-sm-4 control-label">Projeto Associado</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="inputNome" placeholder="Grupo">
+                        <asp:DropDownList ID="ListaProjetos" class="form-control" runat="server" style="width:40%"/>
+                           <br />
+
+                        </div>
+    
+                        <label for="inputEmail3" class="col-sm-10 control-label">Insira os grupos que pretende para o registo de funções da equipa, <b>separados por ";"</b></label>
+
+
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="7" id="grupotextarea" placeholder="Grupos separados por ponto e vírgula" runat="server"></textarea>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Função</label>
 
-                        <div class="col-sm-8">
-                            <textarea class="form-control" rows="5" id="comment" placeholder="Função"></textarea>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                           <!--  <a href="#demo5">Adicionar Mais</a><br />-->
                             <br />
-                            <button type="button" class="btn btn-block btn-success" style="width: 20%">Guardar</button>
+                            <asp:Button ID="avancar" runat="server" class="btn btn-block btn-success" style="width: 20%" Text="Guardar" OnClick="avancar_Click1" />
+                           
+
                             <br />
                         </div>
                     </div>

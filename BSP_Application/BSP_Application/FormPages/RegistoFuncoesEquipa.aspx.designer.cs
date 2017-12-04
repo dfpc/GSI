@@ -13,12 +13,39 @@ namespace BSP_Application.FormPages {
     public partial class RegistoFuncoesEquipa {
         
         /// <summary>
-        /// Controle MainMenu.
+        /// Controle MainMenu1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::BSP_Application.UserControls.MainMenu MainMenu;
+        protected global::BSP_Application.UserControls.MainMenu MainMenu1;
+        
+        /// <summary>
+        /// Controle ListaProjetos.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ListaProjetos;
+        
+        /// <summary>
+        /// Controle grupotextarea.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea grupotextarea;
+        
+        /// <summary>
+        /// Controle avancar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button avancar;
     }
 }

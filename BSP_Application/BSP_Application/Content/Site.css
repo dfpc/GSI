@@ -13,6 +13,11 @@ h4 {
     text-align:center;
 }
 
+h5 {
+    color: #4682B4;
+    text-align: center;
+}
+
 .verticalTableHeader {
     text-align: center;
     white-space: nowrap;
