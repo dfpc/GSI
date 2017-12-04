@@ -394,6 +394,14 @@ namespace BSP_Application.DataObjects
             }
         }
 
+        public static void DeleteProcessClasseByClass(int idclasse, string value)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("DELETE ProcessoClasseDados WHERE IDClasseDados = {0} AND Relacao = {1}", idclasse, value);
+            }
+        }
+
         public static void SaveProblems(Problema p, int idprocesso, int idclassedados)
         {
             using (DataBaseConnect db = new DataBaseConnect())
@@ -416,6 +424,22 @@ namespace BSP_Application.DataObjects
             using (DataBaseConnect db = new DataBaseConnect())
             {
                 return db.Database.SqlQuery<Processo>("SELECT Nome, Id FROM Processo WHERE IDProjeto= {0}", idproject).ToList();
+            }
+        }
+
+        public static List<ProcessoClasseDados> GetProcessoClasseDadosByProject(int idproject)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                return db.Database.SqlQuery<ProcessoClasseDados>("EXEC spGetProcessoClasseDadosByCreateRelation @IDProjeto= {0}", idproject).ToList();
+            }
+        }
+
+        public static void SaveProcessPosition(int idprocess, int? position)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("UPDATE ProcessoClasseDados set Posicao = {0} WHERE IDProcesso = {1}", position, idprocess);
             }
         }
     }

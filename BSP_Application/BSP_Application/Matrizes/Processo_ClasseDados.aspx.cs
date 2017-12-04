@@ -14,8 +14,6 @@ namespace BSP_Application.Matrizes
 {
     public partial class Processo_ClasseDados : System.Web.UI.Page
     {
-
-
         StringBuilder table = new StringBuilder();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -32,8 +30,15 @@ namespace BSP_Application.Matrizes
                 ListaProjetos.DataValueField = "IDProjeto";
                 ListaProjetos.DataBind();
 
-                BuildMatrix();
+                ListaProjetos.SelectedIndex = ListaProjetos.Items.IndexOf(ListaProjetos.Items.FindByValue(Request.QueryString["id"]));
 
+                List<Processo> processos = AdicionarRegistos.GetProcessByProject(Convert.ToInt32(Request.QueryString["id"]));
+                selectProcess.DataSource = processos;
+                selectProcess.DataValueField = "Id";
+                selectProcess.DataTextField = "Nome";
+                selectProcess.DataBind();
+
+                BuildMatrix();
             }
         }
 
@@ -41,64 +46,60 @@ namespace BSP_Application.Matrizes
         {
             string idprojeto = ListaProjetos.SelectedValue;
 
-            SqlConnection conn2 = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BSP_DataBase.mdf;Integrated Security=True");
-            conn2.Open();
-            SqlCommand cmd = new SqlCommand("SELECT Nome, Id FROM ClasseDados WHERE IDProjeto=@idprojeto", conn2);
-            cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
-
-            SqlDataReader rd = cmd.ExecuteReader();
             table.Append("<table border='1'>");
             table.Append("<tr><th>Processos/Classe de Dados</th>");
-            int[] ids = new int[100];
             List<Processo_Classe> ProcClasse = new List<Processo_Classe>();
+            List<ProcessoClasseDados> pcd = AdicionarRegistos.GetProcessoClasseDadosByProject(Convert.ToInt32(idprojeto));
 
-            if (rd.HasRows)
+            List<int> ids = new List<int>();
+            List<int> idsc = new List<int>();
+            foreach (ProcessoClasseDados cd in pcd)
             {
-                int count = 0;
-                while (rd.Read())
-                {
+                table.Append("<th class='verticalTableHeader'>" + cd.ClasseDados + "</th>");
+                idsc.Add(cd.IDClasseDados);
+            }
+            table.Append("</tr>");
 
-                    table.Append("<th class='verticalTableHeader'>" + rd[0] + "</th>");
-                    ids[count] = Convert.ToInt32(rd[1]);
-
-                    count++;
-
-                }
-                table.Append("</tr>");
-                rd.Close();
-
-                if (ids[0] == 0) return;
-                
-                cmd = new SqlCommand("SELECT Nome, Id FROM Processo WHERE IDProjeto=@idprojeto", conn2);
-                cmd.Parameters.AddWithValue("@idprojeto", idprojeto);
-
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+            if (idsc.Count == 0) return;
+            int count = 1;
+            foreach (ProcessoClasseDados p in pcd)
+            {
+                if (!ids.Exists(it => it == p.IDProcesso))
                 {
                     table.Append("<tr>");
-                    table.Append("<td>" + dr[0] + "</td>");
-                    for (var i = 0; i < count; i++)
+                    table.Append("<td>" + p.Processo + "</td>");
+                    if(p.Posicao==null)
+                        AdicionarRegistos.SaveProcessPosition(p.IDProcesso, count);
+                    count++;
+                    for (var i = 0; i < idsc.Count; i++)
                     {
-                        string aux = AdicionarRegistos.GetProcessoClass(Convert.ToInt32(dr[1]),ids[i]);
+                        string aux = AdicionarRegistos.GetProcessoClass(p.IDProcesso, idsc[i]);
                         if (!string.IsNullOrEmpty(aux))
-                            ProcClasse.Add(new Processo_Classe() { IDClasseDados = ids[i], IDProcesso = Convert.ToInt32(dr[1]), Value = aux });
-
-                        table.Append("<td><center>" +
-                            "<select onchange='Proc_ClasseChange(this.value, \"" + dr[1].ToString() + "\",\"" + ids[i].ToString() + "\");'> ");
-                        if (string.IsNullOrEmpty(aux))
-                            table.Append("<option value = ' ' selected='selected'>  </ option >");
+                            ProcClasse.Add(new Processo_Classe() { IDClasseDados = idsc[i], IDProcesso = p.IDProcesso, Value = aux });
+                        if (aux == "C")
+                        {
+                            table.Append("<td><center><label>C</label></center></td>");
+                        }
                         else
-                            table.Append("<option value = ' '>  </ option >");
+                        {
+                            table.Append("<td><center>" +
+                                "<select onchange='Proc_ClasseChange(this.value, \"" + p.IDProcesso.ToString() + "\",\"" + idsc[i].ToString() + "\");' > ");
+                            if (string.IsNullOrEmpty(aux))
+                                table.Append("<option value = ' ' selected='selected'>  </ option >");
+                            else
+                                table.Append("<option value = ' '>  </ option >");
 
-                        if (aux == "U")
-                            table.Append("<option Value='U' selected='selected'>U</option>");
-                        else
-                            table.Append("<option value = 'U' > U </ option >");
-                        table.Append("</select></center></td>");
+                            if (aux == "U")
+                                table.Append("<option Value='U' selected='selected'>U</option>");
+                            else
+                                table.Append("<option value = 'U' > U </ option >");
+
+                            table.Append("</select></center></td>");
+                        }
                     }
                     table.Append("</tr>");
+                    ids.Add(p.IDProcesso);
                 }
-                dr.Close();
             }
             table.Append("</table>");
             ProcessoClasse.Controls.Add(new Literal { Text = table.ToString() });
@@ -122,6 +123,28 @@ namespace BSP_Application.Matrizes
         {
             foreach (Processo_Classe pc in processClasse)
                 AdicionarRegistos.SaveProcessClasse(pc.IDClasseDados, pc.IDProcesso, pc.Value);
+        }
+
+        protected void btnOrder_Click(object sender, EventArgs e)
+        {
+            int process = Convert.ToInt32(selectProcess.Value);
+            int position = Convert.ToInt32(tbxPosition.Value);
+            List<ProcessoClasseDados> pcd = AdicionarRegistos.GetProcessoClasseDadosByProject(Convert.ToInt32(Request.QueryString["id"]));
+            List<ProcessoClasseDados> aux = pcd.FindAll(it => it.IDProcesso == process);
+
+            ProcessoClasseDados aux2 = pcd.FirstOrDefault(it => it.Posicao == position);
+            if (aux2 != null)
+            {
+                aux2.Posicao = aux.First().Posicao;
+                AdicionarRegistos.SaveProcessPosition(aux2.IDProcesso, aux2.Posicao);
+            }
+            foreach (ProcessoClasseDados p in aux)
+            {
+                p.Posicao = position;
+                AdicionarRegistos.SaveProcessPosition(p.IDProcesso, position);
+            }
+
+            BuildMatrix();
         }
     }
     public class Processo_Classe

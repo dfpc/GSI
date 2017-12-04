@@ -655,6 +655,27 @@ function SaveAppCDMatrix() {
     });
 }
 
+function SaveProcessClassData() {
+    var controls = document.getElementsByClassName("process-selection");
+    var selections = [];
+    for (i = 0; i < controls.length; i++)
+        selections[i] = controls[i].value;
+
+    $.ajax({
+        type: 'POST',
+        url: "/Matrizes/Processo_ClasseDados_1.aspx/SaveClassDataProcess",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ array: selections, idproject: $('#ListaProjetos').val() }),
+        success: function (data) {
+            if (data.d != '')
+                window.location = data.d;
+            else {
+                $('#NextError').modal();
+            }
+        }
+    });
+}
 /*var url = window.location.href;
 
 var url_org = url.substring(23, 62);
