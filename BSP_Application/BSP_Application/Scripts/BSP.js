@@ -135,6 +135,43 @@ function editSumariacao(btn) {
     });
 }
 
+function editApplication(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $.ajax({
+        url: "/Conteudos/ConsultarAplicacoes.aspx/EditApplication",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        type: 'POST',
+        data: JSON.stringify({ index: index }),
+        success: function (data) {
+            if (data.d != '')
+                window.location = data.d;
+        }
+    });
+}
+
+
+
+
+
+
+function editClasseDados(btn) {
+    var index = btn.parentNode.parentNode.rowIndex;
+    $.ajax({
+        url: "/Conteudos/ConsultarClasseDados.aspx/EditClass",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        type: 'POST',
+        data: JSON.stringify({ index: index }),
+        success: function (data) {
+            if (data.d != '')
+                window.location = data.d;
+        }
+    });
+}
+
+
+
 function EditOrganization(btn) {
     // var element = document.getElementsByTagName('h4');
     //element.innerHTML = 'Editar Organização';
