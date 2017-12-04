@@ -90,7 +90,8 @@ namespace BSP_Application.FormPages
             if (!string.IsNullOrEmpty(Request.QueryString["id"]))
                 p.IDProblema = (Convert.ToInt32(Request.QueryString["id"]));
             AdicionarRegistos.SaveProblems(p, idProcesso, idClasse);
-            Response.Redirect("/Conteudos/ConsultarSumariacaoEntrevistas.aspx");
+            Response.Write("<script>alert('Registo inserido com sucesso!');window.location.href ='/Conteudos/ConsultarSumariacaoEntrevistas.aspx';</script>");
+          
         }
     }
 }

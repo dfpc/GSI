@@ -49,7 +49,9 @@ namespace BSP_Application.FormPages
                 cmd.Parameters.AddWithValue("@descricao", descricao);
                 cmd.ExecuteNonQuery();
             }
-            Response.Redirect("/Conteudos/ConsultarProjetos.aspx");
+            Response.Write("<script>alert('Projeto registado com sucesso!');window.location.href ='/Conteudos/ConsultarProjetos.aspx';</script>");
+
+            // Response.Redirect("/Conteudos/ConsultarProjetos.aspx");
         }
 
         [WebMethod]

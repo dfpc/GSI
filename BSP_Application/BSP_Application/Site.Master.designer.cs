@@ -22,6 +22,15 @@ namespace BSP_Application {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
+        /// Controle logout.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton logout;
+        
+        /// <summary>
         /// Controle ContentLeftSide.
         /// </summary>
         /// <remarks>

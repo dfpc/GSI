@@ -19,6 +19,7 @@ namespace BSP_Application.FormPages
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             AdicionarRegistos.InsertUser(inputUsername.Value, tbxPassword.Value, tbxEmail.Value, tbxNome.Value);
+            Response.Write("<script>alert('Utilizador registado com sucesso!');</script>");
         }
     }
 }
