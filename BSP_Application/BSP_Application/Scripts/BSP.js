@@ -683,10 +683,10 @@ function getPrioridades() {
     var size = document.getElementsByClassName("row").length;
     for (var i = 3; i < size; i++) {
             var aux = document.getElementsByClassName("row")[i].getElementsByTagName("input");
-            var beneficio = aux[0].val;
-            var impacto = aux[1].val;
-            var probabilidade = aux[2].val;
-            var procura = aux[3].val;
+            var beneficio = aux[0].value;
+            var impacto = aux[1].value;
+            var probabilidade = aux[2].value;
+            var procura = aux[3].value;
 
             prioridades.push(beneficio);
             prioridades.push(impacto);

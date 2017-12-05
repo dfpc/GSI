@@ -458,5 +458,13 @@ namespace BSP_Application.DataObjects
                 return db.Database.SqlQuery<Group>("SELECT * FROM GrupoProcessoClasseDados").ToList();
             }
         }
+
+        public static void InsertPriority(int idapp, int idfator, int value)
+        {
+            using (DataBaseConnect db = new DataBaseConnect())
+            {
+                db.Database.ExecuteSqlCommand("INSERT INTO Prioridade (IDProjeto, IDFator, Valor) VALUES ({0}, {1}, {2})", idapp, idfator, value);
+            }
+        }
     }
 }
