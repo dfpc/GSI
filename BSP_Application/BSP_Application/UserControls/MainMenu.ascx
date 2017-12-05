@@ -33,7 +33,7 @@
         <a href="/FormPages/SumariacaoEntrevistas.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Registar Sumariação de Entrevistas</a>
         <a href="/Conteudos/ConsultarSumariacaoEntrevistas.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Consultar Sumariação de Entrevistas</a>
         <a href="/FormPages/PrioridadesAplicacoes.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Definir Prioridades para as Aplicações</a>
-        <a href="/FormPages/PrioridadesAplicacoes.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Consultar Prioridades para as Aplicações</a>
+        <a href="/Conteudos/ConsultarPrioridades.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Consultar Prioridades para as Aplicações</a>
         <a href="/FormPages/RegistoFuncoesEquipa.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Registar Funções da Equipa de Direção do SI</a>
         <a href="/Conteudos/ConsultarFuncoesEquipa.aspx" class="list-group-item list-group-item-success" data-parent="#MainMenu">Consultar Funções da Equipa de Direção do SI</a>
 

@@ -193,6 +193,7 @@
     <Content Include="Conteudos\ConsultarEntidades.aspx" />
     <Content Include="Conteudos\ConsultarFuncoesEquipa.aspx" />
     <Content Include="Conteudos\ConsultarOrganizacao.aspx" />
+    <Content Include="Conteudos\ConsultarPrioridades.aspx" />
     <Content Include="Conteudos\ConsultarProcesso.aspx" />
     <Content Include="Conteudos\ConsultarProjetos.aspx" />
     <Content Include="Conteudos\ConsultarSumariacaoEntrevistas.aspx" />
@@ -303,6 +304,13 @@
     </Compile>
     <Compile Include="Conteudos\ConsultarOrganizacao.aspx.designer.cs">
       <DependentUpon>ConsultarOrganizacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Conteudos\ConsultarPrioridades.aspx.cs">
+      <DependentUpon>ConsultarPrioridades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Conteudos\ConsultarPrioridades.aspx.designer.cs">
+      <DependentUpon>ConsultarPrioridades.aspx</DependentUpon>
     </Compile>
     <Compile Include="Conteudos\ConsultarProcesso.aspx.cs">
       <DependentUpon>ConsultarProcesso.aspx</DependentUpon>
