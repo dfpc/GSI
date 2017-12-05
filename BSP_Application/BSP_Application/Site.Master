@@ -71,12 +71,7 @@
             </div>
         </div>
         <!-- Footer -->
-        <footer style="position: fixed; left: 0px; bottom: 0px; height: 40px; width: 100%;" class="py-3 bg-dark">
-            <div class="container-fluid">
-                Briosa
-            </div>
-            <!-- /.container -->
-        </footer>
+
 
         <script src="/Scripts/jquery.min.js"></script>
         <script src="/Scripts/Bootstrap/bootstrap.bundle.min.js"></script>
