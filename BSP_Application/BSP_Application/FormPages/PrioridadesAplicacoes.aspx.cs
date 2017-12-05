@@ -36,12 +36,12 @@ namespace BSP_Application.FormPages
             int count = 0;
             foreach (Aplicacao app in apps)
             {
+                if (string.IsNullOrEmpty(array[count])) return string.Empty;
                 AdicionarRegistos.InsertPriority(app.Id, 1, Convert.ToInt32(array[count]));
                 AdicionarRegistos.InsertPriority(app.Id, 2, Convert.ToInt32(array[count + 1]));
                 AdicionarRegistos.InsertPriority(app.Id, 3, Convert.ToInt32(array[count + 2]));
                 AdicionarRegistos.InsertPriority(app.Id, 4, Convert.ToInt32(array[count + 3]));
                 count += 4;
-                if (array.Length < count) return string.Empty;
             }
             return string.Empty;
         }
